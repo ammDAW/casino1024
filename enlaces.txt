@@ -12,3 +12,6 @@ https://lottiefiles.com/47410-ace-of-spade
 
 Fuente Fredoka One de google fonts:
 https://fonts.google.com/specimen/Fredoka+One?preview.text_type=custom
+
+Web diseño bbdd
+https://ondras.zarovi.cz/sql/demo/?keyword=default
