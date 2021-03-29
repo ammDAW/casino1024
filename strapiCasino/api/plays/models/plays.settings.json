@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plays",
+  "info": {
+    "name": "plays",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "id_user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "plays"
+    },
+    "fecha_jugada": {
+      "type": "datetime",
+      "required": true
+    },
+    "ptos_inicial": {
+      "type": "biginteger",
+      "required": true,
+      "min": "1"
+    },
+    "ptos_final": {
+      "type": "biginteger",
+      "required": true,
+      "min": "0"
+    }
+  }
+}
