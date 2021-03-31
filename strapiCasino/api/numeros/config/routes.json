@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/numeros",
+      "handler": "numeros.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/numeros/count",
+      "handler": "numeros.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/numeros/:id",
+      "handler": "numeros.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/numeros",
+      "handler": "numeros.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/numeros/:id",
+      "handler": "numeros.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/numeros/:id",
+      "handler": "numeros.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
