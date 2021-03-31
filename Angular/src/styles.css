@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+#body{
+    background-image: url("/Angular/src/assets/img/fondo_gris.png");
+}
+
+/* colores{
+    #B5905F; .hoover #8f724c //Color arena
+    #33333;  
+    #424242;
+
+} */
