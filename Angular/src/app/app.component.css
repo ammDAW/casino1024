@@ -1,14 +1,13 @@
-/*!
- * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template/simple-sidebar)
- * Copyright 2013-2020 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
- */
+/* Wrapper es basicamente la clase body del componente */
+#wrapper {
+  overflow-x: hidden;
+  background-image: url(/assets/img/fondo_gris.png);
+}
 
- #wrapper {
-    overflow-x: hidden;
- }
-
+/* SIDEBAR */
 #sidebar-wrapper {
+  color: white;
+  background-color: rgb(0, 0, 0);;
   min-height: 100vh;
   margin-left: -15rem;
   -webkit-transition: margin .25s ease-out;
@@ -20,11 +19,18 @@
 #sidebar-wrapper .sidebar-heading {
   padding: 0.875rem 1.25rem;
   font-size: 1.2rem;
+  text-align: center;
 }
 
 #sidebar-wrapper .list-group {
   width: 15rem;
 }
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+}
+/* Fin del Sidebar */
 
 #page-content-wrapper {
   min-width: 100vw;
@@ -32,12 +38,10 @@
 
 #wrapper.toggled #sidebar-wrapper {
   margin-left: 0;
-}
+} 
 
+/* Media queries template */
 @media (min-width: 768px) {
-  #sidebar-wrapper {
-    margin-left: 0;
-  }
 
   #page-content-wrapper {
     min-width: 0;
