@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular';
+  logueado = false;
+
+  getLogeado(logeado : boolean){
+    this.logueado = logeado;
+  }
 }

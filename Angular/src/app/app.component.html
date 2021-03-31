@@ -3,8 +3,13 @@
   <!-- Sidebar -->
   <div class="border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Bienvenido!</div>
-    <app-login></app-login>  <!-- Login component-->
-    <app-user></app-user> <!-- User component-->
+    <div *ngIf="!logueado">
+      <app-login (logueado)="getLogeado($event)"></app-login>  <!-- Login component--> 
+    </div>
+    <div *ngIf="logueado">
+      <app-user></app-user> <!-- User component-->
+    </div>
+    <app-ranking></app-ranking> <!-- Ranking component-->
   </div>
   <!-- /#sidebar-wrapper -->
 
