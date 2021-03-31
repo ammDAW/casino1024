@@ -1,10 +1,14 @@
 <div class="login-page">
     <div class="form">
       <form class="login-form">
-        <input type="text" placeholder="E-mail"/>
-        <input type="password" placeholder="Contraseña"/>
-        <button>Iniciar sesion</button>
+        <input #user type="text" placeholder="Usuario/E-mail"/>
+        <input #pass type="password" placeholder="Contraseña"/>
+        <button (click)="buscarUsuario(user.value, pass.value)">Iniciar sesion</button>
         <p class="message">¿Olvidaste tu<a href="#"> contraseña</a>?</p>
       </form>
+    </div>
+    <div *ngIf="logueado">
+      <p>{{usernameUser}}</p>
+      <p>{{idUser}}</p>
     </div>
 </div>
