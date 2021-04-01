@@ -7,9 +7,9 @@ import axios from 'axios';
 })
 export class LoginComponent implements OnInit {
   @Output() logueado = new EventEmitter();
-  jwtUser = "";
-  idUser = 0;
-  usernameUser = ""
+  jwtUser : any ;
+  idUser : any;
+  usernameUser : any;
   constructor() { }
 
   ngOnInit(): void {
