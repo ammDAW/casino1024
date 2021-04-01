@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
-import { element } from 'protractor';
 
 
 @Component({
@@ -9,7 +8,7 @@ import { element } from 'protractor';
   styleUrls: ['./ranking.component.css']
 })
 export class RankingComponent implements OnInit {
-  puntos = [];
+  puntosTotal = [{puntos: 0}];
   constructor() { }
 
   ngOnInit(): void {
@@ -21,10 +20,9 @@ export class RankingComponent implements OnInit {
     .get('http://localhost:1337/points')
     .then(response => {
       // Handle success.
-      response.data.forEach((item:any) => {
-        let newResultado = [item.user.username, item.points];
-        console.log(newResultado);
-      });
+      this.puntosTotal = response.data;
+      
+      console.log(this.puntosTotal); 
    })
     .catch(error => {
       // Handle error.
