@@ -19,9 +19,12 @@
     "@angular/platform-browser": "~11.1.0",
     "@angular/platform-browser-dynamic": "~11.1.0",
     "@angular/router": "~11.1.0",
+    "@lottiefiles/lottie-player": "^1.0.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "install": "^0.13.0",
     "jquery": "^3.6.0",
+    "npm": "^7.7.6",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
