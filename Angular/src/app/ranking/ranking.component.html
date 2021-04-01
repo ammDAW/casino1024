@@ -1,14 +1,18 @@
-<table>
-    <tr>
-        <th>PUESTO</th>
-        <th>USUARIO</th>
-        <th>PUNTOS</th>
-    </tr>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">PUESTO</th>
+            <th scope="col">USUARIO</th>
+            <th scope="col">PUNTOS</th>
+        </tr>
+    </thead>
+    <tbody>
     <ng-container *ngFor="let ranking of rankings; let i = index">
         <tr>
-            <td>{{i+1}}</td>
+            <th scope="row">{{i+1}}</th>
             <td>{{ranking.id_user.username}}</td>
             <td>{{ranking.puntos}}</td>
         </tr>
     </ng-container>
+    </tbody>
 </table>

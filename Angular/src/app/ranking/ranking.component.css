@@ -1,0 +1,15 @@
+table{
+    background-color: black;
+    border: 1px white solid;
+}
+
+thead{
+    background-color: #8f724c;
+}
+th{
+    color: white; 
+}
+
+td{
+    color: white;
+}
