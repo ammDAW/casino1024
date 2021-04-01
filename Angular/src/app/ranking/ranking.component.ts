@@ -8,7 +8,7 @@ import axios from 'axios';
   styleUrls: ['./ranking.component.css']
 })
 export class RankingComponent implements OnInit {
-  puntosTotal = [{puntos: 0}];
+  rankings: any;
   constructor() { }
 
   ngOnInit(): void {
@@ -20,9 +20,8 @@ export class RankingComponent implements OnInit {
     .get('http://localhost:1337/points')
     .then(response => {
       // Handle success.
-      this.puntosTotal = response.data;
-      
-      console.log(this.puntosTotal); 
+      function comparar ( a:any, b:any ){ return b.puntos - a.puntos; }
+      this.rankings = response.data.sort(comparar).slice(0,4);
    })
     .catch(error => {
       // Handle error.
