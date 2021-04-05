@@ -1,7 +1,9 @@
-<div class="d-flex" id="wrapper">
+
+
+<div class="toggled" id="wrapper">
 
   <!-- Sidebar -->
-  <div class="border-right" id="sidebar-wrapper">
+  <div class="border-left" id="sidebar-wrapper">
     <div class="sidebar-heading">Bienvenido!</div>
     <div *ngIf="!logueado">
       <app-login (logueado)="getLogeado($event)"></app-login>  <!-- Login component--> 
@@ -17,13 +19,6 @@
   <div id="page-content-wrapper">
 
     <nav class="navbar navbar-expand-lg border-bottom">
-      <button class="btn btn-light" id="menu-toggle">Toggle</button>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           <li class="nav-item active">
@@ -36,6 +31,7 @@
       </div>
     </nav>
 
+    
     <div class="container-fluid">
       <h1 class="mt-4">Aqui va logo y Lottie</h1>
       <p>Test</p>
@@ -44,5 +40,3 @@
   </div>
   <!-- /#page-content-wrapper -->
   <!-- /#wrapper -->
-
-  <router-outlet></router-outlet> <!-- rutas app no borrar -->
