@@ -43,5 +43,5 @@ export class LoginComponent implements OnInit {
     this.enviarLogin(false);
     console.log('An error occurred:', error.response);
   });
-  }
+  } 
 }

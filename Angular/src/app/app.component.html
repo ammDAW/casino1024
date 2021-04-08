@@ -1,49 +1,11 @@
-
-
-<div class="toggled" id="wrapper">
-
-  <!-- Sidebar -->
-  <div class="border-left" id="sidebar-wrapper">
-    <div class="sidebar-heading">Bienvenido!</div>
-    <div *ngIf="!logueado">
-      <app-login (logueado)="getLogeado($event)"></app-login>  <!-- Login component--> 
-    </div>
-    <div *ngIf="logueado">
-      <app-user></app-user> <!-- User component-->
-    </div>
-    <app-ranking></app-ranking> <!-- Ranking component-->
+<app-navbar></app-navbar> <!-- NAVBAR -->
+<div id="wrapper" class="toggled">
+  <div id="sidebar-wrapper">
+    <app-sidebar></app-sidebar> <!-- SIDEBAR -->
   </div>
-  <!-- /#sidebar-wrapper -->
-
   <!-- Page Content -->
   <div id="page-content-wrapper">
-
-    <nav class="navbar navbar-expand-lg border-bottom">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    
-    <div class="container-fluid">
-      <h1 class="mt-4">Aqui va logo y Lottie</h1>
-      <p>Test</p>
-      <lottie-player src="https://assets2.lottiefiles.com/private_files/lf30_klsv8ygt.json" mode="bounce" background="transparent"  speed="2"  style="width: 600px; height: 600px;"  loop  autoplay></lottie-player>
-      <a class="nav-link" routerLink="/bingo">BINGO</a>
-    </div>
-  </div>
-  <div>
-    <button (click)="getPuntosUser()">PUNTOS</button>
-    <p>USUARIO: {{userName}}</p>
-    <P>PUNTOS: {{puntos}}</P>
+    <app-home></app-home> <!-- INICIO -->
   </div>
   <router-outlet></router-outlet>
-  <!-- /#page-content-wrapper -->
-  <!-- /#wrapper -->
+</div>

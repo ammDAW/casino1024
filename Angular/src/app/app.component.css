@@ -1,29 +1,29 @@
-/* Wrapper es basicamente la clase body del componente */
-
 #wrapper {
-  overflow-x: hidden;
-  background-color: #202C4B;
+  color: #B5905F;
+  background-color: #1f2c4c;
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  overflow: hidden;
+  height: 100%;
 }
+
 #wrapper.toggled {
   padding-right: 250px;
 }
-h1, p{
-  color: #B5905F;
-}
-.nav-item{
-  color: #B5905F;
-
-}
-
 
 #sidebar-wrapper {
+  border-left: 3px solid black;
+  z-index: 1;
   position: fixed;
-  right: 20px;
-  min-height: 125vh;
+  right: 250px;
+  width: 0;
+  height: 100%;
   margin-right: -250px;
   overflow-y: auto;
-  color: white;
-  background-color: #202C4B;
+  background: #101625;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -33,86 +33,37 @@ h1, p{
 #wrapper.toggled #sidebar-wrapper {
   width: 250px;
 }
-/* SIDEBAR */
-
-
-#sidebar-wrapper .sidebar-heading {
-  padding: 0.875rem 1.25rem;
-  font-size: 1.2rem;
-  text-align: center;
-}
-.list-group {
-  padding-right: 0;
-}
-
-#sidebar-wrapper .list-group {
-  width: 15rem;
-}
-@media (min-width: 768px) {
-  #sidebar-wrapper {
-    margin-right: 0;
-  }
-}
-/* Fin del Sidebar */
 
 #page-content-wrapper {
-  min-width: 100vw;
+  width: 100%;
+  position: absolute;
+  padding: 15px;
 }
 
-#wrapper.toggled #sidebar-wrapper {
-  margin-left: 0;
-} 
+#wrapper.toggled #page-content-wrapper {
+  position: absolute;
+  margin-right: 0px;
+}
 
-/* Media queries template */
-@media (min-width: 768px) {
-
-  #page-content-wrapper {
-    min-width: 0;
-    width: 100%;
+@media(min-width:768px) {
+  #wrapper {
+    padding-left: 0;
   }
-
+  #wrapper.toggled {
+    padding-right: 250px;
+  }
+  #sidebar-wrapper {
+    width: 0;
+  }
   #wrapper.toggled #sidebar-wrapper {
-    margin-left: -15rem;
+    width: 250px;
   }
-}
-
-
-.nav {
-  padding-left: 0;
-}
-
-  .nav-tabs .nav-item + .nav-item {
-      margin-left: 0.2rem;
+  #page-content-wrapper {
+    padding: 20px;
+    position: relative;
   }
-  .nav-pills .nav-item + .nav-item {
-      margin-left: 0.2rem;
-  }
-
-.nav-stacked .nav-item + .nav-item {
-  margin-left: 0;
-}
-.navbar-nav .nav-link + .nav-link {
-  margin-left: 1rem;
-}
-
-.navbar-nav .nav-item + .nav-item {
-  margin-left: 1rem;
-}
-
-@media (max-width: 543px) {
-  .navbar-toggleable .navbar-nav .nav-item {
-      margin-left: 0;
-  }
-}
-
-@media (max-width: 767px) {
-  .navbar-toggleable-sm .navbar-nav .nav-item {
-      margin-left: 0;
-  }
-}
-
-@media (max-width: 991px) {
-  .navbar-toggleable-md .navbar-nav .nav-item {
-      margin-left: 0;
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0;
   }
 }

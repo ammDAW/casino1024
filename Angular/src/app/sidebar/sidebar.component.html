@@ -1,0 +1,8 @@
+<h1>Bienvenido</h1>
+<div *ngIf="!logueado">
+    <app-login (logueado)="getLogeado($event)"></app-login> <!-- Login component-->
+</div>
+<div *ngIf="logueado">
+    <app-user></app-user> <!-- User component-->
+</div>
+<!-- <app-ranking></app-ranking> --> <!-- Ranking component-->

@@ -8,14 +8,9 @@ import axios from 'axios';
 })
 export class AppComponent {
   title = 'Angular';
-  logueado = false;
   idUser = 1;
   puntos = 0;
   userName = "";
-
-  getLogeado(logeado : boolean){
-    this.logueado = logeado;
-  }
 
   getPuntosUser(){
     axios
