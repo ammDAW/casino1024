@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root'
@@ -7,21 +7,43 @@ import { Injectable } from '@angular/core';
 export class GetterService {
   private url = "http://localhost:1337/";
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   //PUNTOS
-  getPuntos(){
-    return this.http.get(this.url + "points/")  
+  getPuntosUser(idPoints: number){
+    axios
+    .get('http://localhost:1337/points/' + idPoints)
+    .then(response => {
+
+     return response;
+   })
+    .catch(error => {
+      return error.response;
+    });
   }
-  getPuntosJugador(id: number){
-    return this.http.get(this.url + "points/" + id)
+
+  getPuntos(){
+    axios
+    .get('http://localhost:1337/points')
+    .then(response => {
+      // Handle success.
+      return response.data;
+   })
+    .catch(error => {
+      // Handle error.
+      return error.response;
+    });
   }
 
   //USUARIOS
-  getUsuarios(){
-    return this.http.get(this.url + "users") ; 
-  }
-  getUsuarioByUsername(username: string){
-    return this.http.get(this.url + "users/" + username);
+  getIdUser(username: string){
+    axios
+    .get('http://localhost:1337/users/')
+    .then(response => {
+     return response;
+   })
+    .catch(error => {
+      return error.response;
+    });
   }
 }
