@@ -1,6 +1,50 @@
-<h1>BINGO WORKS!</h1>
-<ng-container *ngFor="let tablero of tableros">
-    <button class="btn btn-primary">{{tablero}}</button>
-</ng-container>
+<div id="bingo"><!--parte izquierda del tablero con la informacion de los numeros-->
+    <div id="bombo"> <!--lo que es el bomboi donde está el lootiefile-->
+        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_EX6tIQ.json"  background="transparent"  speed="1"  style="width: 350px; height: 350px;"  loop  autoplay></lottie-player>
+    </div>
+
+    <div id="numSalidos"> <!--array donde van saliendo los numeros que van saliendo-->
+        <h6>Numeros Salidos</h6>
+        <ul id="listaSalidos">
+            <li id="numSalido1"></li>   <li id="numSalido2"></li>
+            <li id="numSalido3"></li>   <li id="numSalido4"></li>
+            <li id="numSalido5"></li>   <li id="numSalido6"></li>
+            <li id="numSalido7"></li>   <li id="numSalido8"></li>
+            <li id="numSalido9"></li>   <li id="numSalido10"></li>
+            <li id="numSalido11"></li>   <li id="numSalido12"></li>
+            <li id="numSalido13"></li>   <li id="numSalido14"></li>
+            <li id="numSalido15"></li>   <li id="numSalido16"></li>
+            <li id="numSalido17"></li>   <li id="numSalido18"></li>
+            <li id="numSalido19"></li>  <li id="numSalido20"></li>
+        </ul>
+    </div>
+    
+    <div id="numPlayer"> <!--numeros seleccionados por el jugador-->
+        <h6>Numeros Seleccionados</h6>
+        <ul id="listaPlayer">
+            <li id="numPlayer1"></li>
+            <li id="numPlayer2"></li>
+            <li id="numPlayer3"></li>
+            <li id="numPlayer4"></li>
+            <li id="numPlayer5"></li>
+            <li id="numPlayer6"></li>
+            <li id="numPlayer7"></li>
+            <li id="numPlayer8"></li>
+        </ul> 
+    </div>
+</div>
+
+<div id="tablero"> <!--parte derecha con los 80 botones-->
+    <ng-container *ngFor="let tablero of tableros">
+    <button class="btn btn-secondary">{{tablero}}</button>
+    </ng-container>
+    
+    <div id="apuesta">
+        <label>Apuesta: </label>
+        <input type="number"/>
+        <button id="btnEmpezar">EMPEZAR</button>
+    </div>
+    
+</div>
 
 
