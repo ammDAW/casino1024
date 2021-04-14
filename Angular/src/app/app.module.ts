@@ -9,6 +9,7 @@ import { RankingComponent } from './ranking/ranking.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
+import { BingoComponent } from './bingo/bingo.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HomeComponent } from './home/home.component';
     NavbarComponent,
     SidebarComponent,
     HomeComponent,
+    BingoComponent,
   ],
   imports: [
     BrowserModule,
