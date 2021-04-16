@@ -3,6 +3,9 @@
     width: auto;
     margin: 0;
   }
+  .form .register-form {
+    display: none;
+  }
   .form {
     position: relative;
     z-index: 1;

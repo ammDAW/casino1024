@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import axios from 'axios';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,29 @@ export class AppComponent {
   idUser = 1;
   puntos = 0;
   userName = "";
+
+  ngOnInit(): void {
+
+    //oculta la barra con el toggler
+
+    $(function(){
+      $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+      });
+
+      /* $(window).resize(function(e) {
+        if($(window).width()<=768){
+          $("#wrapper").removeClass("toggled");
+        }else{
+          $("#wrapper").addClass("toggled");
+        }
+      }); */
+      
+    });
+
+  }
+  
 
   getPuntosUser(){
     axios

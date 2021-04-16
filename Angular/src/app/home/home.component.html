@@ -4,11 +4,9 @@
     background="transparent" speed="2" style="width: 600px; float: right; margin-right: 100px" loop autoplay>
   </lottie-player>
 </div>
-<h1>hola</h1>
-<p>test</p>
 <div>
-  <a class="nav-link" routerLink="/bingo">BINGO</a>
-  <button (click)="getPuntosUser()">PUNTOS</button>
+  <button class="btn btn-dark" routerLink="/bingo">BINGO</button>
+  <button class="btn btn-dark"(click)="getPuntosUser()">PUNTOS</button>
   <p>USUARIO: {{userName}}</p>
   <P>PUNTOS: {{puntos}}</P>
 </div>

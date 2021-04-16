@@ -1,18 +1,22 @@
 <div class="login-page">
-    <div class="form">
-      <!--<form class="login-form">-->
-        <input #user type="text" placeholder="Usuario/Email"/>
-        <input #pass type="password" placeholder="Contraseña"/>
-        <button (click)="buscarUsuario(user.value, pass.value)">Iniciar sesion</button>
-        <p class="message">¿No tienes una cuenta? <a href="#">Registrate</a></p><br>
-      <!--</form>-->
-      <!-- <form class="register-form"> -->
+  <div class="form">
+    <form class="login-form">
+      <input #user type="text" placeholder="Usuario/Email"/>
+      <input #pass type="password" placeholder="Contraseña"/>
+      <button (click)="buscarUsuario(user.value, pass.value)">Iniciar sesion</button>
+      <p class="message">¿No tienes una cuenta? <a href="#">Registrate</a></p><br>
+      </form>
+      <form class="register-form">
         <input type="text" placeholder="Usuario"/>
         <input type="text" placeholder="Email"/>
         <input type="password" placeholder="Contraseña"/>
         <input type="password" placeholder="Repite la contraseña"/>
         <button>REGISTRARSE</button>
         <p class="message">¿Ya tienes cuenta? <a href="#">Inicia sesion</a></p>
-      <!-- </form> -->
+      </form>
   </div>
-</div>
+</div> 
+
+<!-- Cosas a tener en cuenta: -->
+<!-- Los label de form son necesarios para que haga la animacion entre formularios -->
+<!-- Si se le quita la funcion que se ha puesto a los form para que no hagan submit el inicio de sesion no funcionaria -->
