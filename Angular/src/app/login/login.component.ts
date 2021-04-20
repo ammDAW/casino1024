@@ -24,10 +24,7 @@ export class LoginComponent implements OnInit {
     //JQUERY
 
     $('.message a').click(function () {
-      $('form').animate({
-        height: "toggle",
-        opacity: "toggle"
-      }, "slow");
+      $('form').animate({height: "toggle",opacity: "toggle"}, "slow");
     });
 
     //toggler LOGIN/REGISTER hostia que bien va

@@ -1,154 +1,92 @@
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-}
-
-.card {
-  width: 300px;
-  height: 160px;
-  background-color: #fff;
-  background: linear-gradient(#f8f8f8, #fff);
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-  border-radius: 1px;
-  overflow: hidden;
+section.player-card {
+  width: 247px;
   position: relative;
-  margin: 1.5rem;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.13);
 }
-
-.card h1 {
-  text-align: center;
-}
-
-.card .additional {
-  position: absolute;
-  width: 150px;
-  height: 100%;
-  background: linear-gradient(#dE685E, #EE786E);
-  transition: width 0.4s;
+section.player-card .card {  
+  float: left;
+  width: 100%;
   overflow: hidden;
+}
+section.player-card header { /* Cabecera */
+  width: 100%;
+  height: 100px;
+  background: black;
+  position: relative;
+}
+section.player-card header a.profile img { /* Imagen redonda */
+  height: auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 10px solid transparent;
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  margin-left: -60px;
   z-index: 2;
 }
-
-
-.card:hover .additional {
-  width: 100%;
-  border-radius: 0 5px 5px 0;
-}
-
-.card .additional .user-card {
-  width: 120px;
-  height: 100%;
+section.player-card article {
+  background-color: #B5905F;
+  display: block;
   position: relative;
-  float: left;
+  padding: 62px 5px 30px;
+  font-family: "Roboto Condensed", sans-serif;
 }
-
-.card .additional .user-card::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 10%;
-  right: 0px;
-  height: 80%;
-  border-left: 2px solid rgba(0,0,0,0.025);
-}
-
-.card .additional .user-card .level,
-.card .additional .user-card .points {
-  top: 15%;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  font-weight: bold;
-  background: rgba(0,0,0,0.15);
-  padding: 0.125rem 0.75rem;
-  border-radius: 100px;
-  white-space: nowrap;
-}
-
-.card .additional .user-card .points {
-  top: 85%;
-}
-
-.card .additional .user-card svg {
-  top: 50%;
-}
-
-.card .additional .more-info {
-  width: 300px;
-  float: left;
-  position: absolute;
-  left: 150px;
-  height: 100%;
-}
-
-.card .additional .more-info h1 {
-  color: #fff;
-  margin-bottom: 0;
-}
-
-.card .additional .coords {
-  margin: 0 1rem;
-  color: #fff;
-  font-size: 0.8em;
-}
-
-.card .additional .coords span + span {
-  float: right;
-}
-
-.card .additional .stats {
-  font-size: 0.8em;
-  display: flex;
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  top: auto;
-  color: #fff;
-}
-
-.card .additional .stats > div {
-  flex: 1;
+section.player-card article h1 { /* Nombre player */
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 28px;
+  letter-spacing: 1px;
   text-align: center;
+  font-weight: 600;
+  color: white;
 }
-
-.card .additional .stats i {
+section.player-card article h2 { /* h2 */
+  margin-top: 0;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: white;
+}
+section.player-card article .info {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: distribute;
+  -moz-box-pack: distribute;
+  box-pack: distribute;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  -ms-justify-content: space-around;
+  -o-justify-content: space-around;
+  justify-content: space-around;
+  -ms-flex-pack: distribute;
+}
+section.player-card article .info div {
+  text-align: center;
+  width: 33%;
+}
+section.player-card article .info div span {
   display: block;
 }
-
-.card .additional .stats div.title {
-  font-size: 0.8em;
+section.player-card article .info div span:nth-of-type(1) {
   font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: black;
+}
+section.player-card article .info div span:nth-of-type(2) {
+  font-weight: 600;
+  font-size: 12px;
   text-transform: uppercase;
-}
-
-.card .additional .stats div.value {
-  font-size: 0.8em;
-  font-weight: bold;
-  line-height: 0.8em;
-}
-
-.card .additional .stats div.value.infinity {
-  font-size: 0.8em;
-}
-
-.card .general {
-  width: 300px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  box-sizing: border-box;
-  padding: 1rem;
-  padding-top: 0;
-}
-
-.card .general .more {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  font-size: 0.8em;
+  color: black;
+  letter-spacing: 0.5px;
 }

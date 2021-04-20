@@ -1,48 +1,32 @@
-    <div class="card">
-      <div class="additional">
-        <div class="user-card">
-          <div class="level center">
-            Nivel 13
-          </div>
-          <div class="points center">
-            5,312 Bytes
-          </div>
+<section class="player-card">
+  <div class="card">
+    <header>
+      <a class="profile">
+        <img src="https://i.dlpng.com/static/png/6725283_preview.png" alt="pfp">
+      </a>
+    </header>
+
+    <article>
+      <h1>{{userName}}</h1> <!---->
+      <h2>Espana</h2>
+      
+      <div class="info">
+        <div>
+          <span>11</span>
+          <span>Partidas</span>
         </div>
-        <div class="more-info">
-          <h1>Jane Doe</h1>
-          <div class="coords">
-            <span>Desde Enero 2021</span>
-          </div>
-          <div class="coords">
-            <span>Rookie</span>
-            <span>Murcia, España</span>
-          </div>
-          <div class="stats">
-            <div>
-              <div class="title">Awards</div>
-              <i class="fa fa-trophy"></i>
-              <div class="value">2</div>
-            </div>
-            <div>
-              <div class="title">Partidas</div>
-              <i class="fa fa-gamepad"></i>
-              <div class="value">27</div>
-            </div>
-            <div>
-              <div class="title">Amigos</div>
-              <i class="fa fa-group"></i>
-              <div class="value">123</div>
-            </div>
-            <div>
-              <div class="title">Coffee</div>
-              <i class="fa fa-coffee"></i>
-              <div class="value infinity">∞</div>
-            </div>
-          </div>
+        
+        <div>
+          <span>{{puntos}}</span> <!---->
+          <span>Bytes</span>
+        </div>
+        
+        <div>
+          <span>11</span>
+          <span>Amigos</span>
         </div>
       </div>
-      <div class="general">
-        <p>Jane Doe</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.</p>
-      </div>
-    </div>
+    </article>
+  </div>
+</section>
+<button class="btn btn-dark"(click)="getPuntosUser()">test</button>
