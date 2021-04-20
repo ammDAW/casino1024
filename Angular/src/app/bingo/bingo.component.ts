@@ -7,19 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class BingoComponent implements OnInit {
-  tableros: number[] = new Array(81);
-  //tableros: any;
+  tablero: number[] = new Array(80); //tablero[0] = 1 y tablero[79] = 80 es decir (i+1)
+
   constructor() {
-   }
+  }
 
   ngOnInit(): void {
     this.generarTablero();
-    console.log(this.tableros);
+    console.log(this.tablero);
   }
 
   generarTablero(){
-    for(let i=0; i<=80; i++){
-      this.tableros[i] = i;
+    for(let i=0; i<=79; i++){
+      this.tablero[i] = i+1;
     }
+  }
+  
+  addClassElegido(id: any){
+    /*if(document.getElementById("#tabBtn" + id).classList.contains('elegido')){
+      document.getElementById("#tabBtn" + id)!.classList.toggle('elegido'); 
+    }*/
+    document.getElementById("#btn1")?.classList.add('elegido');
   }
 }

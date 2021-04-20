@@ -1,6 +1,7 @@
+<div id="general">
 <div id="bingo"><!--parte izquierda del tablero con la informacion de los numeros-->
     <div id="bombo"> <!--lo que es el bomboi donde está el lootiefile-->
-        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_EX6tIQ.json"  background="transparent"  speed="1"  style="width: 350px; height: 350px;"  loop  autoplay></lottie-player>
+        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_EX6tIQ.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
     </div>
 
     <div id="numSalidos"> <!--array donde van saliendo los numeros que van saliendo-->
@@ -35,16 +36,36 @@
 </div>
 
 <div id="tablero"> <!--parte derecha con los 80 botones-->
-    <ng-container *ngFor="let tablero of tableros">
-    <button class="btn btn-secondary">{{tablero}}</button>
-    </ng-container>
+    <div id="infoColores">
+        <ng-container>
+            <label>Número Elegido</label>
+            <div class="infoElegido"></div>
+        </ng-container>
+        
+        <ng-container>
+            <label>Número Acertado</label>
+            <div class="infoAcertado"></div>
+        </ng-container>
+        
+        <ng-container>
+            <label>Número Fallado</label>
+            <div class="infoFallado"></div>
+        </ng-container>
+        
+    </div>
+    
+    <div id=tableroBotones>
+        <ng-container *ngFor="let t of tablero">
+            <button id="tabBtn{{t}}" class="btn btn-secondary" (click)="addClassElegido(t)">{{t}}</button>
+        </ng-container>
+    </div>
     
     <div id="apuesta">
         <label>Apuesta: </label>
-        <input type="number"/>
+        <input type="number" class="form-control"/>
         <button id="btnEmpezar">EMPEZAR</button>
     </div>
-    
+</div>
 </div>
 
 
