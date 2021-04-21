@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class BingoComponent implements OnInit {
   tablero: number[] = new Array(80); //tablero[0] = 1 y tablero[79] = 80 es decir (i+1)
-
+  numSelecc : number[] = new Array();
   constructor() {
   }
 
@@ -28,5 +28,18 @@ export class BingoComponent implements OnInit {
       document.getElementById("#tabBtn" + id)!.classList.toggle('elegido'); 
     }*/
     document.getElementById("#btn1")?.classList.add('elegido');
+  }
+
+  addNumero(num: number){
+    if (this.numSelecc.includes(num)){
+      var index = this.numSelecc.indexOf(num);
+      this.numSelecc.splice(index, 1);
+    }
+    else{
+      if (this.numSelecc.length < 8)
+        this.numSelecc.push(num); 
+      else alert("Numero máximo")  
+    }
+    console.log(this.numSelecc);        
   }
 }

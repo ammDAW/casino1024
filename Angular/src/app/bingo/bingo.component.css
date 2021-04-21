@@ -34,11 +34,15 @@ ul{
 }
 li{
     border: black 1px solid;
-    background-color: rgb(98, 98, 100);
-    opacity: 0.15;
+    font-size:large;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(98, 98, 100, .15);
+    /*opacity: 0.15;*/
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    text-align: center;
 }
 #tablero{
     width: 70%;
@@ -80,7 +84,6 @@ li{
 }
 
 /*CLASES BOTON*/
-
 .elegido{
     background-color:yellow;    
 }
