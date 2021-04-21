@@ -1,7 +1,10 @@
 .logos{
-    margin-top: 50px;
+    background-color: black;
 }
 
 button{
-float: right;
+    font-size: xxx-large;
+    width: 300px;
+    height: 150px;
+    float: right;
 }
