@@ -24,9 +24,9 @@ export class BingoComponent implements OnInit {
   }
   
   addClassElegido(id: any){
-    /*if(document.getElementById("#tabBtn" + id).classList.contains('elegido')){
-      document.getElementById("#tabBtn" + id)!.classList.toggle('elegido'); 
-    }*/
+    /* if(document.getElementById("#tabBtn" + id).classList.contains('elegido')){
+      document.getElementById("#tabBtn" + id)!.classList.toggle('elegido');  */
+
     document.getElementById("#btn1")?.classList.add('elegido');
   }
 
