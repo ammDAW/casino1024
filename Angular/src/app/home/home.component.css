@@ -1,10 +1,29 @@
 .logos{
-    background-color: black;
+    background-color: #1f2c4c;
+    /*margin: 0;*/
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content:center;
 }
 
+.logos2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 30px;
+    padding: 90px;
+}
+
+.infoHome{
+    height: 500px;
+    width: 30%;
+    /*background-color: grey;*/
+    border: 1px solid black;
+    border-radius: 10px;
+}
 button{
-    font-size: xxx-large;
-    width: 300px;
+    font-size: large;
+    width: 100px;
     height: 150px;
-    float: right;
 }
