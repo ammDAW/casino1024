@@ -12,7 +12,7 @@ export class GetterService {
   //PUNTOS
   getPuntosUser(idPoints: number){
     axios
-    .get('http://localhost:1337/points/' + idPoints)
+    .get(this.url + 'points/' + idPoints)
     .then(response => {
 
      return response;
@@ -24,7 +24,7 @@ export class GetterService {
 
   getPuntos(){
     axios
-    .get('http://localhost:1337/points')
+    .get(this.url + 'points')
     .then(response => {
       // Handle success.
       return response.data;
@@ -38,7 +38,7 @@ export class GetterService {
   //USUARIOS
   getIdUser(username: string){
     axios
-    .get('http://localhost:1337/users/')
+    .get(this.url + 'users/')
     .then(response => {
      return response;
    })
@@ -46,4 +46,5 @@ export class GetterService {
       return error.response;
     });
   }
+
 }
