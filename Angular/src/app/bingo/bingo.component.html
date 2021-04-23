@@ -1,71 +1,72 @@
 <div id="general">
-<div id="bingo"><!--parte izquierda del tablero con la informacion de los numeros-->
-    <div id="bombo"> <!--lo que es el bomboi donde está el lootiefile-->
-        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_EX6tIQ.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+    <div id="bingo"><!--parte izquierda del tablero con la informacion de los numeros-->
+        <div id="bombo"> <!--lo que es el bomboi donde está el lootiefile-->
+            <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_EX6tIQ.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+        </div>
+
+        <div id="numSalidos"> <!--array donde van saliendo los numeros que van saliendo-->
+            <h6>Numeros Salidos</h6>
+            <ul id="listaSalidos">
+                <li id="numSalido1"></li>   <li id="numSalido2"></li>
+                <li id="numSalido3"></li>   <li id="numSalido4"></li>
+                <li id="numSalido5"></li>   <li id="numSalido6"></li>
+                <li id="numSalido7"></li>   <li id="numSalido8"></li>
+                <li id="numSalido9"></li>   <li id="numSalido10"></li>
+                <li id="numSalido11"></li>   <li id="numSalido12"></li>
+                <li id="numSalido13"></li>   <li id="numSalido14"></li>
+                <li id="numSalido15"></li>   <li id="numSalido16"></li>
+                <li id="numSalido17"></li>   <li id="numSalido18"></li>
+                <li id="numSalido19"></li>  <li id="numSalido20"></li>
+            </ul>
+        </div>
+        
+        <div id="numPlayer"> <!--numeros seleccionados por el jugador-->
+            <h6>Numeros Seleccionados</h6>
+            <ul id="listaPlayer">
+                <li id="numPlayer1">{{numSelecc[0]}}</li>
+                <li id="numPlayer2">{{numSelecc[1]}}</li>
+                <li id="numPlayer3">{{numSelecc[2]}}</li>
+                <li id="numPlayer4">{{numSelecc[3]}}</li>
+                <li id="numPlayer5">{{numSelecc[4]}}</li>
+                <li id="numPlayer6">{{numSelecc[5]}}</li>
+                <li id="numPlayer7">{{numSelecc[6]}}</li>
+                <li id="numPlayer8">{{numSelecc[7]}}</li>
+            </ul> 
+        </div>
     </div>
 
-    <div id="numSalidos"> <!--array donde van saliendo los numeros que van saliendo-->
-        <h6>Numeros Salidos</h6>
-        <ul id="listaSalidos">
-            <li id="numSalido1"></li>   <li id="numSalido2"></li>
-            <li id="numSalido3"></li>   <li id="numSalido4"></li>
-            <li id="numSalido5"></li>   <li id="numSalido6"></li>
-            <li id="numSalido7"></li>   <li id="numSalido8"></li>
-            <li id="numSalido9"></li>   <li id="numSalido10"></li>
-            <li id="numSalido11"></li>   <li id="numSalido12"></li>
-            <li id="numSalido13"></li>   <li id="numSalido14"></li>
-            <li id="numSalido15"></li>   <li id="numSalido16"></li>
-            <li id="numSalido17"></li>   <li id="numSalido18"></li>
-            <li id="numSalido19"></li>  <li id="numSalido20"></li>
-        </ul>
-    </div>
-    
-    <div id="numPlayer"> <!--numeros seleccionados por el jugador-->
-        <h6>Numeros Seleccionados</h6>
-        <ul id="listaPlayer">
-            <li id="numPlayer1">{{numSelecc[0]}}</li>
-            <li id="numPlayer2">{{numSelecc[1]}}</li>
-            <li id="numPlayer3">{{numSelecc[2]}}</li>
-            <li id="numPlayer4">{{numSelecc[3]}}</li>
-            <li id="numPlayer5">{{numSelecc[4]}}</li>
-            <li id="numPlayer6">{{numSelecc[5]}}</li>
-            <li id="numPlayer7">{{numSelecc[6]}}</li>
-            <li id="numPlayer8">{{numSelecc[7]}}</li>
-        </ul> 
+    <div id="tablero"> <!--parte derecha con los 80 botones-->
+        <div id="infoColores">
+            <ng-container>
+                <label>Número Elegido</label>
+                <div class="infoElegido"></div>
+            </ng-container>
+            
+            <ng-container>
+                <label>Número Acertado</label>
+                <div class="infoAcertado"></div>
+            </ng-container>
+            
+            <ng-container>
+                <label>Número Fallado</label>
+                <div class="infoFallado"></div>
+            </ng-container>
+            
+        </div>
+        
+        <div id=tableroBotones>
+            <ng-container *ngFor="let t of tablero">
+                <button id="tabBtn{{t}}" class="btn btn-secondary" (click)="addNumero(t)">{{t}}</button>
+            </ng-container>
+        </div>
+
+        <div id="apuesta">
+                <label>Apuesta: </label>
+                <input type="number" class="form-control"/>
+                <button id="btnEmpezar" class=" btn btn-warning">EMPEZAR</button>
+        </div>
     </div>
 </div>
 
-<div id="tablero"> <!--parte derecha con los 80 botones-->
-    <div id="infoColores">
-        <ng-container>
-            <label>Número Elegido</label>
-            <div class="infoElegido"></div>
-        </ng-container>
-        
-        <ng-container>
-            <label>Número Acertado</label>
-            <div class="infoAcertado"></div>
-        </ng-container>
-        
-        <ng-container>
-            <label>Número Fallado</label>
-            <div class="infoFallado"></div>
-        </ng-container>
-        
-    </div>
-    
-    <div id=tableroBotones>
-        <ng-container *ngFor="let t of tablero">
-            <button id="tabBtn{{t}}" class="btn btn-secondary" (click)="addNumero(t)">{{t}}</button>
-        </ng-container>
-    </div>
-    
-    <div id="apuesta">
-        <label>Apuesta: </label>
-        <input type="number" class="form-control"/>
-        <button id="btnEmpezar">EMPEZAR</button>
-    </div>
-</div>
-</div>
 
 

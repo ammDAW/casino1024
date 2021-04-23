@@ -1,12 +1,15 @@
 #general{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 #bingo{
-    width: 22%;
+    width: 30%;
     background-color: #1f2c4c;
-    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
 
     border-radius: 10px;
     background-color: #101625;
@@ -15,19 +18,20 @@
     justify-content: center;
     flex-direction: column;
     box-shadow:
-  0 0.5px 2.3px rgba(0, 0, 0, 0.14),
-  0 1.2px 5.8px rgba(0, 0, 0, 0.2),
-  0 2.5px 11.9px rgba(0, 0, 0, 0.25),
-  0 5.1px 24.5px rgba(0, 0, 0, 0.31),
-  0 14px 67px rgba(0, 0, 0, 0.45)
-;
+        0 0.5px 2.3px rgba(0, 0, 0, 0.14),
+        0 1.2px 5.8px rgba(0, 0, 0, 0.2),
+        0 2.5px 11.9px rgba(0, 0, 0, 0.25),
+        0 5.1px 24.5px rgba(0, 0, 0, 0.31),
+        0 14px 67px rgba(0, 0, 0, 0.45)
+    ;
 }
 
 #bombo{
-   width: 100%;
+    width: 100%;
     border: black 15px dashed;
     /* background-color: rgb(99, 96, 96); */
     border-radius: 50%;
+    margin-bottom: 60px;
 }
 
 ul{
@@ -36,6 +40,7 @@ ul{
     justify-content: space-between;
     list-style-type: none;
     padding: 10px;
+    margin-top: 20px;
     border:  black 2px solid;
     border-radius: 10px;
 }
@@ -52,9 +57,9 @@ li{
     text-align: center;
 }
 #tablero{
-    width: 70%;
-    margin-right: 50px;
-    margin-left: 100px;
+    width: 80%;
+    margin-right: 100px;
+    margin-left: 180px;
 }
 
 #tableroBotones button{
@@ -66,15 +71,18 @@ li{
   0 21px 23px rgba(0, 0, 0, 0.13)
 ;
     margin: 12px;
-    height: 50px;
-    width: 50px;
+    height: 65px;
+    width: 65px;
+    text-align: center;
     font-size:x-large;
 }
+
 /*CLASES MINI INFO*/
 #infoColores{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
+    margin-bottom: 10px;
 }
 
 #infoColores div{
@@ -97,6 +105,21 @@ li{
     background-color: red;
 }
 
+#apuesta{
+    display: flex;
+    justify-content: start;
+    margin: 30px;
+    border: black 2px solid;
+    border-radius: 10px;
+    padding: 10px;
+    width: 500px;
+}
+#apuesta input{
+    width: 200px;
+    margin-right: 50px;
+    margin-left: 30px;
+}
+
 /*CLASES BOTON*/
 .elegido{
     background-color:yellow;    
@@ -108,4 +131,53 @@ li{
 
 .fallado{
     background-color:red;    
+}
+
+
+
+
+/*RESPONSIVE*/
+@media screen and (max-width:1050px){
+    #bingo{
+        display: none;
+    }
+    #tablero{
+        margin: auto;
+        width: 100%;
+        height: 100%;
+    }
+    #infoColores{
+        display: none;
+     }
+     #tablero button{
+         margin-top: 0;
+         margin-right: 0;
+         width: 60px;
+         height:60px;
+         text-align: center;
+         font-size: auto;
+         padding: 0;
+     }
+     #apuesta{
+         margin: auto;
+     }    
+}
+
+@media screen and (max-width:700px){ /*mobile*/
+    #tablero{
+        width: 100%;
+        height: 100%;
+    }
+    #infoColores{
+       display: none;
+    }
+    #tablero button{
+        margin-top: 0;
+        margin-right: 0;
+        width: 35px;
+        height: 35px;      
+    }
+    #apuesta{
+        margin: auto;
+    }
 }
