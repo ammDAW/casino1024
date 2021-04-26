@@ -38,11 +38,11 @@ export class LoginComponent implements OnInit {
   }
 
   //funciones creadas
-  enviarLogin(logueado: boolean) {
+  enviarLogin(logueado: boolean) { //funcion para enviar booleano para sacar componente login o user
     this.logueado.emit(logueado);
   }
 
-  buscarUsuario(user: string, pass: string) {
+  buscarUsuario(user: string, pass: string) { //funcion para loguear usuario
     axios
       .post('http://localhost:1337/auth/local', {
         identifier: user,
@@ -63,12 +63,11 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  buscarPuntos() {
+  buscarPuntos() { //sacar todos los puntos para encontrar los puntos del usuario
     axios
       .get('http://localhost:1337/points')
       .then(response => {
-        // Handle success.
-        function comparar(a: any, b: any) { return b.puntos - a.puntos; }
+        //function comparar(a: any, b: any) { return b.puntos - a.puntos; }
         this.array = response.data;
       })
       .catch(error => {
@@ -77,34 +76,11 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  comparar(idUser: any) {
+  comparar(idUser: any) { //compara el id user con los de la tabla para sacar el id points
     this.array.forEach(function (element: any) {
-      //console.log(element)
       if (element.id_user.id === idUser) {
         return element.id;
       }
-
     });
   }
 }
-/*buscarPuntos(idUser:number){
-  axios
-  .get('http://localhost:1337/points')
-  .then(response => {
-    response.data.forEach(function(element:any){
-      if (element.id_user.id = idUser){
-        console.log(element.id_user.id)
-        return;
-      }
-    for(let element of response.data){
-      if (element.id_user.id = idUser){
-        //console.log(element.id_user.id);
-       console.log(element.id);
-      }
-    }
- })
-  .catch(error => {
-    // Handle error.
-    console.log('An error occurred:', error.response);
-  });
-}*/
