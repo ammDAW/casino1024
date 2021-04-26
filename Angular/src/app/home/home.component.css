@@ -4,7 +4,8 @@
     width: 100%;
     height: 200px;
     display: flex;
-    justify-content:center;
+    justify-content: left;
+
 }
 
 .logos2{
@@ -26,4 +27,11 @@ button{
     font-size: large;
     width: 100px;
     height: 150px;
+}
+
+@media screen and (max-width:1050px){
+    .logos{
+        display: flex;
+        justify-content: center;
+    }
 }

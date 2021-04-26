@@ -7,12 +7,11 @@
 
 #bingo{
     width: 30%;
-    background-color: #1f2c4c;
+    background-color: #101625;
     padding-right: 20px;
     padding-left: 20px;
 
     border-radius: 10px;
-    background-color: #101625;
     margin-left: 30px;
     display: flex;
     justify-content: center;
@@ -74,7 +73,10 @@ li{
     height: 65px;
     width: 65px;
     text-align: center;
-    font-size:x-large;
+    font-size:xx-large;
+    border-radius: 50%;
+    background-color: rgba(110, 108, 108, 0.733);
+    border: 0;
 }
 
 /*CLASES MINI INFO*/
@@ -108,11 +110,13 @@ li{
 #apuesta{
     display: flex;
     justify-content: start;
+    
     margin: 30px;
-    border: black 2px solid;
+    /*border: black 2px solid;*/
     border-radius: 10px;
     padding: 10px;
     width: 500px;
+    background-color: #161e33;
 }
 #apuesta input{
     width: 200px;
@@ -148,19 +152,26 @@ li{
     }
     #infoColores{
         display: none;
-     }
-     #tablero button{
-         margin-top: 0;
-         margin-right: 0;
-         width: 60px;
-         height:60px;
-         text-align: center;
-         font-size: auto;
-         padding: 0;
-     }
-     #apuesta{
-         margin: auto;
-     }    
+    }
+    #tablero button{
+        margin-top: 0;
+        margin-right: 0;
+        width: 60px;
+        height:60px;
+        text-align: center;
+        font-size: auto;
+        padding: 0;
+    }
+    #apuesta{
+        margin: auto;
+        margin-top: 20px;
+        border: 0;
+    }
+
+    #apuesta button{
+        width: 100px;
+        height: 40px;
+    }    
 }
 
 @media screen and (max-width:700px){ /*mobile*/
@@ -175,9 +186,11 @@ li{
         margin-top: 0;
         margin-right: 0;
         width: 35px;
-        height: 35px;      
+        height: 35px;
+        font-size:large;      
     }
     #apuesta{
         margin: auto;
     }
+    
 }
