@@ -90,3 +90,23 @@ section.player-card article .info div span:nth-of-type(2) {
   color: black;
   letter-spacing: 0.5px;
 }
+
+
+@media screen and (max-width:700px){
+  section.player-card {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
+    width: 300px;
+  }
+  article{
+    display: none;
+  }
+  .profile img{
+    display: none;
+  }
+  section.player-card header { /* Cabecera */
+    display: none;
+  }
+}
