@@ -46,8 +46,8 @@
     font-size: 12px;
   }
   .form .message a {
-    color: #B5905F;
-    text-decoration: none;
+    color: #FFFFFF;
+    text-decoration: underline;
   }
   .container {
     position: relative;
