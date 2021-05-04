@@ -5,7 +5,7 @@
         </div>
 
         <div id="numSalidos"> <!--array donde van saliendo los numeros que van saliendo-->
-            <h6>Numeros Salidos</h6>
+            <h6>Chosen Numbers</h6>
             <ul id="listaSalidos">
                 <li id="numSalido1">{{numAleatorios[0]}}</li>   <li id="numSalido2">{{numAleatorios[1]}}</li>
             <li id="numSalido3">{{numAleatorios[2]}}</li>   <li id="numSalido4">{{numAleatorios[3]}}</li>
@@ -21,7 +21,7 @@
         </div>
         
         <div id="numPlayer"> <!--numeros seleccionados por el jugador-->
-            <h6>Numeros Seleccionados</h6>
+            <h6>Selected Number</h6>
             <ul id="listaPlayer">
                 <li id="numPlayer1">{{numSelecc[0]}}</li>
                 <li id="numPlayer2">{{numSelecc[1]}}</li>
@@ -39,17 +39,17 @@
     <div id="tablero"> <!--parte derecha con los 80 botones-->
         <div id="infoColores">
             <ng-container>
-                <label>Número Elegido</label>
+                <label>Selected</label>
                 <div class="infoElegido"></div>
             </ng-container>
             
             <ng-container>
-                <label>Número Acertado</label>
+                <label>Correct</label>
                 <div class="infoAcertado"></div>
             </ng-container>
             
             <ng-container>
-                <label>Número Fallado</label>
+                <label>Failed</label>
                 <div class="infoFallado"></div>
             </ng-container>
             
@@ -62,13 +62,13 @@
         </div>
 
         <div id="apuesta">
-                <h3>Apuesta: </h3>
+                <h3>Bet: </h3>
                 <input type="number" class="form-control"/>
-                <button id="btnEmpezar" class=" btn btn-warning" (click)= "comparar()" >EMPEZAR</button>
+                <button id="btnEmpezar" class=" btn btn-warning" (click)= "comparar()" >Start</button>
         </div>
         <div id="premios">
             <table>
-                <h3>TABLA DE PREMIOS</h3>
+                <h3>Prize pool</h3>
                 <tr>
                     <th>1/1</th>
                     <th>2/2</th>
@@ -80,14 +80,14 @@
                     <th>8/8</th>
                 </tr>
                 <tr>
-                    <th>3.50 points</th>
-                    <th>14.00 points</th>
-                    <th>55.00 points</th>
-                    <th>225.00 points</th>
-                    <th>1000 points</th>
-                    <th>5000 points</th>
-                    <th>20000 points</th>
-                    <th>50000 points</th>
+                    <th>3.50 bytes</th>
+                    <th>14.00 bytes</th>
+                    <th>55.00 bytes</th>
+                    <th>225.00 bytes</th>
+                    <th>1000 bytes</th>
+                    <th>5000 bytes</th>
+                    <th>20000 bytes</th>
+                    <th>50000 bytes</th>
                 </tr>
             </table>
         </div>
