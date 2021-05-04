@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class BingoComponent implements OnInit {
   tablero: number[] = new Array(80); //tablero[0] = 1 y tablero[79] = 80 es decir (i+1)
   numSelecc : number[] = new Array();
+  numAleatorios: number[]=new Array();//numAleatorios
+  resultado: string="";
   constructor() {
   }
 
@@ -40,6 +42,35 @@ export class BingoComponent implements OnInit {
         this.numSelecc.push(num); 
       else alert("Numero máximo")  
     }
-    console.log(this.numSelecc);        
+    console.log(this.numSelecc); 
+    this.numSelecc.sort();       
+  }
+  comparar(){
+    for(let i=0; i < 20; i++){
+      var count= Math.floor(Math.random()*80)+1;
+      console.log(count);
+      if(this.numAleatorios.indexOf(count)=== -1){
+        this.numAleatorios[i]= count;
+      }else
+      {
+        i=i-1;
+      }
+    }
+    console.log(this.numAleatorios);
+    this.resultado="";
+
+    for(let i=0; i < this.numAleatorios.length; i++){
+      for(let j=0; j < this.numSelecc.length; j++){
+        if(this.numAleatorios[i]==this.numSelecc[j]){
+          this.resultado="acertado";
+        } 
+      }
+    }
+
+    if(this.resultado=="")
+    {
+      this.resultado="fallado";
+    }
+    console.log("fin del juego");
   }
 }

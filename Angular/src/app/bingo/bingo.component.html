@@ -7,17 +7,17 @@
         <div id="numSalidos"> <!--array donde van saliendo los numeros que van saliendo-->
             <h6>Numeros Salidos</h6>
             <ul id="listaSalidos">
-                <li id="numSalido1"></li>   <li id="numSalido2"></li>
-                <li id="numSalido3"></li>   <li id="numSalido4"></li>
-                <li id="numSalido5"></li>   <li id="numSalido6"></li>
-                <li id="numSalido7"></li>   <li id="numSalido8"></li>
-                <li id="numSalido9"></li>   <li id="numSalido10"></li>
-                <li id="numSalido11"></li>   <li id="numSalido12"></li>
-                <li id="numSalido13"></li>   <li id="numSalido14"></li>
-                <li id="numSalido15"></li>   <li id="numSalido16"></li>
-                <li id="numSalido17"></li>   <li id="numSalido18"></li>
-                <li id="numSalido19"></li>  <li id="numSalido20"></li>
-            </ul>
+                <li id="numSalido1">{{numAleatorios[0]}}</li>   <li id="numSalido2">{{numAleatorios[1]}}</li>
+            <li id="numSalido3">{{numAleatorios[2]}}</li>   <li id="numSalido4">{{numAleatorios[3]}}</li>
+            <li id="numSalido5">{{numAleatorios[4]}}</li>   <li id="numSalido6">{{numAleatorios[5]}}</li>
+            <li id="numSalido7">{{numAleatorios[6]}}</li>   <li id="numSalido8">{{numAleatorios[7]}}</li>
+            <li id="numSalido9">{{numAleatorios[8]}}</li>   <li id="numSalido10">{{numAleatorios[9]}}</li>
+            <li id="numSalido11">{{numAleatorios[10]}}</li>   <li id="numSalido12">{{numAleatorios[11]}}</li>
+            <li id="numSalido13">{{numAleatorios[12]}}</li>   <li id="numSalido14">{{numAleatorios[13]}}</li>
+            <li id="numSalido15">{{numAleatorios[14]}}</li>   <li id="numSalido16">{{numAleatorios[15]}}</li>
+            <li id="numSalido17">{{numAleatorios[16]}}</li>   <li id="numSalido18">{{numAleatorios[17]}}</li>
+            <li id="numSalido19">{{numAleatorios[18]}}</li>  <li id="numSalido20">{{numAleatorios[19]}}</li>
+        </ul>
         </div>
         
         <div id="numPlayer"> <!--numeros seleccionados por el jugador-->
@@ -33,6 +33,7 @@
                 <li id="numPlayer8">{{numSelecc[7]}}</li>
             </ul> 
         </div>
+        {{resultado}}
     </div>
 
     <div id="tablero"> <!--parte derecha con los 80 botones-->
@@ -63,10 +64,37 @@
         <div id="apuesta">
                 <h3>Apuesta: </h3>
                 <input type="number" class="form-control"/>
-                <button id="btnEmpezar" class=" btn btn-warning">EMPEZAR</button>
+                <button id="btnEmpezar" class=" btn btn-warning" (click)= "comparar()" >EMPEZAR</button>
+        </div>
+        <div id="premios">
+            <table>
+                <h3>TABLA DE PREMIOS</h3>
+                <tr>
+                    <th>1/1</th>
+                    <th>2/2</th>
+                    <th>3/3</th>
+                    <th>4/4</th>
+                    <th>5/5</th>
+                    <th>6/6</th>
+                    <th>7/7</th>
+                    <th>8/8</th>
+                </tr>
+                <tr>
+                    <th>3.50 points</th>
+                    <th>14.00 points</th>
+                    <th>55.00 points</th>
+                    <th>225.00 points</th>
+                    <th>1000 points</th>
+                    <th>5000 points</th>
+                    <th>20000 points</th>
+                    <th>50000 points</th>
+                </tr>
+            </table>
         </div>
     </div>
+    
     <app-user></app-user>
+    
 </div>
 
 
