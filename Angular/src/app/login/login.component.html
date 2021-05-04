@@ -1,18 +1,24 @@
 <div class="login-page">
   <div class="form">
     <form class="login-form">
-      <input #user type="text" placeholder="Usuario/Email"/>
-      <input #pass type="password" placeholder="Contraseña"/>
-      <button (click)="buscarUsuario(user.value, pass.value)">Iniciar sesion</button>
-      <p class="message">¿No tienes una cuenta? <a href="#">Registrate</a></p><br>
+      <label>user or email</label><label class="required">*</label>
+      <input #user type="text"/>
+      <label>password</label><label class="required">*</label>
+      <input #pass type="password"/>
+      <button (click)="buscarUsuario(user.value, pass.value)">SIGN IN</button>
+      <p class="message">No account? <a href="#">Create one!</a></p><br>
       </form>
       <form class="register-form">
-        <input type="text" placeholder="Usuario"/>
-        <input type="text" placeholder="Email"/>
-        <input type="password" placeholder="Contraseña"/>
-        <input type="password" placeholder="Repite la contraseña"/>
-        <button>REGISTRARSE</button>
-        <p class="message">¿Ya tienes cuenta? <a href="#">Inicia sesion</a></p>
+        <label>user</label><label class="required">*</label>
+        <input type="text"/>
+        <label>email</label><label class="required">*</label>
+        <input type="text"/>
+        <label>password</label><label class="required">*</label>
+        <input type="password"/>
+        <label>repeat password</label><label class="required">*</label>
+        <input type="password"/>
+        <button>CREATE</button>
+        <p class="message">Already have an account? <a href="#">Sign in</a></p>
       </form>
   </div>
 </div> 
