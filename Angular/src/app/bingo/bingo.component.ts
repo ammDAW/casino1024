@@ -42,10 +42,16 @@ export class BingoComponent implements OnInit {
         this.numSelecc.push(num); 
       else alert("Numero máximo")  
     }
-    console.log(this.numSelecc); 
-    this.numSelecc.sort();       
+    console.log(this.numSelecc);
+    function comparar ( a:any, b:any ){ return a-b; }
+    this.numSelecc.sort(comparar).slice(0,4); 
+
+    var stringSelect = this.numSelecc.join(', ');
+    
+           
   }
   comparar(){
+    //sacamos los aleatorios
     for(let i=0; i < 20; i++){
       var count= Math.floor(Math.random()*80)+1;
       console.log(count);
@@ -57,8 +63,12 @@ export class BingoComponent implements OnInit {
       }
     }
     console.log(this.numAleatorios);
-    this.resultado="";
 
+    var stringRandoms = this.numAleatorios.join(', ');
+  
+
+    this.resultado="";
+    //comparamos con los seleccionados
     for(let i=0; i < this.numAleatorios.length; i++){
       for(let j=0; j < this.numSelecc.length; j++){
         if(this.numAleatorios[i]==this.numSelecc[j]){

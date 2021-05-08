@@ -126,6 +126,19 @@ li{
     margin-right: 50px;
     margin-left: 30px;
 }
+#premios, td, th{
+    border-collapse: collapse;
+  width: 100%;
+  border: 5px solid black;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+
+  
+  
 
 /*CLASES BOTON*/
 .elegido{
