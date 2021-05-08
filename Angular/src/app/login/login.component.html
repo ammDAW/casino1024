@@ -6,7 +6,7 @@
       <label>password</label><label class="required">*</label>
       <input #pass type="password"/>
       <button (click)="buscarUsuario(user.value, pass.value)">SIGN IN</button>
-      <p class="message">No account? <a href="#">Create one!</a></p><br>
+      <p class="message">No account? <a [routerLink]="">Create one!</a></p><br>
       </form>
       <form class="register-form">
         <label>user</label><label class="required">*</label>
@@ -18,7 +18,7 @@
         <label>repeat password</label><label class="required">*</label>
         <input type="password"/>
         <button>CREATE</button>
-        <p class="message">Already have an account? <a href="#">Sign in</a></p>
+        <p class="message">Already have an account? <a [routerLink]="">Sign in</a></p>
       </form>
   </div>
 </div> 
