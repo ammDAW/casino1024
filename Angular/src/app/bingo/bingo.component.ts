@@ -29,7 +29,7 @@ export class BingoComponent implements OnInit {
     /* if(document.getElementById("#tabBtn" + id).classList.contains('elegido')){
       document.getElementById("#tabBtn" + id)!.classList.toggle('elegido');  */
 
-    document.getElementById("#btn1")?.classList.add('elegido');
+      document.getElementById("#btn1").classList.toggle('elegido');
   }
 
   addNumero(num: number){
@@ -63,7 +63,7 @@ export class BingoComponent implements OnInit {
       }
     }
     console.log(this.numAleatorios);
-
+    
     var stringRandoms = this.numAleatorios.join(', ');
   
 
