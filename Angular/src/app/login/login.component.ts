@@ -42,6 +42,21 @@ export class LoginComponent implements OnInit {
     this.logueado.emit(logueado);
   }
 
+  calcularEdad(age){
+    if(age){
+        const convertAge = new Date(age);
+        const timeDiff = Math.abs(Date.now() - convertAge.getTime());
+        if(Math.floor((timeDiff / (1000 * 3600 * 24))/365) < 18){
+          //menor de edad
+          (<HTMLInputElement> document.getElementById("btnRegistro")).disabled = true;
+        }
+        else{
+          //mayor de edad
+          (<HTMLInputElement> document.getElementById("btnRegistro")).disabled = false;
+        }  
+    }
+}
+
   buscarUsuario(user: string, pass: string) { //funcion para loguear usuario
     axios
       .post('http://localhost:1337/auth/local', {

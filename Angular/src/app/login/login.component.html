@@ -1,25 +1,29 @@
 <div class="login-page">
   <div class="form">
     <form class="login-form">
-      <label>user or email</label><label class="required">*</label>
+      <label>User or Email</label><label class="required">*</label>
       <input #user type="text"/>
-      <label>password</label><label class="required">*</label>
+      <label>Password</label><label class="required">*</label>
       <input #pass type="password"/>
       <button (click)="buscarUsuario(user.value, pass.value)">SIGN IN</button>
       <p class="message">No account? <a [routerLink]="">Create one!</a></p><br>
-      </form>
-      <form class="register-form">
-        <label>user</label><label class="required">*</label>
-        <input type="text"/>
-        <label>email</label><label class="required">*</label>
-        <input type="text"/>
-        <label>password</label><label class="required">*</label>
-        <input type="password"/>
-        <label>repeat password</label><label class="required">*</label>
-        <input type="password"/>
-        <button>CREATE</button>
-        <p class="message">Already have an account? <a [routerLink]="">Sign in</a></p>
-      </form>
+    </form>
+    <form class="register-form">
+      <label>User</label><label class="required">*</label>
+      <input type="text"/>
+      <label>Birth Date</label><label class="required">*</label>
+      <input #age (change)="calcularEdad(age.value)" type="date"/>
+      <label>Email</label><label class="required">*</label>
+      <input type="text"/>
+      <label>Password</label><label class="required">*</label>
+      <input type="password"/>
+      <label>Repeat Password</label><label class="required">*</label>
+      <input type="password"/>
+      <!-- <input type="checkbox" (click)="calcularEdad(age.value)">
+      <label>Soy mayor de edad</label> -->
+      <button id="btnRegistro" onclick="alert('hola')" disabled>CREATE</button>
+      <p class="message">Already have an account? <a [routerLink]="">Sign in</a></p>
+    </form>
   </div>
 </div> 
 
