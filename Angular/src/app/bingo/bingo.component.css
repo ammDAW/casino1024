@@ -75,11 +75,12 @@ li{
     margin: 12px;
     height: 65px;
     width: 65px;
+    /*font: bold;*/
     text-align: center;
     font-size:xx-large;
     border-radius: 50%;
-    background-color: rgba(110, 108, 108, 0.733);
-    border: 0;
+    border: 4px rgba(255, 255, 255, 0.589) solid;
+    background-color: rgba(99, 96, 96, 0.438);
 }
 
 /*CLASES MINI INFO*/
