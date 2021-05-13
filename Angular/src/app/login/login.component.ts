@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import axios from 'axios';
 import * as $ from 'jquery';
 
@@ -8,14 +8,16 @@ import * as $ from 'jquery';
   styleUrls: ['./login.component.css']
 })
 
-export class LoginComponent implements OnInit {
 
+
+export class LoginComponent implements OnInit {
   @Output() logueado = new EventEmitter(); //booleano emitido para hacer aparecer el login o la informacion del usuario
+  username: any;
+  @Output() idPoints = new EventEmitter(); //id tabla 'points' ligado al usuario
   jwtUser: any; //clave autentificacion usuario
   idUser: any; //id usuario en tabla 'users'
-  usernameUser: any; //nick usuario
-  idPoints: any; //id tabla 'points' ligado al usuario
-  array: any
+  array: any;
+
 
   constructor() { }
 
@@ -41,6 +43,55 @@ export class LoginComponent implements OnInit {
   enviarLogin(logueado: boolean) { //funcion para enviar booleano para sacar componente login o user
     this.logueado.emit(logueado);
   }
+  enviarIdPoints(int){
+    console.log("enviarIdPoints int =" + int )
+    this.idPoints.emit(int);
+  }
+
+  //funcion para loguear usuario
+  buscarUsuario(user:any, pass:any) { 
+    axios
+      .post('http://localhost:1337/auth/local', {
+        identifier: user,
+        password: pass,
+      })
+      .then(response => {
+        this.jwtUser = response.data.jwt;
+        this.idUser = response.data.user.id;
+        this.username = response.data.user.username;
+
+        this.buscarPuntos();
+        this.enviarIdPoints(this.comparar(this.idUser));
+        this.enviarLogin(true);
+      })
+      .catch(error => {
+        this.enviarLogin(false);
+        console.log('An error occurred:', error.response);
+      });
+  }
+
+  //sacar todos los puntos para encontrar los puntos del usuario
+  buscarPuntos() { 
+    axios
+      .get('http://localhost:1337/points')
+      .then(response => {
+        this.array = response.data;
+      })
+      .catch(error => {
+        // Handle error.
+        console.log('An error occurred:', error.response);
+      });
+  }
+
+  //compara el id user con los de la tabla para sacar el id points
+  comparar(idUser: any) { 
+    let int = 0;
+    this.array.forEach(function (element: any) {
+      if (element.id_user.id == idUser)
+        int = element.id; 
+    });
+    return int;
+  }
 
   calcularEdad(age){
     if(age){
@@ -55,47 +106,43 @@ export class LoginComponent implements OnInit {
           (<HTMLInputElement> document.getElementById("btnRegistro")).disabled = false;
         }  
     }
-}
-
-  buscarUsuario(user: string, pass: string) { //funcion para loguear usuario
+  }
+  //funcion para crear un usuario (registro)
+  crearUsuario(username, email, password, nombre, apellidos, fechaNac){
+    let datos = {
+      "username": username,
+      "email": email,
+      "password": password,
+      "confirmed": true,
+      "blocked": false,
+      "nombre": nombre,
+      "apellidos": apellidos,
+      "fechaNac": fechaNac      
+    }
     axios
-      .post('http://localhost:1337/auth/local', {
-        identifier: user,
-        password: pass,
-      })
+      .post('http://localhost:1337/auth/local/register', datos)
       .then(response => {
-        this.enviarLogin(true);
+        alert("Usuario Registrado")        
         this.jwtUser = response.data.jwt;
         this.idUser = response.data.user.id;
-        this.usernameUser = response.data.user.username;
+        this.username = response.data.user.username;
 
-        this.buscarPuntos();
-        this.idPoints = this.comparar(this.idUser);
-      })
-      .catch(error => {
-        this.enviarLogin(false);
-        console.log('An error occurred:', error.response);
-      });
-  }
+        this.crearPuntos(this.idUser);
 
-  buscarPuntos() { //sacar todos los puntos para encontrar los puntos del usuario
-    axios
-      .get('http://localhost:1337/points')
-      .then(response => {
-        //function comparar(a: any, b: any) { return b.puntos - a.puntos; }
-        this.array = response.data;
+        //PARA REDIRECCION QUITAR LA SIGUIENTE LINEA QUE ENVIA EL LOGIN E IMPLEMENTAR AQUI
+        this.enviarLogin(true);                
       })
       .catch(error => {
         // Handle error.
         console.log('An error occurred:', error.response);
       });
   }
-
-  comparar(idUser: any) { //compara el id user con los de la tabla para sacar el id points
-    this.array.forEach(function (element: any) {
-      if (element.id_user.id === idUser) {
-        return element.id;
-      }
-    });
+  //funcion para crear los puntos iniciales al registrar un usuario
+  crearPuntos(userId){
+    axios
+      .post('http://localhost:1337/points/',{id_user: userId})
+      .then(response =>{
+        this.enviarIdPoints(response.data.id);
+      })
   }
 }

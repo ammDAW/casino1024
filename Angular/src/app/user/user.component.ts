@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import axios from 'axios';
 
 @Component({
@@ -8,25 +8,25 @@ import axios from 'axios';
 })
 export class UserComponent implements OnInit {
   title = 'Angular';
-  idUser = 1;
-  puntos = 0;
-  userName = "";
+  @Input() idPoints: any; //id tabla points
+  puntos: any;
+  username : any;
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.getPuntosUser();
   }
-
+  
   getPuntosUser(){
+    console.log("getUser idPoints:" + this.idPoints)
     axios
-    .get('http://localhost:1337/points/'+this.idUser)
+    .get('http://localhost:1337/points/'+ this.idPoints)
     .then(response => {
       // Handle success.
       this.puntos = response.data.puntos;
-      this.userName = response.data.id_user.username;
-      
+      this.username = response.data.id_user.username;   
    })
     .catch(error => {
       // Handle error.
-    
       console.log('An error occurred:', error.response);
     });
   }

@@ -8,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit{
   title = 'Angular';
   logueado = false;
+  idPoints: any;
 
   getLogeado(logeado : boolean){
     this.logueado = logeado;
   }
 
-  ngOnInit(): void {
-    
+  getIdPoints(idPoints){
+    this.idPoints = idPoints;
   }
 
+  ngOnInit(): void {
+    this.getIdPoints(this.idPoints)
+  }
 }

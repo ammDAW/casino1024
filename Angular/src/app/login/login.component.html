@@ -2,26 +2,36 @@
   <div class="form">
     <form class="login-form">
       <label>User or Email</label><label class="required">*</label>
-      <input #user type="text"/>
+      <input #loginUser type="text"/>
       <label>Password</label><label class="required">*</label>
-      <input #pass type="password"/>
-      <button (click)="buscarUsuario(user.value, pass.value)">SIGN IN</button>
+      <input #loginPass type="password"/>
+      <button (click)="buscarUsuario(loginUser.value, loginPass.value)">SIGN IN</button>
       <p class="message">No account? <a [routerLink]="">Create one!</a></p><br>
     </form>
     <form class="register-form">
+      <label>Name</label><label class="required">*</label>
+      <input #name type="text"/>
+
+      <label>Surname</label><label class="required">*</label>
+      <input #surname type="text"/>
+
       <label>User</label><label class="required">*</label>
-      <input type="text"/>
+      <input #username type="text"/>
+
       <label>Birth Date</label><label class="required">*</label>
       <input #age (change)="calcularEdad(age.value)" type="date"/>
+
       <label>Email</label><label class="required">*</label>
-      <input type="text"/>
+      <input #email type="text"/>
+
       <label>Password</label><label class="required">*</label>
-      <input type="password"/>
+      <input #password type="password" placeholder="Min 6"/>
+
       <label>Repeat Password</label><label class="required">*</label>
       <input type="password"/>
       <!-- <input type="checkbox" (click)="calcularEdad(age.value)">
       <label>Soy mayor de edad</label> -->
-      <button id="btnRegistro" onclick="alert('hola')" disabled>CREATE</button>
+      <button id="btnRegistro" (click)="crearUsuario(username.value, email.value, password.value, name.value, surname.value, age.value)" disabled>CREATE</button>
       <p class="message">Already have an account? <a [routerLink]="">Sign in</a></p>
     </form>
   </div>
