@@ -22,7 +22,7 @@
         
         <div id="numPlayer"> <!--numeros seleccionados por el jugador-->
             <h6>Selected Number</h6>
-            <ul id="listaPlayer">
+            <ul id="listaPlayer" >
                 <li id="numPlayer1">{{numSelecc[0]}}</li>
                 <li id="numPlayer2">{{numSelecc[1]}}</li>
                 <li id="numPlayer3">{{numSelecc[2]}}</li>
@@ -55,16 +55,17 @@
             
         </div>
         
-        <div id=tableroBotones>
-            <ng-container *ngFor="let t of tablero">
-                <button id="tabBtn{{t}}" class="btn btn-secondary" (click)="addNumero(t)">{{t}}</button>
+        <div id="tableroBotones" >
+            <ng-container  *ngFor="let t of tablero"   >   
+                <!--[ngClass]="{'elegido': this.select==true, 'acertado': this.info==true, 'fallado': this.info==false}">
+             --> <button  id="tabBtn{{t}}"   class="btn btn-secondary" class="normal" (click)="addNumero(t)" >{{t}}</button>
             </ng-container>
         </div>
 
         <div id="apuesta">
                 <h3>Bet: </h3>
                 <input type="number" class="form-control"/>
-                <button id="btnEmpezar" class=" btn btn-warning" (click)= "comparar()" >Start</button>
+                <button id="btnEmpezar" class=" btn btn-warning"   (click)= "comparar()" >Start</button>
         </div>
         <div id="premios">
             <table>
