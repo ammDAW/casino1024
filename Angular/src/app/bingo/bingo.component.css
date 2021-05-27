@@ -146,6 +146,9 @@ li{
     margin-right: 50px;
     margin-left: 30px;
 }
+#btnRestart{
+    margin-left: 15px;
+}
 #premios, td, th{
     border-collapse: collapse;
   width: 100%;
@@ -155,14 +158,10 @@ th, td {
     text-align: left;
     padding: 8px;
   }
-  
-
-  
-  
 
 /*CLASES BOTON*/
 .elegido{
-    background-color:yellow;    
+    background-color:#E0A800;    
 }
 
 .acertado{

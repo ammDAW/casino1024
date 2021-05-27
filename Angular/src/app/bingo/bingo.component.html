@@ -65,7 +65,8 @@
         <div id="apuesta">
                 <h3>Bet: </h3>
                 <input type="number" class="form-control"/>
-                <button id="btnEmpezar" class=" btn btn-warning"   (click)= "comparar()" >Start</button>
+                <button id="btnEmpezar" class=" btn btn-warning" (click)= "comparar()" [disabled]="click" >Start</button>
+                <button id="btnRestart" class="btn btn-warning" (click)="refresh()"> Restart</button>
         </div>
         <div id="premios">
             <table>

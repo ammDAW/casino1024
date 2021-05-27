@@ -9,12 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class BingoComponent implements OnInit {
   tablero: number[] = new Array(80); //tablero[0] = 1 y tablero[79] = 80 es decir (i+1)
   numSelecc : number[] = new Array();
+  contador: number; //para llevar la cuenta de los números acertados
   numAleatorios: number[]=new Array(20);//numAleatorios
   resultado: string="";
   info: boolean;
   select: boolean;
   numPinchado: string;
-  premio: number;
+  premio=3.50;
   constructor() {
   }
 
@@ -28,19 +29,9 @@ export class BingoComponent implements OnInit {
       this.tablero[i] = i+1;
     }
   }
+  refresh(): void { window.location.reload(); }
 
-  addClass(){
-    /*
-    if(document.getElementById("#tabBtn" + id).classList.contains('elegido'))
-      document.getElementById("#tabBtn" + id)!.classList.toggle('elegido');  
-    document.getElementById("#btn1")?.classList.add('elegido');
-    */
-    //this.element=document.getElementById('tabBtn{{t}}').addClass(elegido) as HTMLElement;
-  /*mi idea es que se genera el tablero que es un array tablero[i], en el html se llama a t of tablero así que realmente
-  tratamos el array allí para que genere los 80 botones, podemos hacer un bucle que determine si el índice del tablero, es
-  decir, tablero[i] ha sido seleccionado y que le cambie el color sólo a ese*/ 
-   
-  }
+
 
   addNumero(num: number){
    
@@ -76,10 +67,11 @@ export class BingoComponent implements OnInit {
     }
 
     var stringSelect = this.numSelecc.join(', ');
-    
-           
   }
+
+  click : boolean = false;
   comparar(){
+    this.click = !this.click;
     var numPinchado = "";
 
     //sacamos los aleatorios
@@ -93,6 +85,7 @@ export class BingoComponent implements OnInit {
         i=i-1;
       }
     }
+   //this.numAleatorios.slice(); no funciona
     console.log(this.numAleatorios);
 
     var stringRandoms = this.numAleatorios.join(', ');
@@ -103,25 +96,41 @@ export class BingoComponent implements OnInit {
     //aquí hay que tener en cuenta que si el usuario
     //elige 4 numeros tiene que acertar los 4 sí o sí para ganar premio
     //comparamos con los seleccionados
+
     for(let i=0; i < this.numAleatorios.length; i++){
       for(let j=0; j < this.numSelecc.length; j++){
         if(this.numAleatorios[i]==this.numSelecc[j]){
-          //this.resultado="acertado";
+          this.contador+=1;
+          this.resultado="acertado";
          // this.info=true;
          numPinchado = "tabBtn" + this.numSelecc[j];
          document.getElementById(numPinchado).className = "acertado";
          numPinchado = "";
-         //this.premio = 3;
-         //this.resultado="has ganado "+this.premio;
+         if(this.contador=this.numSelecc.length){
+           switch(this.contador){
+              case 1: this.premio=this.contador*3.5; break;
+              case 2: this.premio=this.contador*14; break;
+              case 3: this.premio=this.contador*55; break;
+              case 4: this.premio=this.contador*225; break;
+              case 5: this.premio=this.contador*1000; break;
+              case 6: this.premio=this.contador*5000; break;
+              case 7: this.premio=this.contador*20000; break;
+              case 8: this.premio=this.contador*50000; break;
+           }
+            this.resultado="¡Enhorabuena! Has ganado "+this.premio+" bytes";
+         }
+         
         }
       }
     }
-
+    
     for(let j=0; j < this.numSelecc.length; j++){
       numPinchado = "tabBtn" + this.numSelecc[j];
       if(document.getElementById(numPinchado).className != "acertado")
       {
         document.getElementById(numPinchado).className = "fallado";
+        this.resultado="Prueba otra vez ";
+
       }
 
     }
@@ -131,8 +140,14 @@ export class BingoComponent implements OnInit {
     if(this.resultado=="")
     {
       //document.getElementById(numPinchado).className = "fallado";
-      this.resultado="fallado";
+      this.resultado="Prueba otra vez ";
       //this.info=false;
+      for(let j=0; j < this.numSelecc.length; j++){
+        numPinchado = "tabBtn" + this.numSelecc[j];
+        document.getElementById(numPinchado).className = "fallado";
+        
+  
+      }
     }
     console.log("fin del juego");
   }
