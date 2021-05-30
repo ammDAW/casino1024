@@ -15,3 +15,6 @@ https://fonts.google.com/specimen/Fredoka+One?preview.text_type=custom
 
 Web diseño bbdd
 https://ondras.zarovi.cz/sql/demo/?keyword=default
+
+https://stackoverflow.com/questions/52789310/create-a-non-overlay-modal-that-does-non-closable-where-user-can-still-navigate
+
