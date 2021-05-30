@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import axios from 'axios';
 import * as $ from 'jquery';
 
@@ -7,8 +8,6 @@ import * as $ from 'jquery';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-
-
 
 export class LoginComponent implements OnInit {
   @Output() logueado = new EventEmitter(); //booleano emitido para hacer aparecer el login o la informacion del usuario
@@ -23,32 +22,26 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //JQUERY
+    //JQuery Toggler; Login/Register animation
 
     $('.message a').click(function () {
       $('form').animate({height: "toggle",opacity: "toggle"}, "slow");
     });
 
-    //toggler LOGIN/REGISTER hostia que bien va
-
-    $('form').submit(function (e) {
-      e.preventDefault();
-    });
-
-    //FIX para que el formulario no haga reload a la pagina
-
   }
 
-  //funciones creadas
-  enviarLogin(logueado: boolean) { //funcion para enviar booleano para sacar componente login o user
+  //Funciones
+
+  enviarLogin(logueado: boolean) { //emit Boolean para sacar componente Login o User
     this.logueado.emit(logueado);
   }
+
   enviarIdPoints(int){
     console.log("enviarIdPoints int =" + int )
     this.idPoints.emit(int);
   }
 
-  //funcion para loguear usuario
+  //LOGIN User
   buscarUsuario(user:any, pass:any) { 
     axios
       .post('http://localhost:1337/auth/local', {
@@ -70,7 +63,7 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  //sacar todos los puntos para encontrar los puntos del usuario
+  //Busca todos los puntos para sacar los de cada usuario
   buscarPuntos() { 
     axios
       .get('http://localhost:1337/points')
@@ -83,7 +76,7 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  //compara el id user con los de la tabla para sacar el id points
+  //Compara idUser con la tabla para sacar idPoints
   comparar(idUser: any) { 
     let int = 0;
     this.array.forEach(function (element: any) {
@@ -93,21 +86,7 @@ export class LoginComponent implements OnInit {
     return int;
   }
 
-  calcularEdad(age){
-    if(age){
-        const convertAge = new Date(age);
-        const timeDiff = Math.abs(Date.now() - convertAge.getTime());
-        if(Math.floor((timeDiff / (1000 * 3600 * 24))/365) < 18){
-          //menor de edad
-          (<HTMLInputElement> document.getElementById("btnRegistro")).disabled = true;
-        }
-        else{
-          //mayor de edad
-          (<HTMLInputElement> document.getElementById("btnRegistro")).disabled = false;
-        }  
-    }
-  }
-  //funcion para crear un usuario (registro)
+  //REGISTRO user
   crearUsuario(username, email, password, nombre, apellidos, fechaNac){
     let datos = {
       "username": username,
@@ -137,12 +116,29 @@ export class LoginComponent implements OnInit {
         console.log('An error occurred:', error.response);
       });
   }
-  //funcion para crear los puntos iniciales al registrar un usuario
+
+  //Initial points new User
   crearPuntos(userId){
     axios
       .post('http://localhost:1337/points/',{id_user: userId})
       .then(response =>{
         this.enviarIdPoints(response.data.id);
       })
+  }
+
+  //Calcula edad minima
+  calcularEdad(age){
+    if(age){
+        const convertAge = new Date(age);
+        const timeDiff = Math.abs(Date.now() - convertAge.getTime());
+        if(Math.floor((timeDiff / (1000 * 3600 * 24))/365) < 18){
+          //menor de edad
+          (<HTMLInputElement> document.getElementById("btnRegistro")).disabled = true;
+        }
+        else{
+          //mayor de edad
+          (<HTMLInputElement> document.getElementById("btnRegistro")).disabled = false;
+        }  
+    }
   }
 }
