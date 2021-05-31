@@ -10,24 +10,29 @@ import * as $ from 'jquery';
 })
 
 export class LoginComponent implements OnInit {
-  @Output() logueado = new EventEmitter(); //booleano emitido para hacer aparecer el login o la informacion del usuario
+
+  //Emitters
+  @Output() logueado = new EventEmitter(); //Booleano que muestra la informacion del usuario
+  @Output() idPoints = new EventEmitter(); //Id tabla 'points' + id usuario
+
   username: any;
-  @Output() idPoints = new EventEmitter(); //id tabla 'points' ligado al usuario
-  jwtUser: any; //clave autentificacion usuario
-  idUser: any; //id usuario en tabla 'users'
+  jwtUser: any; //JWT del usuario
+  idUser: any; //Id en tabla "users"
   array: any;
 
-
-  constructor() { }
+  constructor(private cookie: CookieService) { }
 
   ngOnInit(): void {
 
-    //JQuery Toggler; Login/Register animation
-
+    //Login/Register animation
     $('.message a').click(function () {
       $('form').animate({height: "toggle",opacity: "toggle"}, "slow");
     });
 
+    //FIX para que el formulario no haga reload a la pagina
+    $('form').submit(function (e) {
+      e.preventDefault();
+    });
   }
 
   //Funciones
@@ -42,7 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
   //LOGIN User
-  buscarUsuario(user:any, pass:any) { 
+  buscarUsuario(user:any, pass:any) {
     axios
       .post('http://localhost:1337/auth/local', {
         identifier: user,

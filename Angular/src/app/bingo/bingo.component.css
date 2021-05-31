@@ -132,7 +132,7 @@ li{
 
 #apuesta{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
    
     margin: 30px;
     /*border: black 2px solid;*/

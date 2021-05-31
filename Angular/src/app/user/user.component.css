@@ -55,7 +55,7 @@ section.player-card article h2 { /* h2 */
 section.player-card article .info {
   display: -webkit-box;
   display: -moz-box;
-  display: box;
+  display: flex;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
