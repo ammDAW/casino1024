@@ -1,7 +1,9 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import axios from 'axios';
 import * as $ from 'jquery';
+import { Router } from '@angular/router'
+import { UserComponent } from '../user/user.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +21,9 @@ export class LoginComponent implements OnInit {
   jwtUser: any; //JWT del usuario
   idUser: any; //Id en tabla "users"
   array: any;
+  cookieValue: any;
 
-  constructor(private cookie: CookieService) { }
+  constructor(private _router: Router, private cookie: CookieService) { }
 
   ngOnInit(): void {
 
@@ -58,9 +61,17 @@ export class LoginComponent implements OnInit {
         this.idUser = response.data.user.id;
         this.username = response.data.user.username;
 
+        //Cookie
+        this.cookie.set('token', this.jwtUser, {
+          expires:1, 
+          secure:true,
+        });
+        this.cookieValue = this.cookie.get(this.idUser);
+
         this.buscarPuntos();
         this.enviarIdPoints(this.comparar(this.idUser));
         this.enviarLogin(true);
+/*         this._router.navigate([UserComponent]) */
       })
       .catch(error => {
         this.enviarLogin(false);
@@ -110,6 +121,13 @@ export class LoginComponent implements OnInit {
         this.jwtUser = response.data.jwt;
         this.idUser = response.data.user.id;
         this.username = response.data.user.username;
+
+        //Cookie
+        this.cookie.set('token', this.jwtUser, {
+          expires:1, 
+          secure:true
+        });
+        this.cookieValue = this.cookie.get(this.idUser);
 
         this.crearPuntos(this.idUser);
 

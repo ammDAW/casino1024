@@ -1,8 +1,10 @@
 import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
@@ -10,6 +12,9 @@ import { RankingComponent } from './ranking/ranking.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { BingoComponent } from './bingo/bingo.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +29,11 @@ import { BingoComponent } from './bingo/bingo.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [CookieService],
+  providers: [CookieService,
+    {provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptorInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
