@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
           expires:1, 
           secure:true,
         });
-        this.cookieValue = this.cookie.get(this.idUser);
+        this.cookieValue = this.cookie.get('token');
 
         this.buscarPuntos();
         this.enviarIdPoints(this.comparar(this.idUser));
@@ -127,7 +127,7 @@ export class LoginComponent implements OnInit {
           expires:1, 
           secure:true
         });
-        this.cookieValue = this.cookie.get(this.idUser);
+        this.cookieValue = this.cookie.get('token');
 
         this.crearPuntos(this.idUser);
 
