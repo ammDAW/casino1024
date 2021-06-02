@@ -13,7 +13,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { BingoComponent } from './bingo/bingo.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,11 +28,7 @@ import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [CookieService,
-    {provide: HTTP_INTERCEPTORS,
-    useClass: JwtInterceptorInterceptor,
-    multi: true
-  }],
+  providers: [CookieService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
