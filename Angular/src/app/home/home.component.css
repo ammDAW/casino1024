@@ -1,0 +1,56 @@
+#lt{
+    width: 600px; 
+    height: 600px;
+}
+
+#logos{
+    margin-top: -390px;
+    margin-left: 100px;
+    margin-bottom: -120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid gray;
+ }
+
+#info{
+    padding-top: 153px;
+    margin-right: 90px;
+    padding-left: 80px;
+    padding-right: 60px;
+    padding-bottom: 80px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid gray;
+}
+
+#info h1{
+    text-align: center;
+}
+
+#info button{
+    margin-top: 30px;
+    margin-left: 210px;
+    height: 100px;
+    width: 250px !important;
+    font-size: xx-large;
+    background-color: #a50003;
+    box-shadow:
+    0 0.5px 0.8px -8px rgba(0, 0, 0, 0.181),
+    0 1.4px 2.3px -8px rgba(0, 0, 0, 0.26),
+    0 3.3px 5.4px -8px rgba(0, 0, 0, 0.339),
+    0 11px 18px -8px rgba(0, 0, 0, 0.52);
+}
+
+#info button:hover{
+    background: #7F0001;
+}
+
+@media only screen and (max-width: 790px) {
+    #lt{
+        width: 200px;
+        height: 200px;
+    }    
+}

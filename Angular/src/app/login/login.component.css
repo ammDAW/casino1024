@@ -1,0 +1,84 @@
+/* Login  */
+.login-page {
+    width: auto;
+    margin: 0;
+  }
+  .form .register-form {
+    display: none;
+  }
+  .form {
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 20px;
+    text-align: center;
+  }
+  .form input {
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 10px;
+    padding: 13px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  .form button {
+    text-transform: uppercase;
+    outline: 0;
+    background: #a50003;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow:
+  0 0.3px 0.3px -8px rgba(0, 0, 0, 0.161),
+  0 0.9px 0.7px -8px rgba(0, 0, 0, 0.231),
+  0 1.8px 1.4px -8px rgba(0, 0, 0, 0.289),
+  0 3.7px 2.9px -8px rgba(0, 0, 0, 0.359),
+  0 10px 8px -8px rgba(0, 0, 0, 0.466)
+;
+  }
+  .form button:hover,.form button:active,.form button:focus {
+    background: #7F0001;
+  }
+  .form .message {
+    margin: 10px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+  }
+  .form .message a {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .container:before, .container:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  /* Fin login */
+label {
+  display: block;
+  color: #b3b3b3;
+  float: left;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.required {
+ color: red;
+ padding-left: 3px;
+ font-style: italic;
+}

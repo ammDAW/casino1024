@@ -1,0 +1,103 @@
+<div id="general">
+    <div id="bingo"><!--parte izquierda del tablero con la informacion de los numeros-->
+        <div id="bombo"> <!--lo que es el bomboi donde está el lootiefile-->
+            <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_EX6tIQ.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+        </div>
+
+        <div id="numSalidos"> <!--array donde van saliendo los numeros que van saliendo-->
+            <h6>Chosen Numbers</h6>
+            <ul id="listaSalidos">
+                <li id="numSalido1">{{numAleatorios[0]}}</li>   <li id="numSalido2">{{numAleatorios[1]}}</li>
+            <li id="numSalido3">{{numAleatorios[2]}}</li>   <li id="numSalido4">{{numAleatorios[3]}}</li>
+            <li id="numSalido5">{{numAleatorios[4]}}</li>   <li id="numSalido6">{{numAleatorios[5]}}</li>
+            <li id="numSalido7">{{numAleatorios[6]}}</li>   <li id="numSalido8">{{numAleatorios[7]}}</li>
+            <li id="numSalido9">{{numAleatorios[8]}}</li>   <li id="numSalido10">{{numAleatorios[9]}}</li>
+            <li id="numSalido11">{{numAleatorios[10]}}</li>   <li id="numSalido12">{{numAleatorios[11]}}</li>
+            <li id="numSalido13">{{numAleatorios[12]}}</li>   <li id="numSalido14">{{numAleatorios[13]}}</li>
+            <li id="numSalido15">{{numAleatorios[14]}}</li>   <li id="numSalido16">{{numAleatorios[15]}}</li>
+            <li id="numSalido17">{{numAleatorios[16]}}</li>   <li id="numSalido18">{{numAleatorios[17]}}</li>
+            <li id="numSalido19">{{numAleatorios[18]}}</li>  <li id="numSalido20">{{numAleatorios[19]}}</li>
+        </ul>
+        </div>
+        
+        <div id="numPlayer"> <!--numeros seleccionados por el jugador-->
+            <h6>Selected Number</h6>
+            <ul id="listaPlayer" >
+                <li id="numPlayer1">{{numSelecc[0]}}</li>
+                <li id="numPlayer2">{{numSelecc[1]}}</li>
+                <li id="numPlayer3">{{numSelecc[2]}}</li>
+                <li id="numPlayer4">{{numSelecc[3]}}</li>
+                <li id="numPlayer5">{{numSelecc[4]}}</li>
+                <li id="numPlayer6">{{numSelecc[5]}}</li>
+                <li id="numPlayer7">{{numSelecc[6]}}</li>
+                <li id="numPlayer8">{{numSelecc[7]}}</li>
+            </ul> 
+        </div>
+        {{resultado}}
+    </div>
+
+    <div id="tablero"> <!--parte derecha con los 80 botones-->
+        <div id="infoColores">
+            <ng-container>
+                <label>Selected</label>
+                <div class="infoElegido"></div>
+            </ng-container>
+            
+            <ng-container>
+                <label>Correct</label>
+                <div class="infoAcertado"></div>
+            </ng-container>
+            
+            <ng-container>
+                <label>Failed</label>
+                <div class="infoFallado"></div>
+            </ng-container>
+            
+        </div>
+        
+        <div id="tableroBotones" >
+            <ng-container  *ngFor="let t of tablero"   >   
+                <!--[ngClass]="{'elegido': this.select==true, 'acertado': this.info==true, 'fallado': this.info==false}">
+             --> <button  id="tabBtn{{t}}"   class="btn btn-secondary" class="normal" (click)="addNumero(t)" >{{t}}</button>
+            </ng-container>
+        </div>
+
+        <div id="apuesta">
+                <h3>Bet: </h3>
+                <input type="number" class="form-control"/>
+                <button id="btnEmpezar" class=" btn btn-warning" (click)= "comparar()" [disabled]="click" >Start</button>
+                <button id="btnRestart" class="btn btn-warning" (click)="refresh()"> Restart</button>
+        </div>
+        <div id="premios">
+            <table>
+                <h3>Prize pool</h3>
+                <tr>
+                    <th>1/1</th>
+                    <th>2/2</th>
+                    <th>3/3</th>
+                    <th>4/4</th>
+                    <th>5/5</th>
+                    <th>6/6</th>
+                    <th>7/7</th>
+                    <th>8/8</th>
+                </tr>
+                <tr>
+                    <th>3.50 bytes</th>
+                    <th>14.00 bytes</th>
+                    <th>55.00 bytes</th>
+                    <th>225.00 bytes</th>
+                    <th>1000 bytes</th>
+                    <th>5000 bytes</th>
+                    <th>20000 bytes</th>
+                    <th>50000 bytes</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <app-user></app-user>
+    
+</div>
+
+
+

@@ -1,0 +1,8 @@
+<h1>Welcome!</h1>
+<ng-container *ngIf="!logueado">
+    <app-login (logueado)="getLogeado($event)" (idPoints)="getIdPoints($event)"></app-login> <!-- Login component-->
+</ng-container>
+<ng-container *ngIf="logueado">
+    <app-user [idPoints]="idPoints"></app-user> <!-- User component-->
+</ng-container>
+<app-ranking></app-ranking> <!-- Ranking component-->

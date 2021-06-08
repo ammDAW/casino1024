@@ -1,0 +1,42 @@
+<div class="login-page">
+  <div class="form">
+    <form class="login-form">
+      <label>User or Email</label><label class="required">*</label>
+      <input #loginUser type="text"/>
+      <label>Password</label><label class="required">*</label>
+      <input #loginPass type="password"/>
+      <button (click)="buscarUsuario(loginUser.value, loginPass.value)">SIGN IN</button>
+      <p class="message">No account? <a [routerLink]="">Create one!</a></p><br>
+    </form>
+    <form class="register-form">
+      <label>Name</label><label class="required">*</label>
+      <input #name type="text"/>
+
+      <label>Surname</label><label class="required">*</label>
+      <input #surname type="text"/>
+
+      <label>User</label><label class="required">*</label>
+      <input #username type="text"/>
+
+      <label>Birth Date</label><label class="required">*</label>
+      <input #age (change)="calcularEdad(age.value)" type="date"/>
+
+      <label>Email</label><label class="required">*</label>
+      <input #email type="text"/>
+
+      <label>Password</label><label class="required">*</label>
+      <input #password type="password" placeholder="Min 6"/>
+
+      <label>Repeat Password</label><label class="required">*</label>
+      <input type="password"/>
+      <!-- <input type="checkbox" (click)="calcularEdad(age.value)">
+      <label>Soy mayor de edad</label> -->
+      <button id="btnRegistro" (click)="crearUsuario(username.value, email.value, password.value, name.value, surname.value, age.value)" disabled>CREATE</button>
+      <p class="message">Already have an account? <a [routerLink]="">Sign in</a></p>
+    </form>
+  </div>
+</div> 
+
+<!-- Cosas a tener en cuenta: -->
+<!-- Los label de form son necesarios para que haga la animacion entre formularios -->
+<!-- Si se le quita la funcion que se ha puesto a los form para que no hagan submit el inicio de sesion no funcionaria -->
