@@ -64,8 +64,7 @@ export class LoginComponent implements OnInit {
 
         //Cookie
         this.cookie.set('token', this.jwtUser, {
-          expires:1, 
-          secure:true,
+          expires: 30 / 1440
         });
         this.cookieValue = this.cookie.get('token');
 
@@ -125,8 +124,7 @@ export class LoginComponent implements OnInit {
 
         //Cookie
         this.cookie.set('token', this.jwtUser, {
-          expires:1, 
-          secure:true
+          expires: 30 / 1440
         });
         this.cookieValue = this.cookie.get('token');
 
