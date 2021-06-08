@@ -1,1 +1,0 @@
-https://stackoverflow.com/questions/52789310/create-a-non-overlay-modal-that-does-non-closable-where-user-can-still-navigate
