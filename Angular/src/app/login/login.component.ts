@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   idUser: any; //Id en tabla "users"
   array: any;
   cookieValue: any;
+  private url = "http://localhost:1337/"
 
   constructor(private _router: Router, private cookie: CookieService) { }
 
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit {
   //LOGIN User
   buscarUsuario(user:any, pass:any) {
     axios
-      .post('http://localhost:1337/auth/local', {
+      .post(this.url + 'auth/local/', {
         identifier: user,
         password: pass,
       })
@@ -82,7 +83,7 @@ export class LoginComponent implements OnInit {
   //Busca todos los puntos para sacar los de cada usuario
   buscarPuntos() { 
     axios
-      .get('http://localhost:1337/points')
+      .get(this.url + 'points/')
       .then(response => {
         this.array = response.data;
       })
@@ -115,7 +116,7 @@ export class LoginComponent implements OnInit {
       "fechaNac": fechaNac      
     }
     axios
-      .post('http://localhost:1337/auth/local/register', datos)
+      .post(this.url + 'auth/local/register', datos)
       .then(response => {
         alert("Usuario Registrado")        
         this.jwtUser = response.data.jwt;
@@ -143,7 +144,7 @@ export class LoginComponent implements OnInit {
   //Initial points new User
   crearPuntos(userId){
     axios
-      .post('http://localhost:1337/points/',{id_user: userId})
+      .post(this.url + 'points/',{id_user: userId})
       .then(response =>{
         this.enviarIdPoints(response.data.id);
       })

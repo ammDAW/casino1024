@@ -12,6 +12,7 @@ export class AppComponent {
   idUser = 1;
   puntos = 0;
   userName = "";
+  private url = "http://localhost:1337/"
 
   ngOnInit(): void {
 
@@ -38,7 +39,7 @@ export class AppComponent {
 
   getPuntosUser(){
     axios
-    .get('http://localhost:1337/points/'+this.idUser)
+    .get(this.url + 'points/'+ this.idUser)
     .then(response => {
       // Handle success.
       this.puntos = response.data.puntos;
