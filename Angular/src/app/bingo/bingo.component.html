@@ -66,35 +66,45 @@
                 <h3>Bet: </h3>
                 <input type="number" class="form-control"/>
                 <button id="btnEmpezar" class=" btn btn-warning"   (click)= "comparar()" >Start</button>
+                <button id="btnRestart" class=" btn btn-warning" disabled>Restart</button>
         </div>
-        <div id="premios">
+        <!--<div id="premios">
             <table>
-                <h3>Prize pool</h3>
                 <tr>
-                    <th>1/1</th>
-                    <th>2/2</th>
-                    <th>3/3</th>
-                    <th>4/4</th>
-                    <th>5/5</th>
-                    <th>6/6</th>
-                    <th>7/7</th>
-                    <th>8/8</th>
+                    <th>PRIZE POOL</th>
                 </tr>
                 <tr>
-                    <th>3.50 bytes</th>
-                    <th>14.00 bytes</th>
-                    <th>55.00 bytes</th>
-                    <th>225.00 bytes</th>
-                    <th>1000 bytes</th>
-                    <th>5000 bytes</th>
-                    <th>20000 bytes</th>
-                    <th>50000 bytes</th>
+                    <td>1/1</td>
+                    <td>2/2</td>
+                    <td>3/3</td>
+                    <td>4/4</td>
+                    <td>5/5</td>
+                    <td>6/6</td>
+                    <td>7/7</td>
+                    <td>8/8</td>
+                </tr>
+                <tr>
+                    <td>x3.50</td>
+                    <td>x14.00</td>
+                    <td>x55.00</td>
+                    <td>x225.00</td>
+                    <td>x1000</td>
+                    <td>x5000</td>
+                    <td>x20000</td>
+                    <td>x50000</td>
                 </tr>
             </table>
         </div>
-    </div>
+    </div>-->
+    <!-- <div id="loginResponsive">
+        <ng-container *ngIf="!logueado">
+            <app-login (logueado)="getLogeado($event)" (idPoints)="getIdPoints($event)"></app-login>
+        </ng-container>
+        <ng-container *ngIf="logueado">
+            <app-user [idPoints]="idPoints"></app-user>
+        </ng-container>
+    </div> -->
     
-    <app-user></app-user>
     
 </div>
 

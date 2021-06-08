@@ -15,6 +15,7 @@ export class BingoComponent implements OnInit {
   select: boolean;
   numPinchado: string;
   premio: number;
+  logueado = false;
   constructor() {
   }
 
@@ -29,6 +30,9 @@ export class BingoComponent implements OnInit {
     }
   }
 
+  getLogeado(logeado : boolean){
+    this.logueado = logeado;
+  }
   addClass(){
     /*
     if(document.getElementById("#tabBtn" + id).classList.contains('elegido'))

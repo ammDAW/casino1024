@@ -1,11 +1,11 @@
-app-user{
+#loginResponsive{
     display: none;
 }
 #general{
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 #bingo{
@@ -13,6 +13,7 @@ app-user{
     background-color: #101625;
     padding-right: 20px;
     padding-left: 20px;
+    
 
     border-radius: 10px;
     margin-left: 30px;
@@ -100,8 +101,6 @@ li{
 
 }
 
-
-
 /*CLASES MINI INFO*/
 #infoColores{
     display: flex;
@@ -146,19 +145,17 @@ li{
     margin-right: 50px;
     margin-left: 30px;
 }
-#premios, td, th{
+#premios {
     border-collapse: collapse;
-  width: 100%;
-  border: 5px solid black;
+    width: 100%;
+    border: 5px solid black;
+    text-align: center;
+    margin: 10px;
 }
-th, td {
-    text-align: left;
-    padding: 8px;
-  }
-  
+#premios td {
+    text-align: center;
+}
 
-  
-  
 
 /*CLASES BOTON*/
 .elegido{
@@ -211,6 +208,9 @@ th, td {
 }
 
 @media screen and (max-width:700px){ /*mobile*/
+    #loginResponsive{
+        display: block;
+    }
     #general{
         justify-content: center;
         flex-wrap: wrap;
