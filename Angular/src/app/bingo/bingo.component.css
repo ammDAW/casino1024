@@ -1,6 +1,6 @@
-app-user{
+/* app-user{
     display: none;
-}
+} */
 #general{
     display: flex;
     justify-content: space-between;
@@ -253,8 +253,8 @@ th, td {
         font-size: 20px;
     }
 
-    app-user{
+    /* app-user{
         display: block;
     }
-
+ */
 }
