@@ -21,7 +21,7 @@ export class RankingComponent implements OnInit {
     .then(response => {
       // Handle success.
       function comparar ( a:any, b:any ){ return b.puntos - a.puntos; }
-      this.rankings = response.data.sort(comparar).slice(0,4);
+      this.rankings = response.data.sort(comparar).slice(0,5);
     })
     .catch(error => {
       // Handle error.
