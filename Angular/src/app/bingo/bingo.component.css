@@ -208,16 +208,16 @@ li{
 }
 
 @media screen and (max-width:700px){ /*mobile*/
-    #loginResponsive{
+/*     #loginResponsive{
         display: block;
-    }
+    } */
     #general{
         justify-content: center;
         flex-wrap: wrap;
     }
     #tablero{
         width: 100%;
-        height: 50%;
+        height: 100%;
     }
     #infoColores{
        display: none;
@@ -253,9 +253,9 @@ li{
     h3{
         font-size: 20px;
     }
-
+/*
     app-user{
         display: block;
     }
-
+*/
 }
