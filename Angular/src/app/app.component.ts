@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import axios from 'axios';
 import * as $ from 'jquery';
 
@@ -8,6 +8,8 @@ import * as $ from 'jquery';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
+
   title = 'Angular';
   idUser = 1;
   puntos = 0;
@@ -15,24 +17,11 @@ export class AppComponent {
   private url = "http://localhost:1337/"
 
   ngOnInit(): void {
+    
 
-    //oculta la barra con el toggler
-
-    $(function(){
-      $("#menu-toggle").click(function(e) {
-          e.preventDefault();
-          $("#wrapper").toggleClass("toggled");
-      });
-
-      /* $(window).resize(function(e) {
-        if($(window).width()<=768){
-          $("#wrapper").removeClass("toggled");
-        }else{
-          $("#wrapper").addClass("toggled");
-        }
-      }); */
+  
       
-    });
+    
 
   }
   
