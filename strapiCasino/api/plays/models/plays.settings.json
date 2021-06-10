@@ -16,10 +16,6 @@
       "model": "user",
       "via": "plays"
     },
-    "fecha_jugada": {
-      "type": "datetime",
-      "required": true
-    },
     "ptos_inicial": {
       "type": "biginteger",
       "required": true,
@@ -29,6 +25,12 @@
       "type": "biginteger",
       "required": true,
       "min": "0"
+    },
+    "num_select": {
+      "type": "string"
+    },
+    "num_out": {
+      "type": "string"
     }
   }
 }
