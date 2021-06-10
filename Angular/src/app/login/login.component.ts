@@ -117,7 +117,7 @@ export class LoginComponent implements OnInit {
     axios
       .post(this.url + 'auth/local/register', datos)
       .then(response => {
-        alert("Usuario Registrado")        
+        alert("Usuario Registrado");       
         this.jwtUser = response.data.jwt;
         this.idUser = response.data.user.id;
         this.username = response.data.user.username;
@@ -129,12 +129,9 @@ export class LoginComponent implements OnInit {
         this.cookieValue = this.cookie.get('token');
 
         this.crearPuntos(this.idUser);
-
-        //PARA REDIRECCION QUITAR LA SIGUIENTE LINEA QUE ENVIA EL LOGIN E IMPLEMENTAR AQUI
-        this.enviarLogin(true);                
+        window.location.reload();            
       })
       .catch(error => {
-        // Handle error.
         console.log('An error occurred:', error.response);
       });
   }
@@ -144,7 +141,8 @@ export class LoginComponent implements OnInit {
     axios
       .post(this.url + 'points/',{id_user: userId})
       .then(response =>{
-        this.enviarIdPoints(response.data.id);
+        console.log('Puntos creados');
+        //this.enviarIdPoints(response.data.id);
       })
   }
 
