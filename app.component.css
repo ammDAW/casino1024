@@ -1,0 +1,74 @@
+#general {
+  color: #FFFF;
+  background-color: #1f2c4c;
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  overflow: hidden;
+  height: 100%;/*  */
+}
+
+#general.toggled {
+  padding-right: 250px;
+}
+
+#sidebar {/*
+  box-shadow:
+  0 2.7px 4.5px rgba(0, 0, 0, 0.41),
+  0 6.4px 10.6px rgba(0, 0, 0, 0.304),
+  0 11.4px 19px rgba(0, 0, 0, 0.257),
+  0 18.9px 31.5px rgba(0, 0, 0, 0.221),
+  0 31.2px 51.8px rgba(0, 0, 0, 0.189),
+  0 54.6px 90.6px rgba(0, 0, 0, 0.153),
+  0 118px 196px rgba(0, 0, 0, 0.106)
+;*/
+ 
+  position: fixed;
+  right: 250px;
+  width: 0;
+  height: 100%;
+  margin-right: -250px;
+  opacity: 100%;
+  /*overflow-y: auto;*/
+
+  /*-webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;*/
+}
+
+#general.toggled #sidebar {
+  width: 250px;
+}
+
+@media(min-width:768px) {
+  #general {
+    padding-left: 0;
+  }
+  #general.toggled {
+    padding-right: 250px;
+  }
+  #sidebar {
+    width: 0;
+  }
+  #general.toggled #sidebar {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width:700px){ /*eliminar la sidebar del mobile (provisional)*/
+  #sidebar {
+    width: 0;
+    display: none;
+  }
+
+  #general.toggled {
+    padding-right: 0;
+  }
+}
+
+
+
+
