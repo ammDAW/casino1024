@@ -54,6 +54,59 @@
             </ng-container>
             
         </div>
+        <div id="popup">
+            <ng-template #contenido let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title">How To Play</h4>
+                    <button class="close" arial-label="close" type="button" (click)="modal.dismiss()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Este juego es el KENO.
+                    Consiste en elegir entre 1 y 8 números(es decir, puedes elegir 1 número, 2 números, 3 números,.., así hasta 8 números).
+                    El mínimo a elegir es un número y el máximo son 8 números. Una vez que usted ya ha elegido los números, que al seleccionarlos
+                    se pondrán en color amarillo, que quiera y meter una apuesta de los puntos con los que quiere apostar,
+                    debe darle al botón de PLAY. Una vez dado al botón, saldrán 20 números aleatorios y se compararán los números
+                    que usted ha elegido con los que han salido aleatorios. Una vez comparados, saldrán en pantalla en color rojo los que no coinciden
+                    , en color verde los que sí has acertado. También saldrá un texto que indique si se ha fallado o si hay acierto. 
+                    Usted gana si acierta todos los números que ha elegido. Y se llevará el premio.
+                    Si hay alguno en rojo o si sale el texto "fallado", significa que usted no ha ganado y la apuesta que ha hecho la pierde.
+                </div>
+          
+                <div id="premios">
+                    <h4>Prize pool</h4>
+                    <table>
+                        <tr>
+                            <th>1/1</th>
+                            <th>2/2</th>
+                            <th>3/3</th>
+                            <th>4/4</th>
+                            <th>5/5</th>
+                            <th>6/6</th>
+                            <th>7/7</th>
+                            <th>8/8</th>
+                        </tr>
+                        <tr>
+                            <td>3.50 bytes</td>
+                            <td>14.00 bytes</td>
+                            <td>55.00 bytes</td>
+                            <td>225.00 bytes</td>
+                            <td>1000 bytes</td>
+                            <td>5000 bytes</td>
+                            <td>20000 bytes</td>
+                            <td>50000 bytes</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" (click)="modal.close()">Ok!</button>
+                </div>
+            </ng-template>
+            
+            <button type="button" class="btnpopup" (click)="openXL(contenido)">How To Play</button>
+        </div>  
+        
         
         <div id="tableroBotones" >
             <ng-container  *ngFor="let t of tablero"   >   
@@ -68,8 +121,13 @@
                 <button id="btnEmpezar" class=" btn btn-warning" (click)= "comparar()" [disabled]="click" >Start</button>
                 <button id="btnRestart" class="btn btn-warning" (click)="refresh()"> Restart</button>
         </div>
-    </div>   
+    </div>
+    
+    <app-user></app-user>
+    
 </div>
+
+
 
 
 
