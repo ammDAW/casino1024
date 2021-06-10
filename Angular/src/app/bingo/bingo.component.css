@@ -1,6 +1,3 @@
-/* app-user{
-    display: none;
-} */
 #general{
     display: flex;
     justify-content: space-between;
@@ -46,6 +43,7 @@ ul{
     border:  black 2px solid;
     border-radius: 10px;
 }
+
 li{
     border: black 1px solid;
     font-size:large;
@@ -58,6 +56,7 @@ li{
     border-radius: 50%;
     text-align: center;
 }
+
 #tablero{
     width: 80%;
     margin-right: 100px;
@@ -66,37 +65,36 @@ li{
 
 #tableroBotones button{
     box-shadow:
-  0 0.7px 0.8px rgba(0, 0, 0, 0.42),
-  0 1.8px 2px rgba(0, 0, 0, 0.29),
-  0 3.7px 4.1px rgba(0, 0, 0, 0.234),
-  0 7.7px 8.4px rgba(0, 0, 0, 0.186),
-  0 21px 23px rgba(0, 0, 0, 0.13)
-;
+        0 0.7px 0.8px rgba(0, 0, 0, 0.42),
+        0 1.8px 2px rgba(0, 0, 0, 0.29),
+        0 3.7px 4.1px rgba(0, 0, 0, 0.234),
+        0 7.7px 8.4px rgba(0, 0, 0, 0.186),
+        0 21px 23px rgba(0, 0, 0, 0.13)
+    ;
     margin: 12px;
     height: 65px;
     width: 65px;
     text-align: center;
     font-size:xx-large;
     border-radius: 50%;
-    /*background-color: rgba(110, 108, 108, 0.733);*/
     border: 0;
 }
+
 .normal{
     box-shadow:
-    0 0.7px 0.8px rgba(0, 0, 0, 0.42),
-    0 1.8px 2px rgba(0, 0, 0, 0.29),
-    0 3.7px 4.1px rgba(0, 0, 0, 0.234),
-    0 7.7px 8.4px rgba(0, 0, 0, 0.186),
-    0 21px 23px rgba(0, 0, 0, 0.13)
-  ;
-      margin: 12px;
-      height: 65px;
-      width: 65px;
-      text-align: center;
-      font-size:xx-large;
-      border-radius: 50%;
-      /*background-color: rgba(110, 108, 108, 0.733);*/
-      border: 0;
+        0 0.7px 0.8px rgba(0, 0, 0, 0.42),
+        0 1.8px 2px rgba(0, 0, 0, 0.29),
+        0 3.7px 4.1px rgba(0, 0, 0, 0.234),
+        0 7.7px 8.4px rgba(0, 0, 0, 0.186),
+        0 21px 23px rgba(0, 0, 0, 0.13)
+    ;
+    margin: 12px;
+    height: 65px;
+    width: 65px;
+    text-align: center;
+    font-size:xx-large;
+    border-radius: 50%;
+    border: 0;
 
 }
 
@@ -134,30 +132,35 @@ li{
     display: flex;
     justify-content: flex-start;
    
-    margin: 30px;
-    /*border: black 2px solid;*/
+    margin: auto;
+    margin-top: 30px;
     border-radius: 10px;
     padding: 10px;
-    width: 500px;
+    width: 600px;
     background-color: #161e33;
 }
 #apuesta input{
     width: 200px;
     margin-right: 50px;
-    margin-left: 30px;
+    margin-left: 10px;
 }
-#btnRestart{
-    margin-left: 15px;
+/*QUITAER FLECHAS INPUT*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
 }
-#premios, td, th{
-    border-collapse: collapse;
-  width: 100%;
-  border: 5px solid black;
+input[type=number] { -moz-appearance:textfield; }
+
+#apuesta button{
+    width: 100px;
+    margin-right: 10px;
 }
-th, td {
-    text-align: left;
-    padding: 8px;
-  }
+
+#apuesta h3{
+    margin-left: 20px;
+}
+
 
 /*CLASES BOTON*/
 .elegido{
@@ -174,87 +177,129 @@ th, td {
 
 
 /*RESPONSIVE*/
-@media screen and (max-width:1050px){
+@media screen and (max-width:1050px){ /*iPad Pro*/
     #bingo{
         display: none;
     }
+
     #tablero{
         margin: auto;
         width: 100%;
         height: 100%;
     }
+
     #infoColores{
         display: none;
     }
+
     #tablero button{
         margin-top: 0;
         margin-right: 0;
-        width: 60px;
-        height:60px;
+        margin-left: 20px;
+        width: 85px;
+        height: 85px;
         text-align: center;
-        font-size: auto;
+        font-size: 50px ;
         padding: 0;
     }
+
     #apuesta{
         margin: auto;
-        margin-top: 20px;
+        margin-top: 40px;
         border: 0;
-        width: 80%;
-        justify-content: center;
+        width: 90%;
+    }
+
+    #apuesta input{
+        width: 250px;
+        height: 50px;
+        font-size: x-large ;
     }
 
     #apuesta button{
-        width: 100px;
-        height: 40px;
+        width: 150px;
+        height: 50px;
+        font-size: x-large ;
     }    
 }
 
-@media screen and (max-width:700px){ /*mobile*/
-    #general{
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+@media screen and (max-width:769px){ /*iPad*/
     #tablero{
-        width: 100%;
-        height: 50%;
+        margin-top: 0;
     }
-    #infoColores{
-       display: none;
-    }
+
     #tablero button{
         margin-top: 0;
         margin-right: 0;
-        width: 30px;
-        height: 30px;
-        font-size:large;      
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        font-size: xx-large;
+        padding: 0;
     }
+    
     #apuesta{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
         margin: auto;
-        height: 60px;
+        margin-top: 40px;
+        border: 0;
+    }
+
+    #apuesta button{
+        width: 150px;
+        height: 50px;
+        font-size: x-large ;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width:700px){ /*Movil*/
+    #general{
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    #tablero{
+        margin-top: 20px;
+        margin-right: 0;
+        margin-left: 10px;
+        width: 100%;
+        height: 100%;
+    }
+
+    #infoColores{
+       display: none;
+    }
+
+    #tablero button{
+        margin: 5px;
+        width: 40px;
+        height: 40px;
+        font-size:x-large;   
+    }
+
+    #apuesta{
+        margin-top: 45px;
+        height: 100%;
         width: 100%;
         flex-wrap: wrap;
-        height: 60px;
+        height: 100px;
         text-align: center;
-    }
-    #apuesta button{
-        flex-wrap: wrap;
-        width: 70px;
-        height: 30px;
-        font-size: small;
     }
     
     #apuesta input{
-        width: 100px;
-        height: 35px;
-/*         margin-right: 50px;
-        margin-left: 30px; */
-    }
-    h3{
-        font-size: 20px;
+        width: 200px;
+        height: 30px;
     }
 
-    /* app-user{
-        display: block;
+    #apuesta button{
+        flex-wrap: wrap;
+        width: 100px;
+        height: 30px;
+        font-size: large;
     }
- */
 }
