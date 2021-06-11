@@ -5,6 +5,7 @@
     margin-top: 50px;
 }
 
+/* BOMBO BINGO */
 #bingo{
     width: 30%;
     background-color: #101625;
@@ -24,7 +25,6 @@
         0 14px 67px rgba(0, 0, 0, 0.45)
     ;
 }
-
 #bombo{
     margin-top: -180px;
     margin-bottom: 30px;
@@ -32,7 +32,6 @@
     border: rgb(0, 0, 0) 20px dashed;
     border-radius: 50%;
 }
-
 ul{
     display: flex;
     flex-wrap: wrap;
@@ -55,7 +54,9 @@ li{
     border-radius: 50%;
     text-align: center;
 }
+/* BOMBO BINGO */
 
+/* TABLERO */
 #tablero{
     width: 80%;
     margin-right: 100px;
@@ -63,12 +64,12 @@ li{
 }
 #tableroBotones button{
     box-shadow:
-  0 0.7px 0.8px rgba(0, 0, 0, 0.42),
-  0 1.8px 2px rgba(0, 0, 0, 0.29),
-  0 3.7px 4.1px rgba(0, 0, 0, 0.234),
-  0 7.7px 8.4px rgba(0, 0, 0, 0.186),
-  0 21px 23px rgba(0, 0, 0, 0.13)
-;
+    0 0.7px 0.8px rgba(0, 0, 0, 0.42),
+    0 1.8px 2px rgba(0, 0, 0, 0.29),
+    0 3.7px 4.1px rgba(0, 0, 0, 0.234),
+    0 7.7px 8.4px rgba(0, 0, 0, 0.186),
+    0 21px 23px rgba(0, 0, 0, 0.13);
+
     margin: 12px;
     height: 65px;
     width: 65px;
@@ -85,6 +86,7 @@ li{
     0 3.7px 4.1px rgba(0, 0, 0, 0.234),
     0 7.7px 8.4px rgba(0, 0, 0, 0.186),
     0 21px 23px rgba(0, 0, 0, 0.13);
+
       margin: 12px;
       height: 65px;
       width: 65px;
@@ -94,8 +96,20 @@ li{
       /*background-color: rgba(110, 108, 108, 0.733);*/
       border: 0;
 }
+/* TABLERO */
 
 /*CLASES MINI INFO*/
+.elegido{
+    background-color:#E0A800;    
+}
+
+.acertado{
+    background-color:green;    
+}
+
+.fallado{
+    background-color:red;    
+}
 #infoColores{
     display: flex;
     justify-content: center;
@@ -123,7 +137,7 @@ li{
 }
 /*CLASES MINI INFO*/
 
-
+/* BARRA DEBAJO */
 #apuesta{
     display: flex;
     justify-content: flex-start;
@@ -132,24 +146,32 @@ li{
     /*border: black 2px solid;*/
     border-radius: 10px;
     padding: 10px;
-    width: 500px;
+    width: 750px;
     background-color: #161e33;
 }
 #apuesta input{
+    margin-top: 1px;
     width: 200px;
+    height: 45px;
     margin-right: 50px;
-    margin-left: 30px;
+    margin-left: 5px;
 }
 #btnRestart{
-    margin-left: 15px;
+    margin-right: 10px;
+    margin-left: 20px;
 }
 #popup{
+    margin-top: 3px;
+    margin-left: 90px;
     text-align: right;
 }
+/* BARRA DEBAJO */
 
-h4{
-    text-align: center;
-}
+/* POPUP DENTRO */
+h4 { text-align: center; }
+th, td {padding: 15px;}
+th {height: 40px;}
+
 #premios, td, th{
   border: 1px solid #ddd;
   text-align: left;
@@ -159,14 +181,6 @@ h4{
     border-collapse :collapse;
     width: 60%;
 }
-th, td{
-    padding: 15px;
-}
-  
-  th {
-    height: 40px;
-  }
-
 .btnpopup{
 font-weight: 600;
 font-size: 20px;
@@ -178,28 +192,14 @@ border-width: 3px;
 border-style: solid;
 border-radius: 10px;
 }
-
-
 .example-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-
-/*CLASES BOTON*/
-.elegido{
-    background-color:#E0A800;    
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
 }
-
-.acertado{
-    background-color:green;    
-}
-
-.fallado{
-    background-color:red;    
-}
+/* POPUP DENTRO */
 
 
 /*RESPONSIVE*/
@@ -281,9 +281,4 @@ border-radius: 10px;
     h3{
         font-size: 20px;
     }
-
-    /* app-user{
-        display: block;
-    }
- */
 }

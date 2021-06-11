@@ -64,6 +64,12 @@
         </div>
 
         <div id="apuesta">
+                <br>
+                <label for="number">Bet:</label>
+                <input type="number" class="form-control"/>
+                <button id="btnEmpezar" class=" btn btn-warning" (click)= "comparar()" [disabled]="click" >Start</button>
+                <button id="btnRestart" class="btn btn-warning" (click)="refresh()"> Restart</button>
+                <br>
                 <div id="popup">
                     <ng-template #contenido let-modal>
                         <div class="modal-header">
@@ -114,13 +120,8 @@
                         </div>
                     </ng-template>
                     
-                    <button type="button" class="btnpopup" (click)="openXL(contenido)">FAQ</button>
+                    <button type="button" class="btnpopup" (click)="openXL(contenido)">HOW TO PLAY</button>
                 </div>
-                <br>
-                <h3>Bet: </h3>
-                <input type="number" class="form-control"/>
-                <button id="btnEmpezar" class=" btn btn-warning" (click)= "comparar()" [disabled]="click" >Start</button>
-                <button id="btnRestart" class="btn btn-warning" (click)="refresh()"> Restart</button>
             </div>
         
     </div>
