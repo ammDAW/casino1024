@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation} from '@angular/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-bingo',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class BingoComponent implements OnInit {
+  
   tablero: number[] = new Array(80); //tablero[0] = 1 y tablero[79] = 80 es decir (i+1)
   numSelecc : number[] = new Array();
   contador: number; //para llevar la cuenta de los números acertados
@@ -16,13 +19,31 @@ export class BingoComponent implements OnInit {
   select: boolean;
   numPinchado: string;
   premio=3.50;
-  constructor() {
-  }
+  
+  constructor(private modal:NgbModal) { }
+  
+
 
   ngOnInit(): void {
     this.generarTablero();
     console.log(this.tablero);
   }
+
+  openSM(contenido){
+  this.modal.open(contenido,{size:'sm'});
+}
+openLG(contenido){
+  this.modal.open(contenido,{size:'lg'});
+}
+openXL(contenido){
+  this.modal.open(contenido,{size:'xl'});
+}
+openCentrado(contenido){
+  this.modal.open(contenido,{centered:true});
+}
+openScroll(contenido){
+  this.modal.open(contenido,{scrollable:true});
+}
 
   generarTablero(){
     for(let i=0; i<=79; i++){
@@ -151,5 +172,8 @@ export class BingoComponent implements OnInit {
     }
     console.log("fin del juego");
   }
+  
+  
+
 
 }

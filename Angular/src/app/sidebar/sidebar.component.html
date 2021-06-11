@@ -1,8 +1,49 @@
-<h1>Welcome!</h1>
-<ng-container *ngIf="!logueado">
-    <app-login (logueado)="getLogeado($event)" (idPoints)="getIdPoints($event)"></app-login> <!-- Login component-->
-</ng-container>
-<ng-container *ngIf="logueado">
-    <app-user [idPoints]="idPoints"></app-user> <!-- User component-->
-</ng-container>
-<app-ranking></app-ranking> <!-- Ranking component-->
+<!-- #enddocregion mat-menu-trigger-for -->
+
+  <mat-sidenav-container
+      class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+      
+      <mat-sidenav id="closeBtn" #sidenav mode="side" opened="true" [position]="nav_position">
+        <p><button mat-button (click)="close('toggle button')">Close</button></p>
+          <h1>Welcome!</h1>
+          <ng-container *ngIf="!logueado">
+              <app-login (logueado)="getLogeado($event)" (idPoints)="getIdPoints($event)"></app-login> <!-- Login component-->
+          </ng-container>
+          <ng-container *ngIf="logueado">
+              <app-user [idPoints]="idPoints"></app-user> <!-- User component-->
+          </ng-container>
+          <app-ranking></app-ranking> <!-- Ranking component-->
+      </mat-sidenav>
+
+      <mat-sidenav-content >
+        <button id="openBtn" (click)="sideNav.toggle()" mat-button>Login</button>
+      </mat-sidenav-content>
+
+  </mat-sidenav-container><!-- sidebar 
+
+
+
+
+
+
+  
+  <!--mat-drawer-container class="example-container">
+  <mat-drawer-content>
+    <button id="openBtn" (click)="sideNav.toggle()" mat-button>Login</button>
+    <button id="positionBtn" (click)="onTogglePosition('end')" mat-button></button>
+  </mat-drawer-content>
+  <mat-drawer id="content" #sideNav mode="side" opened="true" [position]="nav_position">
+    <h1>Welcome!</h1>
+          <ng-container *ngIf="!logueado">
+              <app-login (logueado)="getLogeado($event)" (idPoints)="getIdPoints($event)"></app-login> <!-- Login component--
+            </ng-container>
+            <ng-container *ngIf="logueado">
+                <app-user [idPoints]="idPoints"></app-user> <!-- User component--
+            </ng-container>
+            <app-ranking></app-ranking> <!-- Ranking component--
+    </mat-drawer>
+  
+  </mat-drawer-container>
+  
+  -->
+
