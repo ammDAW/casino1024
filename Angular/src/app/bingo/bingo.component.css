@@ -4,14 +4,11 @@
     margin-bottom: 50px;
     margin-top: 50px;
 }
-
-/* BOMBO BINGO */
 #bingo{
     width: 30%;
     background-color: #101625;
     padding-right: 20px;
     padding-left: 20px;
-
     border-radius: 10px;
     margin-left: 30px;
     display: flex;
@@ -26,10 +23,10 @@
     ;
 }
 #bombo{
-    margin-top: -180px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     width: 100%;
-    border: rgb(0, 0, 0) 20px dashed;
+    border: black 15px dashed;
+    /* background-color: rgb(99, 96, 96); */
     border-radius: 50%;
 }
 ul{
@@ -42,6 +39,7 @@ ul{
     border:  black 2px solid;
     border-radius: 10px;
 }
+
 li{
     border: black 1px solid;
     font-size:large;
@@ -54,80 +52,67 @@ li{
     border-radius: 50%;
     text-align: center;
 }
-/* BOMBO BINGO */
 
-/* TABLERO */
 #tablero{
     width: 80%;
     margin-right: 100px;
     margin-left: 180px;
 }
+
 #tableroBotones button{
     box-shadow:
-    0 0.7px 0.8px rgba(0, 0, 0, 0.42),
-    0 1.8px 2px rgba(0, 0, 0, 0.29),
-    0 3.7px 4.1px rgba(0, 0, 0, 0.234),
-    0 7.7px 8.4px rgba(0, 0, 0, 0.186),
-    0 21px 23px rgba(0, 0, 0, 0.13);
-
+        0 0.7px 0.8px rgba(0, 0, 0, 0.42),
+        0 1.8px 2px rgba(0, 0, 0, 0.29),
+        0 3.7px 4.1px rgba(0, 0, 0, 0.234),
+        0 7.7px 8.4px rgba(0, 0, 0, 0.186),
+        0 21px 23px rgba(0, 0, 0, 0.13)
+    ;
     margin: 12px;
     height: 65px;
     width: 65px;
     text-align: center;
     font-size:xx-large;
     border-radius: 50%;
-    /*background-color: rgba(110, 108, 108, 0.733);*/
     border: 0;
 }
+
 .normal{
     box-shadow:
-    0 0.7px 0.8px rgba(0, 0, 0, 0.42),
-    0 1.8px 2px rgba(0, 0, 0, 0.29),
-    0 3.7px 4.1px rgba(0, 0, 0, 0.234),
-    0 7.7px 8.4px rgba(0, 0, 0, 0.186),
-    0 21px 23px rgba(0, 0, 0, 0.13);
+        0 0.7px 0.8px rgba(0, 0, 0, 0.42),
+        0 1.8px 2px rgba(0, 0, 0, 0.29),
+        0 3.7px 4.1px rgba(0, 0, 0, 0.234),
+        0 7.7px 8.4px rgba(0, 0, 0, 0.186),
+        0 21px 23px rgba(0, 0, 0, 0.13)
+    ;
+    margin: 12px;
+    height: 65px;
+    width: 65px;
+    text-align: center;
+    font-size:xx-large;
+    border-radius: 50%;
+    border: 0;
 
-      margin: 12px;
-      height: 65px;
-      width: 65px;
-      text-align: center;
-      font-size:xx-large;
-      border-radius: 50%;
-      /*background-color: rgba(110, 108, 108, 0.733);*/
-      border: 0;
 }
-/* TABLERO */
 
 /*CLASES MINI INFO*/
-.elegido{
-    background-color:#E0A800;    
-}
-
-.acertado{
-    background-color:green;    
-}
-
-.fallado{
-    background-color:red;    
-}
 #infoColores{
     display: flex;
     justify-content: center;
     /*flex-wrap: wrap;*/
     margin-bottom: 10px;
-    }
+}
 #infoColores div{
     height: 30px;
     width: 30px;
     border: 2px black solid;
     border-radius: 5px;
     margin-right: 100px;
-    }
+}
 #infoColores label{
     margin-right: 10px;
 }
 .infoElegido{
-    background-color: #E0A800;
+    background-color: yellow;
 }
 .infoAcertado{
     background-color: green;
@@ -135,150 +120,176 @@ li{
 .infoFallado{
     background-color: red;
 }
-/*CLASES MINI INFO*/
-
-/* BARRA DEBAJO */
 #apuesta{
     display: flex;
     justify-content: flex-start;
-   
-    margin: 30px;
-    /*border: black 2px solid;*/
+
+    margin: auto;
+    margin-top: 30px;
     border-radius: 10px;
     padding: 10px;
-    width: 750px;
+    width: 600px;
     background-color: #161e33;
 }
 #apuesta input{
-    margin-top: 1px;
     width: 200px;
-    height: 45px;
     margin-right: 50px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
-#btnRestart{
+/*QUITAER FLECHAS INPUT*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type=number] { -moz-appearance:textfield; }
+
+#apuesta button{
+    width: 100px;
     margin-right: 10px;
+}
+
+#apuesta h3{
     margin-left: 20px;
 }
-#popup{
-    margin-top: 3px;
-    margin-left: 90px;
-    text-align: right;
-}
-/* BARRA DEBAJO */
 
-/* POPUP DENTRO */
-h4 { text-align: center; }
-th, td {padding: 15px;}
-th {height: 40px;}
 
-#premios, td, th{
-  border: 1px solid #ddd;
-  text-align: left;
-  margin:0 auto;
+/*CLASES BOTON*/
+.elegido{
+    background-color:#E0A800;    
 }
-#premios{
-    border-collapse :collapse;
-    width: 60%;
+.acertado{
+    background-color:green;    
 }
-.btnpopup{
-font-weight: 600;
-font-size: 20px;
-padding: 5px;
-background-color: transparent;
-color: grey;
-border-color: white;
-border-width: 3px;
-border-style: solid;
-border-radius: 10px;
+.fallado{
+    background-color:red;    
 }
-.example-container {
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-}
-/* POPUP DENTRO */
 
 
 /*RESPONSIVE*/
-@media screen and (max-width:1050px){
+@media screen and (max-width:1050px){ /*iPad Pro*/
     #bingo{
         display: none;
     }
+
     #tablero{
         margin: auto;
         width: 100%;
         height: 100%;
     }
+
     #infoColores{
         display: none;
     }
+
     #tablero button{
         margin-top: 0;
         margin-right: 0;
-        width: 60px;
-        height:60px;
+        margin-left: 20px;
+        width: 85px;
+        height: 85px;
         text-align: center;
-        font-size: auto;
+        font-size: 50px ;
         padding: 0;
     }
+
     #apuesta{
         margin: auto;
-        margin-top: 20px;
+        margin-top: 40px;
         border: 0;
-        width: 80%;
-        justify-content: center;
+        width: 90%;
+    }
+
+    #apuesta input{
+        width: 250px;
+        height: 50px;
+        font-size: x-large ;
     }
 
     #apuesta button{
-        width: 100px;
-        height: 40px;
+        width: 150px;
+        height: 50px;
+        font-size: x-large ;
     }    
 }
 
-@media screen and (max-width:700px){ /*mobile*/
-    #general{
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+@media screen and (max-width:769px){ /*iPad*/
     #tablero{
-        width: 100%;
-        height: 50%;
+        margin-top: 0;
     }
-    #infoColores{
-       display: none;
-    }
+
     #tablero button{
         margin-top: 0;
         margin-right: 0;
-        width: 30px;
-        height: 30px;
-        font-size:large;      
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        font-size: xx-large;
+        padding: 0;
     }
+
     #apuesta{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
         margin: auto;
-        height: 60px;
+        margin-top: 40px;
+        border: 0;
+    }
+
+    #apuesta button{
+        width: 150px;
+        height: 50px;
+        font-size: x-large ;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width:700px){ /*Movil*/
+    #general{
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    #tablero{
+        margin-top: 20px;
+        margin-right: 0;
+        margin-left: 10px;
+        width: 100%;
+        height: 100%;
+    }
+
+    #infoColores{
+       display: none;
+    }
+
+    #tablero button{
+        margin: 5px;
+        width: 40px;
+        height: 40px;
+        font-size:x-large;   
+    }
+
+    #apuesta{
+        margin-top: 45px;
+        height: 100%;
         width: 100%;
         flex-wrap: wrap;
-        height: 60px;
+        height: 100px;
         text-align: center;
     }
+
+    #apuesta input{
+        width: 200px;
+        height: 30px;
+    }
+
     #apuesta button{
         flex-wrap: wrap;
-        width: 70px;
-        height: 30px;
-        font-size: small;
-    }
-    
-    #apuesta input{
         width: 100px;
-        height: 35px;
-/*         margin-right: 50px;
-        margin-left: 30px; */
-    }
-    h3{
-        font-size: 20px;
+        height: 30px;
+        font-size: large;
     }
 }
