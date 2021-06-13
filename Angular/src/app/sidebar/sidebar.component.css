@@ -3,13 +3,37 @@ h1{
     text-align: center;
     margin: 10px;
   }
+
+  mat-sidenav-container{
+    height: 100%;
+  }
+  mat-sidenav, mat-sidenav-content{
+    padding: 16px;
+  }
+  mat-sidenav{
+    background-color: transparent;
+  }
+  mat-sidenav-content{
+    background-color: #1f2c4c;
+  }
+  #openBtn{
+    font-weight: 600;
+    font-size: 20px;
+    color:rgb(0, 0, 0);
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-left:40px;
+    padding-right:40px;
+    border-width: 3px;
+    border-style: solid;
+  }
+ /* 
   .example-container {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
- 
   background-color: transparent;
   }
   #openBtn{
@@ -24,14 +48,15 @@ h1{
     border-width: 3px;
     border-style: solid;
   }
-  /*
-  #content{
-    background-color: transparent;
-  right: 250px;
-  width: 0;
-  height: 100%;
   
-  }*/
+  #content{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+  
+  }
   #closeBtn{
     background-color: transparent;
-  }
+  }*/

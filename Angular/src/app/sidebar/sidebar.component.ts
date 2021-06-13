@@ -1,8 +1,6 @@
-import { Component, OnInit,ViewChild} from '@angular/core';
+import { Component, OnInit  ,ViewChild } from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
-
-
-//import {FormControl} from '@angular/forms';
+import {FormControl} from '@angular/forms';
 
 
 @Component({
@@ -11,6 +9,8 @@ import {MatSidenav} from '@angular/material/sidenav';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit{
+  opened=false;
+
   @ViewChild('sidenav') sidenav: MatSidenav;
 
   reason = '';
@@ -19,8 +19,8 @@ export class SidebarComponent implements OnInit{
     this.reason = reason;
     this.sidenav.close();
   }
-
   shouldRun = true;
+  
  nav_position: string = 'end';
 
  onTogglePosition(position: string) {
