@@ -1,6 +1,6 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="over" [(opened)]="opened" [position]="nav_position">
-    <button id="openBtn" (click)="sidenav.close()">Close</button>
+  <mat-sidenav #sidenav mode="push" [opened]="true" [position]="nav_position">
+    <button id="close" (click)="sidenav.close()">X</button>
 
     <h1>Welcome!</h1>
     <!-- Login component FORM-->
@@ -17,6 +17,6 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <button id="openBtn" (click)="sidenav.open()">Open</button>
+    <button id="open" (click)="sidenav.open()">Open</button>
   </mat-sidenav-content>
 </mat-sidenav-container>

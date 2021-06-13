@@ -14,7 +14,6 @@ h1{
     0 11px 55px rgba(0, 0, 0, 0.4); */
   }
   mat-sidenav, mat-sidenav-content{
-    
     padding: 1px;
   }
   mat-sidenav{
@@ -23,42 +22,18 @@ h1{
   mat-sidenav-content{
     background-color: transparent;
   }
-  #openBtn{
-    display: flex;
-    justify-content: end;
-    color:rgb(0, 0, 0);
-    border-style: solid;
+  #close{
+    margin: 10px;
+    background-color: #101625;
+    color:WHITE;
+    border-style: solid transparent;
+    border-color: transparent ;
   }
- /* 
-  .example-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: transparent;
-  }
-  #openBtn{
-    font-weight: 600;
-    font-size: 20px;
-    color:rgb(255, 255, 255);
-    padding-top:15px;
-    padding-bottom:15px;
-    padding-left:40px;
-    padding-right:40px;
-    background-color:transparent;
-    border-width: 3px;
-    border-style: solid;
-  }
-  
-  #content{
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  #open{
+    font-weight: bolder;
+    margin-left: 190px;
     background-color: transparent;
-  
+    color:WHITE;
+    border-style: solid transparent;
+    border-color: transparent ;
   }
-  #closeBtn{
-    background-color: transparent;
-  }*/

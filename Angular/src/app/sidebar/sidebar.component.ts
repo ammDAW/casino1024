@@ -13,35 +13,32 @@ export class SidebarComponent implements OnInit{
 
   @ViewChild('sidenav') sidenav: MatSidenav;
 
+  title = 'Angular';
+  logueado = false;
+  idPoints: any;
   reason = '';
 
+  ngOnInit(): void {
+    this.getIdPoints(this.idPoints)
+  }
+
+  //Sidebar toggler
   close(reason: string) {
     this.reason = reason;
     this.sidenav.close();
   }
   shouldRun = true;
-  
- nav_position: string = 'end';
+  nav_position: string = 'end';
 
- onTogglePosition(position: string) {
+  onTogglePosition(position: string) {
   this.nav_position = position === 'start' ? 'end' : 'start';
+  }
   
-}
-  
-  title = 'Angular';
-  logueado = false;
-  idPoints: any;
-
+  //Getters
   getLogeado(logeado : boolean){
     this.logueado = logeado;
   }
-
   getIdPoints(idPoints){
     this.idPoints = idPoints;
   }
-
-  ngOnInit(): void {
-    this.getIdPoints(this.idPoints)
-  }
-  
 }
