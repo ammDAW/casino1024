@@ -1,9 +1,11 @@
 section.player-card {
+  margin-bottom: 30px;
   width: 247px;
   position: relative;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.13);
 }
 section.player-card .card {  
+  margin-bottom: 60px;
   float: left;
   width: 100%;
   overflow: hidden;

@@ -1,20 +1,22 @@
-
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="over" [(opened)]="opened" [position]="nav_position">
-    <button (click)="sidenav.close()">Close</button>
+    <button id="openBtn" (click)="sidenav.close()">Close</button>
+
     <h1>Welcome!</h1>
-          <ng-container *ngIf="!logueado">
-              <app-login (logueado)="getLogeado($event)" (idPoints)="getIdPoints($event)"></app-login> <!-- Login component-->
-          </ng-container>
-          <ng-container *ngIf="logueado">
-              <app-user [idPoints]="idPoints"></app-user> <!-- User component-->
-          </ng-container>
-          <app-ranking></app-ranking> <!-- Ranking component-->
+    <!-- Login component FORM-->
+    <ng-container *ngIf="!logueado">
+      <app-login (logueado)="getLogeado($event)" (idPoints)="getIdPoints($event)"></app-login>
+    </ng-container>
+    <!-- User card COMPONENT USER-->
+    <ng-container *ngIf="logueado">
+      <app-user [idPoints]="idPoints"></app-user>
+      <app-ranking></app-ranking>
+    </ng-container>
+    <!-- Ranking component-->
+
   </mat-sidenav>
-<mat-sidenav-content >
-  <!--button (click)="opened=!opened">Login</button-->
-  <button id="openBtn" (click)="sidenav.open()">Login</button>
-</mat-sidenav-content>
+
+  <mat-sidenav-content>
+    <button id="openBtn" (click)="sidenav.open()">Open</button>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-
-

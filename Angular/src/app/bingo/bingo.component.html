@@ -41,17 +41,17 @@
         <div id="infoColores">
             <ng-container>
                 <label>Selected</label>
-                <div class="infoElegido"></div>
+                <div class="elegido"></div>
             </ng-container>
             
             <ng-container>
                 <label>Correct</label>
-                <div class="infoAcertado"></div>
+                <div class="acertado"></div>
             </ng-container>
             
             <ng-container>
                 <label>Failed</label>
-                <div class="infoFallado"></div>
+                <div class="fallado"></div>
             </ng-container>
         </div>
 
@@ -73,7 +73,7 @@
                 <div id="popup">
                     <ng-template #contenido let-modal>
                         <div class="modal-header">
-                            <h4 class="modal-title">How To Play</h4>
+                            <h4 class="modal-title">How to play</h4>
                             <button class="close" arial-label="close" type="button" (click)="modal.dismiss()">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -120,7 +120,7 @@
                         </div>
                     </ng-template>
                     
-                    <button type="button" class="btnpopup" (click)="openXL(contenido)">HOW TO PLAY</button>
+                    <button type="button" class="btnpopup" (click)="openXL(contenido)">Click me!</button>
                 </div>
             </div>
         

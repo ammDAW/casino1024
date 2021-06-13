@@ -1,9 +1,12 @@
 #general{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin-bottom: 62px;
     margin-top: 50px;
+    width: 100%;
 }
+
+/* BOMBO BINGO */
 #bingo{
     width: 30%;
     background-color: #101625;
@@ -23,10 +26,10 @@
     ;
 }
 #bombo{
-    margin-bottom: 60px;
+    margin-top: -150px;
+    margin-bottom: 30px;
     width: 100%;
-    border: black 15px dashed;
-    /* background-color: rgb(99, 96, 96); */
+    border: rgb(0, 0, 0) 20px dashed;
     border-radius: 50%;
 }
 ul{
@@ -39,7 +42,6 @@ ul{
     border:  black 2px solid;
     border-radius: 10px;
 }
-
 li{
     border: black 1px solid;
     font-size:large;
@@ -52,21 +54,21 @@ li{
     border-radius: 50%;
     text-align: center;
 }
+/* BOMBO BINGO */
 
+/* TABLERO */
 #tablero{
     width: 80%;
     margin-right: 100px;
     margin-left: 180px;
 }
-
 #tableroBotones button{
     box-shadow:
         0 0.7px 0.8px rgba(0, 0, 0, 0.42),
         0 1.8px 2px rgba(0, 0, 0, 0.29),
         0 3.7px 4.1px rgba(0, 0, 0, 0.234),
         0 7.7px 8.4px rgba(0, 0, 0, 0.186),
-        0 21px 23px rgba(0, 0, 0, 0.13)
-    ;
+        0 21px 23px rgba(0, 0, 0, 0.13);
     margin: 12px;
     height: 65px;
     width: 65px;
@@ -75,15 +77,13 @@ li{
     border-radius: 50%;
     border: 0;
 }
-
 .normal{
     box-shadow:
         0 0.7px 0.8px rgba(0, 0, 0, 0.42),
         0 1.8px 2px rgba(0, 0, 0, 0.29),
         0 3.7px 4.1px rgba(0, 0, 0, 0.234),
         0 7.7px 8.4px rgba(0, 0, 0, 0.186),
-        0 21px 23px rgba(0, 0, 0, 0.13)
-    ;
+        0 21px 23px rgba(0, 0, 0, 0.13);
     margin: 12px;
     height: 65px;
     width: 65px;
@@ -91,14 +91,13 @@ li{
     font-size:xx-large;
     border-radius: 50%;
     border: 0;
-
 }
+/* TABLERO */
 
 /*CLASES MINI INFO*/
 #infoColores{
     display: flex;
     justify-content: center;
-    /*flex-wrap: wrap;*/
     margin-bottom: 10px;
 }
 #infoColores div{
@@ -111,14 +110,22 @@ li{
 #infoColores label{
     margin-right: 10px;
 }
-.infoElegido{
-    background-color: yellow;
+.elegido{
+    background-color:#E0A800;    
 }
-.infoAcertado{
-    background-color: green;
+.acertado{
+    background-color:green;    
 }
-.infoFallado{
-    background-color: red;
+.fallado{
+    background-color:red;    
+}
+/*CLASES MINI INFO*/
+
+/* BARRA DEBAJO */
+#popup{
+    margin-top: 3px;
+    margin-left: 10px;
+    text-align: right;
 }
 #apuesta{
     display: flex;
@@ -137,34 +144,49 @@ li{
     margin-left: 10px;
 }
 /*QUITAER FLECHAS INPUT*/
+input[type=number] { -moz-appearance:textfield; }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
     margin: 0; 
 }
-input[type=number] { -moz-appearance:textfield; }
+#apuesta button{ width: 100px; margin-right: 10px; }
+#apuesta h3 { margin-left: 20px; }
+/* BARRA DEBAJO */
 
-#apuesta button{
-    width: 100px;
-    margin-right: 10px;
-}
+/* POPUP DENTRO */
+h4 { text-align: center; }
+th, td {padding: 15px;}
+th {height: 40px;}
 
-#apuesta h3{
-    margin-left: 20px;
+#premios, td, th{
+    border: 1px solid #ddd;
+    text-align: left;
+    margin:0 auto;
+  }
+#premios{
+    border-collapse :collapse;
+    width: 60%;
 }
-
-
-/*CLASES BOTON*/
-.elegido{
-    background-color:#E0A800;    
+.btnpopup{
+    font-weight: 600;
+    font-size: 20px;
+    padding: 5px;
+    background-color: transparent;
+    color: grey;
+    border-color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px;
 }
-.acertado{
-    background-color:green;    
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-.fallado{
-    background-color:red;    
-}
-
+/* POPUP DENTRO */
 
 /*RESPONSIVE*/
 @media screen and (max-width:1050px){ /*iPad Pro*/
