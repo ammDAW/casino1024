@@ -8,7 +8,8 @@ export class PuntosService {
   user;
   puntos;
   idPoints;
-  url = "http://localhost:1337/"
+  logueado = false;
+  private url = "http://localhost:1337/";
 
   constructor() { }
 
@@ -25,6 +26,10 @@ export class PuntosService {
     return this.idPoints;
   }
 
+  getLogueado(){
+    return this.logueado;
+  }
+
   //setters
   setUser(user){
     this.user = user;
@@ -37,6 +42,10 @@ export class PuntosService {
   setIdPoints(idPoints){
     this.idPoints = idPoints;
     //this.buscarPuntos;
+  }
+
+  setLogueado(logueado){
+    this.logueado = logueado;
   }
 
   //busca los puntos del usuario en la tabla Points

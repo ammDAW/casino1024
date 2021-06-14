@@ -1,6 +1,7 @@
 import { Component, OnInit  ,ViewChild } from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import {FormControl} from '@angular/forms';
+import { PuntosService } from '../puntos.service';
 
 
 @Component({
@@ -17,8 +18,9 @@ export class SidebarComponent implements OnInit{
   logueado = false;
   idPoints: any;
   reason = '';
-
+  constructor(private puntosService: PuntosService){}
   ngOnInit(): void {
+    this.logueado = this.puntosService.getLogueado()
     this.getIdPoints(this.idPoints)
   }
 
