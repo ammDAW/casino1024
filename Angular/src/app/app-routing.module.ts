@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { UserGuardGuard } from './user-guard.guard';
 
 const routes: Routes = [
-  { path: 'home',
+  { path: '',
    component: HomeComponent
   },
   { 
@@ -13,8 +13,8 @@ const routes: Routes = [
     component: BingoComponent,
     canActivate: [UserGuardGuard]
    },
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: '**', redirectTo: '/home', pathMatch: 'full'}
+  { path: '', redirectTo: '', pathMatch: 'full'},
+  { path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({
