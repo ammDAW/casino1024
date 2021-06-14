@@ -22,10 +22,9 @@ export class LoginComponent implements OnInit {
   jwtUser: any; //JWT del usuario
   idUser: any; //Id en tabla "users"
   array: any;
-  cookieValue: any;
   private url = "http://localhost:1337/"
 
-  constructor(private _router: Router, private cookie: CookieService, private puntosService: PuntosService) { }
+  constructor(private router: Router, private cookie: CookieService, private puntosService: PuntosService) { }
 
   ngOnInit(): void {
 
@@ -41,11 +40,9 @@ export class LoginComponent implements OnInit {
   }
 
   //Funciones
-
   enviarLogin(logueado: boolean) { //emit Boolean para sacar componente Login o User
     this.logueado.emit(logueado);
   }
-
   enviarIdPoints(int){
     this.idPoints.emit(int);
   }
@@ -65,18 +62,18 @@ export class LoginComponent implements OnInit {
         //this.idUser = response.data.user.id;
         //this.username = response.data.user.username;
 
-        
-        this.cookieValue = this.cookie.get('token');
+        this.cookie.get('token');
 
         this.buscarPuntos();
         this.puntosService.setIdPoints(this.comparar(response.data.user.id));
+
         //Cookie
         this.cookie.set('token', response.data.user.username, {
           expires: 30 / 1440
         });
+        
         //this.enviarIdPoints(this.comparar(this.idUser));
         this.enviarLogin(true);
-/*         this._router.navigate([UserComponent]) */
       })
       .catch(error => {
         this.enviarLogin(false);

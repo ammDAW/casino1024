@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 import { PuntosService } from '../puntos.service';
@@ -19,7 +20,7 @@ export class UserComponent implements OnInit {
   //pruebaUsername = this.puntosService.getUser();
   private url = "http://localhost:1337/"
 
-  constructor(private puntosService:PuntosService, private cookie: CookieService){}
+  constructor(private puntosService:PuntosService, private cookie: CookieService, private router: Router){}
   ngOnInit() {
     if(this.cookie.get('token')){
       this.getPuntosByUsername()
@@ -27,6 +28,11 @@ export class UserComponent implements OnInit {
     //this.getPuntosUser(); 
   }
 
+  logOut(){
+    this.cookie.deleteAll();
+    window.location.reload();
+    this.router.navigate(['/', ''])
+  }
   /*getPuntosUser(){
     axios
     .get(this.url + 'points/'+ this.puntosService.getIdPoints())

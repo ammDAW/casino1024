@@ -71,7 +71,7 @@ export class BingoComponent implements OnInit {
       if (this.numSelecc.length < 8){
         this.numSelecc.push(num); 
       }
-      else alert("Numero máximo")  
+      else alert("MAX SELECTED NUMBERS REACHED!")
     }   
     
     function comparar ( a:any, b:any ){ return a-b; }
@@ -139,7 +139,7 @@ export class BingoComponent implements OnInit {
               case 7: this.premio=apuesta*20000; break;
               case 8: this.premio=apuesta*50000; break;
             }
-            this.resultado = "¡Enhorabuena! Has ganado "+ this.premio +" bytes";
+            this.resultado = "Congratulations! You've won "+this.premio+" Bytes!";
             this.puntosPartida = Number(this.puntosPartida) + Number(this.premio);
           }
         }
@@ -156,7 +156,7 @@ export class BingoComponent implements OnInit {
     if(this.resultado==""){
       //document.getElementById(numPinchado).className = "fallado";
       this.puntosPartida = this.puntosPartida - apuesta;
-      this.resultado="Prueba otra vez ";
+      this.resultado="Oops, bad luck this time. Try again!";
       //this.info=false;
       for(let j=0; j < this.numSelecc.length; j++){
         numPinchado = "tabBtn" + this.numSelecc[j];
