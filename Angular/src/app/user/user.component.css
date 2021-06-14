@@ -1,114 +1,37 @@
-section.player-card {
-  margin-bottom: 30px;
-  width: 247px;
-  position: relative;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.13);
-}
-section.player-card .card {  
-  margin-bottom: 60px;
-  float: left;
-  width: 100%;
-  overflow: hidden;
-}
-section.player-card header { /* Cabecera */
-  width: 100%;
-  height: 100px;
-  background: transparent;
-  position: relative;
-}
-section.player-card header a.profile img { /* Imagen redonda */
-  height: auto;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 10px solid transparent;
-  position: absolute;
-  bottom: -60px;
-  left: 50%;
-  margin-left: -60px;
-  z-index: 2;
-}
-section.player-card article {
-  background-color: #7F0001;
-  display: block;
-  position: relative;
-  padding: 62px 5px 30px;
-  font-family: "Roboto Condensed", sans-serif;
-}
-section.player-card article h1 { /* Nombre player */
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 28px;
-  letter-spacing: 1px;
-  text-align: center;
-  font-weight: 600;
-  color: white;
-}
-section.player-card article h2 { /* h2 */
-  margin-top: 0;
-  margin-bottom: 25px;
-  text-align: center;
-  font-weight: 300;
-  font-size: 16px;
-  letter-spacing: 1px;
-  color: white;
-}
-section.player-card article .info {
-  display: -webkit-box;
-  display: -moz-box;
+#card{
+  margin-top: 30px;
   display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: distribute;
-  -moz-box-pack: distribute;
-  box-pack: distribute;
-  -webkit-justify-content: space-around;
-  -moz-justify-content: space-around;
-  -ms-justify-content: space-around;
-  -o-justify-content: space-around;
-  justify-content: space-around;
-  -ms-flex-pack: distribute;
-}
-section.player-card article .info div {
+  justify-content: center;
   text-align: center;
-  width: 33%;
-}
-section.player-card article .info div span {
-  display: block;
-}
-section.player-card article .info div span:nth-of-type(1) {
-  font-weight: bold;
-  font-size: 24px;
-  margin-bottom: 5px;
-  color: black;
-}
-section.player-card article .info div span:nth-of-type(2) {
-  font-weight: 600;
-  font-size: 12px;
-  text-transform: uppercase;
-  color: black;
-  letter-spacing: 0.5px;
+  margin-bottom: 100px;
 }
 
+#avatar{
+  border: groove #a50003 9px;
+  border-radius: 100%;
+  margin-top: 10px;
+  margin-right: 70px;
+  margin-left: 30px;
+  width: 90px;
+  height: 90px;
+  box-shadow:
+  0 0px 1.2px -12px rgba(0, 0, 0, 0.229),
+  0 0px 3.1px -12px rgba(0, 0, 0, 0.328),
+  0 0px 6.4px -12px rgba(0, 0, 0, 0.412),
+  0 0px 13.1px -12px rgba(0, 0, 0, 0.511),
+  0 0px 36px -12px rgba(0, 0, 0, 0.74)
+;
+}
 
-@media screen and (max-width:700px){
-  section.player-card {
-    margin-top: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    height: 200px;
-    width: 300px;
-  }
-  article{
-    display: none;
-  }
-  .profile img{
-    display: none;
-  }
-  section.player-card header { /* Cabecera */
-    display: none;
-  }
+#wave{
+  width: 100%;
+}
+
+.imagen{
+  width: 50%;
+}
+
+.info{
+  width: 50%;
+  border-radius: 10px;
 }

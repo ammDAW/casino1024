@@ -13,9 +13,6 @@ h1{
     0 4px 20.1px rgba(0, 0, 0, 0.276),
     0 11px 55px rgba(0, 0, 0, 0.4); */
   }
-  mat-sidenav, mat-sidenav-content{
-    padding: 1px;
-  }
   mat-sidenav{
     background-color: #101625;
   }
