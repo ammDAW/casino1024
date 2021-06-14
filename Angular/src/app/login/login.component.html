@@ -1,7 +1,7 @@
 <div class="login-page">
   <div class="form">
     <form class="login-form">
-      <label>User or Email</label><label class="required">*</label>
+      <label>Username</label><label class="required">*</label>
       <input #loginUser type="text"/>
       <label>Password</label><label class="required">*</label>
       <input #loginPass type="password"/>
@@ -15,7 +15,7 @@
       <label>Surname</label><label class="required">*</label>
       <input #surname type="text"/>
 
-      <label>User</label><label class="required">*</label>
+      <label>Username</label><label class="required">*</label>
       <input #username type="text"/>
 
       <label>Birth Date</label><label class="required">*</label>
@@ -24,14 +24,14 @@
       <label>Email</label><label class="required">*</label>
       <input #email type="text"/>
 
-      <label>Password</label><label class="required">*</label>
-      <input #password type="password" placeholder="Min. 6 characters"/>
+      <label>Password (Min 6 characters)</label><label class="required">*</label>
+      <input #password type="password"/>
 
       <!-- <label>Repeat Password</label><label class="required">*</label>
       <input type="password"/> -->
       <!-- <input type="checkbox" (click)="calcularEdad(age.value)">
       <label>Soy mayor de edad</label> -->
-      <small>You need +18 years to register</small>
+      <small>You must be 18 or older to play.</small>
       <button id="btnRegistro" (click)="crearUsuario(username.value, email.value, password.value, name.value, surname.value, age.value)" disabled>CREATE</button>
       <p class="message">Already have an account? <a [routerLink]="">Sign in</a></p>
     </form>
