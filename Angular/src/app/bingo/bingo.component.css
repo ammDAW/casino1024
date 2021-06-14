@@ -105,7 +105,7 @@ li{
     width: 30px;
     border: 2px black solid;
     border-radius: 5px;
-    margin-right: 100px;
+    margin-right: 80px;
 }
 #infoColores label{
     margin-right: 10px;
@@ -124,7 +124,7 @@ li{
 /* BARRA DEBAJO */
 #popup{
     margin-top: 1px;
-    margin-left: 10px;
+    margin-left: -10px;
 }
 #apuesta{
     display: flex;
@@ -133,14 +133,14 @@ li{
     margin: auto;
     margin-top: 30px;
     border-radius: 10px;
-    padding: 10px;
-    width: 600px;
+    padding: 12px;
+    width: 490px;
     background-color: #161e33;
 }
 #apuesta input{
     width: 200px;
     height: 48px;
-    margin-right: 20px;
+    margin-right: 10px;
     margin-left: 10px;
 }
 /*QUITAER FLECHAS INPUT*/
@@ -151,7 +151,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0; 
 }
 #apuesta button{ width: 100px; margin-right: 10px; font-size: 20px; }
-#apuesta h3 { margin-top: 5px; margin-left: 5px; }
+#apuesta h3 { margin-top: 6px; margin-left: 3px; }
 /* BARRA DEBAJO */
 
 /* POPUP DENTRO */
@@ -169,15 +169,13 @@ th {height: 40px;}
     width: 60%;
 }
 .btnpopup{
-    font-weight: 500;
-    font-size: 20px;
-    padding: 5px;
-    background-color: #161e33;
+    background-color: transparent;
     color: white;
-    border-color: white;
+    border-color: transparent;
+/*  
     border-width: 3px;
     border-style: groove 5px;
-    border-radius: 10px;
+    border-radius: 10px; */
 }
 /* POPUP DENTRO */
 
