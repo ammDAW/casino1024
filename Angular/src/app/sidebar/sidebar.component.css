@@ -20,7 +20,7 @@ h1{
     background-color: transparent;
   }
   #close{
-    margin: -10px 10px 10px 1px;
+    margin: 1px 10px 10px 1px;
     background-color: #101625;
     color:#E0A800;
     font-weight: 600;
@@ -29,7 +29,7 @@ h1{
   }
   #open{
     font-weight: bolder;
-    margin-left: 200px;
+    margin-left: 211px;
     background-color: #101625c9;
     /*background-color: rgba(128, 128, 128, 0.849);*/
     color:#E0A800;
