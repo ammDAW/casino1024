@@ -31,6 +31,9 @@
     },
     "num_out": {
       "type": "string"
+    },
+    "apuesta": {
+      "type": "integer"
     }
   }
 }

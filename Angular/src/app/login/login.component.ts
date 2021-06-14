@@ -4,6 +4,7 @@ import * as $ from 'jquery';
 import { Router } from '@angular/router'
 import { UserComponent } from '../user/user.component';
 import { CookieService } from 'ngx-cookie-service';
+import { PuntosService } from '../puntos.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
   cookieValue: any;
   private url = "http://localhost:1337/"
 
-  constructor(private _router: Router, private cookie: CookieService) { }
+  constructor(private _router: Router, private cookie: CookieService, private puntosService: PuntosService) { }
 
   ngOnInit(): void {
 
@@ -46,7 +47,6 @@ export class LoginComponent implements OnInit {
   }
 
   enviarIdPoints(int){
-    console.log("enviarIdPoints int =" + int )
     this.idPoints.emit(int);
   }
 
@@ -58,18 +58,23 @@ export class LoginComponent implements OnInit {
         password: pass,
       })
       .then(response => {
-        this.jwtUser = response.data.jwt;
-        this.idUser = response.data.user.id;
-        this.username = response.data.user.username;
+        this.puntosService.setJwt(response.data.jwt);
+        this.puntosService.setIdUser(response.data.user.id);
+        this.puntosService.setUser(response.data.user.username);
+        //this.jwtUser = response.data.jwt;
+        //this.idUser = response.data.user.id;
+        //this.username = response.data.user.username;
 
-        //Cookie
-        this.cookie.set('token', this.jwtUser, {
-          expires: 30 / 1440
-        });
+        
         this.cookieValue = this.cookie.get('token');
 
         this.buscarPuntos();
-        this.enviarIdPoints(this.comparar(this.idUser));
+        this.puntosService.setIdPoints(this.comparar(response.data.user.id));
+        //Cookie
+        this.cookie.set('token', response.data.user.username, {
+          expires: 30 / 1440
+        });
+        //this.enviarIdPoints(this.comparar(this.idUser));
         this.enviarLogin(true);
 /*         this._router.navigate([UserComponent]) */
       })
@@ -118,7 +123,7 @@ export class LoginComponent implements OnInit {
       .post(this.url + 'auth/local/register', datos)
       .then(response => {
         alert("Usuario Registrado");       
-        this.jwtUser = response.data.jwt;
+        /*this.jwtUser = response.data.jwt;
         this.idUser = response.data.user.id;
         this.username = response.data.user.username;
 
@@ -127,8 +132,8 @@ export class LoginComponent implements OnInit {
           expires: 30 / 1440
         });
         this.cookieValue = this.cookie.get('token');
-
-        this.crearPuntos(this.idUser);
+        */
+        this.crearPuntos(response.data.user.id);
         window.location.reload();            
       })
       .catch(error => {

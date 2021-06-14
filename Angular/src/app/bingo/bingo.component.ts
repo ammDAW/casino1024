@@ -1,5 +1,7 @@
 import { Component, OnInit,ViewEncapsulation} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+//import * as internal from 'node:stream';
+import { PuntosService } from '../puntos.service';
 
 
 @Component({
@@ -18,38 +20,42 @@ export class BingoComponent implements OnInit {
   info: boolean;
   select: boolean;
   numPinchado: string;
-  premio=3;
+  premio: number;
+
+  stringSelect: string;
+  stringOut: string;
+  puntosPartida: number;
   
-  constructor(private modal:NgbModal) { }
+  constructor(private modal:NgbModal, private puntosService: PuntosService) { }
   
 
 
   ngOnInit(): void {
     this.generarTablero();
-    console.log(this.tablero);
   }
 
   openSM(contenido){
   this.modal.open(contenido,{size:'sm'});
-}
-openLG(contenido){
-  this.modal.open(contenido,{size:'lg'});
-}
-openXL(contenido){
-  this.modal.open(contenido,{size:'xl'});
-}
-openCentrado(contenido){
-  this.modal.open(contenido,{centered:true});
-}
-openScroll(contenido){
-  this.modal.open(contenido,{scrollable:true});
-}
+  }
+  openLG(contenido){
+    this.modal.open(contenido,{size:'lg'});
+  }
+  openXL(contenido){
+    this.modal.open(contenido,{size:'xl'});
+  }
+  openCentrado(contenido){
+    this.modal.open(contenido,{centered:true});
+  }
+  openScroll(contenido){
+    this.modal.open(contenido,{scrollable:true});
+  }
 
   generarTablero(){
     for(let i=0; i<=79; i++){
       this.tablero[i] = i+1;
     }
   }
+
   refresh(): void { window.location.reload(); }
 
 
@@ -64,12 +70,9 @@ openScroll(contenido){
     else{
       if (this.numSelecc.length < 8){
         this.numSelecc.push(num); 
-        
       }
       else alert("Numero máximo")  
-    } 
-    console.log(this.numSelecc);
-   
+    }   
     
     function comparar ( a:any, b:any ){ return a-b; }
     //this.numSelecc.sort(comparar).slice(0,4);
@@ -80,7 +83,8 @@ openScroll(contenido){
       numPinchado = "tabBtn" + num;
       document.getElementById(numPinchado).className = "elegido";
       //document.getElementById("tabBtn48").className = "rojo"
-    }else{
+    }
+    else{
       //this.select=false;
       numPinchado = "tabBtn" + num;
       document.getElementById(numPinchado).className = "normal";
@@ -90,27 +94,25 @@ openScroll(contenido){
   }
 
   click : boolean = false;
-  comparar(){
+  comparar(apuesta){
     this.click = !this.click;
     var numPinchado = "";
 
     //sacamos los aleatorios
     for(let i=0; i < 20; i++){
       var count= Math.floor(Math.random()*80)+1;
-      console.log(count);
       if(this.numAleatorios.indexOf(count)=== -1){
         this.numAleatorios[i]= count;
-      }else
-      {
+      }
+      else{
         i=i-1;
       }
     }
-   //this.numAleatorios.slice(); no funciona
-    console.log(this.numAleatorios);
+    //this.numAleatorios.slice(); no funciona
 
-    var stringRandoms = this.numAleatorios.join(', ');
-  
-
+    this.stringOut = this.numAleatorios.join(', ');
+    this.stringSelect = this.numSelecc.join(', ');
+    this.puntosPartida = this.puntosService.getPuntos();
     this.resultado="";
     
     //aquí hay que tener en cuenta que si el usuario
@@ -122,57 +124,48 @@ openScroll(contenido){
         if(this.numAleatorios[i]==this.numSelecc[j]){
           this.contador+=1;
           this.resultado="acertado";
-         // this.info=true;
-         numPinchado = "tabBtn" + this.numSelecc[j];
-         document.getElementById(numPinchado).className = "acertado";
-         numPinchado = "";
-         if(this.contador=this.numSelecc.length){
-           switch(this.contador){
-              case 1: this.premio=this.contador*3; break;
-              case 2: this.premio=this.contador*14; break;
-              case 3: this.premio=this.contador*55; break;
-              case 4: this.premio=this.contador*225; break;
-              case 5: this.premio=this.contador*1000; break;
-              case 6: this.premio=this.contador*5000; break;
-              case 7: this.premio=this.contador*20000; break;
-              case 8: this.premio=this.contador*50000; break;
-           }
-            this.resultado="¡Enhorabuena! Has ganado "+this.premio+" bytes";
-         }
-         
+          // this.info=true;
+          numPinchado = "tabBtn" + this.numSelecc[j];
+          document.getElementById(numPinchado).className = "acertado";
+          numPinchado = "";
+          if(this.contador=this.numSelecc.length){
+            switch(this.contador){
+              case 1: this.premio=apuesta*3; break;
+              case 2: this.premio=apuesta*14; break;
+              case 3: this.premio=apuesta*55; break;
+              case 4: this.premio=apuesta*225; break;
+              case 5: this.premio=apuesta*1000; break;
+              case 6: this.premio=apuesta*5000; break;
+              case 7: this.premio=apuesta*20000; break;
+              case 8: this.premio=apuesta*50000; break;
+            }
+            this.resultado = "¡Enhorabuena! Has ganado "+ this.premio +" bytes";
+            this.puntosPartida = Number(this.puntosPartida) + Number(this.premio);
+          }
         }
       }
     }
     
     for(let j=0; j < this.numSelecc.length; j++){
       numPinchado = "tabBtn" + this.numSelecc[j];
-      if(document.getElementById(numPinchado).className != "acertado")
-      {
+      if(document.getElementById(numPinchado).className != "acertado"){
         document.getElementById(numPinchado).className = "fallado";
-        this.resultado="Prueba otra vez ";
-
       }
-
     }
 
-
-
-    if(this.resultado=="")
-    {
+    if(this.resultado==""){
       //document.getElementById(numPinchado).className = "fallado";
+      this.puntosPartida = this.puntosPartida - apuesta;
       this.resultado="Prueba otra vez ";
       //this.info=false;
       for(let j=0; j < this.numSelecc.length; j++){
         numPinchado = "tabBtn" + this.numSelecc[j];
         document.getElementById(numPinchado).className = "fallado";
-        
-  
       }
     }
     console.log("fin del juego");
+    this.puntosService.crearPlay(this.stringOut, this.stringSelect, apuesta, this.puntosPartida);
+    this.puntosService.updatePuntos(this.puntosPartida);
+    this.puntosService.setPuntos(this.puntosPartida);
   }
-  
-  
-
-
 }
