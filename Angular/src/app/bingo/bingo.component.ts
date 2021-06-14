@@ -18,7 +18,7 @@ export class BingoComponent implements OnInit {
   info: boolean;
   select: boolean;
   numPinchado: string;
-  premio=3.50;
+  premio=3;
   
   constructor(private modal:NgbModal) { }
   
@@ -53,9 +53,8 @@ openScroll(contenido){
   refresh(): void { window.location.reload(); }
 
 
-
+  //le da a los botones del tablero los numeros
   addNumero(num: number){
-   
     var numPinchado = "";
 
     if (this.numSelecc.includes(num)){
@@ -73,8 +72,8 @@ openScroll(contenido){
    
     
     function comparar ( a:any, b:any ){ return a-b; }
-    this.numSelecc.sort(comparar).slice(0,4);
-    
+    //this.numSelecc.sort(comparar).slice(0,4);
+    this.numSelecc.sort(comparar)
     //se ha seleccionado el numero, así que lo ponemos amarillo 
     if(this.numSelecc.includes(num)){
       //this.select=true;
@@ -129,7 +128,7 @@ openScroll(contenido){
          numPinchado = "";
          if(this.contador=this.numSelecc.length){
            switch(this.contador){
-              case 1: this.premio=this.contador*3.5; break;
+              case 1: this.premio=this.contador*3; break;
               case 2: this.premio=this.contador*14; break;
               case 3: this.premio=this.contador*55; break;
               case 4: this.premio=this.contador*225; break;
