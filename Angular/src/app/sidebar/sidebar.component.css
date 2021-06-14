@@ -30,8 +30,9 @@ h1{
   #open{
     font-weight: bolder;
     margin-left: 190px;
-    background-color: transparent;
-    color:WHITE;
-    border-style: solid transparent;
+    background-color: rgba(128, 128, 128, 0.849);
+    color:#E0A800;
+    /*border-style: solid transparent;*/
     border-color: transparent ;
+    border-radius: 10px;
   }
