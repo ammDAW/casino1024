@@ -2,6 +2,7 @@
 .login-page {
     width: auto;
     margin: 0;
+    margin-left: 5px;
   }
   .form .register-form {
     display: none;

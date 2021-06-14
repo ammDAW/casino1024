@@ -123,9 +123,8 @@ li{
 
 /* BARRA DEBAJO */
 #popup{
-    margin-top: 3px;
+    margin-top: 1px;
     margin-left: 10px;
-    text-align: right;
 }
 #apuesta{
     display: flex;
@@ -140,7 +139,8 @@ li{
 }
 #apuesta input{
     width: 200px;
-    margin-right: 50px;
+    height: 48px;
+    margin-right: 20px;
     margin-left: 10px;
 }
 /*QUITAER FLECHAS INPUT*/
@@ -150,8 +150,8 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none; 
     margin: 0; 
 }
-#apuesta button{ width: 100px; margin-right: 10px; }
-#apuesta h3 { margin-left: 20px; }
+#apuesta button{ width: 100px; margin-right: 10px; font-size: 20px; }
+#apuesta h3 { margin-top: 5px; margin-left: 5px; }
 /* BARRA DEBAJO */
 
 /* POPUP DENTRO */
@@ -169,22 +169,15 @@ th {height: 40px;}
     width: 60%;
 }
 .btnpopup{
-    font-weight: 600;
+    font-weight: 500;
     font-size: 20px;
     padding: 5px;
-    background-color: transparent;
-    color: grey;
+    background-color: #161e33;
+    color: white;
     border-color: white;
     border-width: 3px;
-    border-style: solid;
+    border-style: groove 5px;
     border-radius: 10px;
-}
-.example-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 /* POPUP DENTRO */
 

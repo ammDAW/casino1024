@@ -20,9 +20,10 @@ h1{
     background-color: transparent;
   }
   #close{
-    margin: 10px;
+    margin: -10px 10px 10px 1px;
     background-color: #101625;
     color:WHITE;
+    font-weight: 600;
     border-style: solid transparent;
     border-color: transparent ;
   }
