@@ -33,6 +33,11 @@ p{
     margin-top: -141px;
 }
 
+#thanks{
+    color:#E0A800;
+    margin-top: 50px;
+}
+
 @media screen and (max-width:1200px){
     /* #logos, #info, #lt{ 
         margin: 0;
