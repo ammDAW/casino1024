@@ -139,7 +139,7 @@ export class BingoComponent implements OnInit {
               case 7: this.premio=apuesta*20000; break;
               case 8: this.premio=apuesta*50000; break;
             }
-            document.getElementById("resultado").innerHTML = "<div class='alert alert-success'> <strong>Congratulation!</strong> You win "+ this.premio+" bytes</div>"
+            document.getElementById("resultado").innerHTML = "<div class='alert alert-success'> <strong>Congratulations!</strong> You've won "+this.premio+" Bytes</div>"
             //this.resultado = "Congratulations! You've won "+this.premio+" Bytes!";
             this.puntosPartida = Number(this.puntosPartida) + Number(this.premio);
           }
@@ -157,7 +157,7 @@ export class BingoComponent implements OnInit {
     if(this.resultado==""){
       //document.getElementById(numPinchado).className = "fallado";
       this.puntosPartida = this.puntosPartida - apuesta;
-      document.getElementById("resultado").innerHTML = "<div class='alert alert-danger'> <strong>Oops!</strong> Bad luck, try again</div>"
+      document.getElementById("resultado").innerHTML = "<div class='alert alert-danger'> <strong>Oops!</strong>bad luck this time. Try again!</div>"
       //this.resultado="Oops, bad luck this time. Try again!";
       //this.info=false;
       for(let j=0; j < this.numSelecc.length; j++){
