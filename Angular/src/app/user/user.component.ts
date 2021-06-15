@@ -58,6 +58,7 @@ export class UserComponent implements OnInit {
         // Handle success.
         this.puntosService.setPuntos(response.data[0].puntos);
         this.puntosService.setUser(response.data[0].id_user.username);
+        this.puntosService.setIdUser(response.data[0].id_user.id);
         this.puntosService.setIdPoints(response.data[0].id);
       })
       .then(() => {

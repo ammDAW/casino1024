@@ -14,14 +14,15 @@ export class BingoComponent implements OnInit {
   tablero: number[] = new Array(80); //tablero[0] = 1 y tablero[79] = 80 es decir (i+1)
   numSelecc : number[] = new Array();
   contador = 0; //para llevar la cuenta de los números acertados
-  numAleatorios: number[]=new Array(20);//numAleatorios
+  numAleatorios: number[]=new Array(20);//numAleatorios backend
+  numAleatoriosFront: number[] = new Array(20); //numAleatorios front
 
   info: boolean;
   select: boolean;
   numPinchado: string;
   premio: number;
   existeJugada = false;
-  existeGanador: boolean;
+  existeGanador= true;
   numRandom: number;
 
   stringSelect: string;
@@ -97,45 +98,41 @@ export class BingoComponent implements OnInit {
     this.puntosPartida = this.puntosService.getPuntos();
     if(apuesta > 0 && apuesta <= this.puntosPartida && this.numSelecc.length > 0){
       this.click = !this.click;
+      this.bingo(apuesta);
       var numPinchado;
 
-      //sacamos los aleatorios
+      //mostramos los aleatorios en el front
       var i = 0;
       var interval = setInterval(()=>{
         document.getElementById("lottie").style.cssText = 'display: none';
-        var count= Math.floor(Math.random()*80)+1;
-        if(this.numAleatorios.indexOf(count)=== -1){
-          this.numAleatorios[i]= count;
-          this.numRandom = this.numAleatorios[i];
-        }
-        else i=i-1;
-        i++;
-        
+        this.numRandom = this.numAleatorios[i];
+        this.numAleatoriosFront[i] = this.numAleatorios[i];
         //comparar numeros
         for(let j = 0; j<this.numSelecc.length; j++){
-          if(this.numAleatorios.includes(this.numSelecc[j])){
-            this.contador++;
+          if(this.numAleatoriosFront.includes(this.numSelecc[j])){
             numPinchado = "tabBtn" + this.numSelecc[j];
             document.getElementById(numPinchado).className = "acertado";
           }
         }
+        i++;
+
         //para terminar el intervalo
         if(i == 20){
           clearInterval(interval);
-          this.stringOut = this.numAleatorios.join(', ');
-          this.stringSelect = this.numSelecc.join(', ');
           
           for(let j = 0; j<this.numSelecc.length; j++){
             numPinchado = "tabBtn" + this.numSelecc[j];
             if(document.getElementById(numPinchado).classList.contains("elegido"))
               document.getElementById(numPinchado).className = "fallado";
+              this.existeGanador = false;
           }
-
-          this.premios(apuesta);
+          this.existeJugada = true;
+          console.log("Game finished");
         }
       }, 1500);
     }
   }
+
   //funcion premios
   premios(apuesta){
     if(this.contador == this.numSelecc.length){
@@ -148,23 +145,36 @@ export class BingoComponent implements OnInit {
         case 6: this.premio = apuesta*5000; break;
         case 7: this.premio = apuesta*20000; break;
         case 8: this.premio = apuesta*50000; break;
-      }
-      this.existeJugada = true;
-      this.existeGanador = true;
+      }      
       this.puntosPartida = Number(this.puntosPartida) + Number(this.premio);
     }
-    else{
-      this.puntosPartida = this.puntosPartida - apuesta;
-      this.existeJugada = true;
-      this.existeGanador = false;  
-    }
-
-    this.stringOut = this.numAleatorios.join(', ');
-    this.stringSelect = this.numSelecc.join(', ');
+    else this.puntosPartida = this.puntosPartida - apuesta;
 
     this.puntosService.crearPlay(this.stringOut, this.stringSelect, apuesta, this.puntosPartida);
     this.puntosService.updatePuntos(this.puntosPartida);
     this.puntosService.setPuntos(this.puntosPartida);
-    console.log("Fin del juego");
+  }
+
+  bingo(apuesta){
+    //sacar num aleatorios
+    for(let i = 0; i< this.numAleatorios.length; i++){
+      var count= Math.floor(Math.random()*80)+1;
+      if(this.numAleatorios.indexOf(count)=== -1){
+        this.numAleatorios[i]= count;
+      }
+      else i=i-1;
+    }
+  
+
+    //comparar numeros
+    for(let j = 0; j<this.numSelecc.length; j++){
+      if(this.numAleatorios.includes(this.numSelecc[j])){
+        this.contador++;
+      }
+    }
+    this.stringOut = this.numAleatorios.join(', ');
+    this.stringSelect = this.numSelecc.join(', ');
+    
+    this.premios(apuesta);
   }
 }
