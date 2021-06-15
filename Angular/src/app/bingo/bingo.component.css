@@ -119,7 +119,18 @@ li{
 .fallado{
     background-color:red;    
 }
-/*CLASES MINI INFO*/
+
+.alert-success{
+    background-color: rgba(0, 128, 0, 0.450);
+    color: white;
+    border: 1px solid black;
+}
+
+.alert-danger{
+    background-color: rgba(255, 0, 0, 0.450);
+    color: white;
+    border: 1px solid black;    
+}
 
 /* BARRA DEBAJO */
 #popup{

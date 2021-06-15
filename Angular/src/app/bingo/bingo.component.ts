@@ -21,6 +21,8 @@ export class BingoComponent implements OnInit {
   select: boolean;
   numPinchado: string;
   premio: number;
+  existeJugada = false;
+  existeGanador: boolean;
 
   stringSelect: string;
   stringOut: string;
@@ -135,12 +137,16 @@ export class BingoComponent implements OnInit {
           case 7: this.premio = apuesta*20000; break;
           case 8: this.premio = apuesta*50000; break;
         }
-        document.getElementById("resultado").innerHTML = "<div class='alert alert-success'> <strong>Congratulations!</strong> You've won <strong>"+this.premio+" Bytes</strong></div>"
+        //document.getElementById("resultado").innerHTML = "<div class='alert alert-success'> <strong>Congratulations!</strong> You've won <strong>"+this.premio+" Bytes</strong></div>"
+        this.existeJugada = true;
+        this.existeGanador = true;
         this.puntosPartida = Number(this.puntosPartida) + Number(this.premio);
       }
       else{
         this.puntosPartida = this.puntosPartida - apuesta;
-        document.getElementById("resultado").innerHTML = "<div class='alert alert-danger'> <strong>Bad Luck! </strong> Try again</div>"  
+        this.existeJugada = true;
+        this.existeGanador = false;
+        //document.getElementById("resultado").innerHTML = "<div class='alert alert-danger'> <strong>Bad Luck! </strong> Try again</div>"  
       }
       
       this.puntosService.crearPlay(this.stringOut, this.stringSelect, apuesta, this.puntosPartida);

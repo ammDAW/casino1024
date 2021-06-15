@@ -9,16 +9,16 @@
             <h6>Results</h6>
             <ul id="listaSalidos">
                 <li id="numSalido1">{{numAleatorios[0]}}</li>   <li id="numSalido2">{{numAleatorios[1]}}</li>
-            <li id="numSalido3">{{numAleatorios[2]}}</li>   <li id="numSalido4">{{numAleatorios[3]}}</li>
-            <li id="numSalido5">{{numAleatorios[4]}}</li>   <li id="numSalido6">{{numAleatorios[5]}}</li>
-            <li id="numSalido7">{{numAleatorios[6]}}</li>   <li id="numSalido8">{{numAleatorios[7]}}</li>
-            <li id="numSalido9">{{numAleatorios[8]}}</li>   <li id="numSalido10">{{numAleatorios[9]}}</li>
-            <li id="numSalido11">{{numAleatorios[10]}}</li>   <li id="numSalido12">{{numAleatorios[11]}}</li>
-            <li id="numSalido13">{{numAleatorios[12]}}</li>   <li id="numSalido14">{{numAleatorios[13]}}</li>
-            <li id="numSalido15">{{numAleatorios[14]}}</li>   <li id="numSalido16">{{numAleatorios[15]}}</li>
-            <li id="numSalido17">{{numAleatorios[16]}}</li>   <li id="numSalido18">{{numAleatorios[17]}}</li>
-            <li id="numSalido19">{{numAleatorios[18]}}</li>  <li id="numSalido20">{{numAleatorios[19]}}</li>
-        </ul>
+                <li id="numSalido3">{{numAleatorios[2]}}</li>   <li id="numSalido4">{{numAleatorios[3]}}</li>
+                <li id="numSalido5">{{numAleatorios[4]}}</li>   <li id="numSalido6">{{numAleatorios[5]}}</li>
+                <li id="numSalido7">{{numAleatorios[6]}}</li>   <li id="numSalido8">{{numAleatorios[7]}}</li>
+                <li id="numSalido9">{{numAleatorios[8]}}</li>   <li id="numSalido10">{{numAleatorios[9]}}</li>
+                <li id="numSalido11">{{numAleatorios[10]}}</li>   <li id="numSalido12">{{numAleatorios[11]}}</li>
+                <li id="numSalido13">{{numAleatorios[12]}}</li>   <li id="numSalido14">{{numAleatorios[13]}}</li>
+                <li id="numSalido15">{{numAleatorios[14]}}</li>   <li id="numSalido16">{{numAleatorios[15]}}</li>
+                <li id="numSalido17">{{numAleatorios[16]}}</li>   <li id="numSalido18">{{numAleatorios[17]}}</li>
+                <li id="numSalido19">{{numAleatorios[18]}}</li>  <li id="numSalido20">{{numAleatorios[19]}}</li>
+            </ul>
         </div>
         
         <div id="numPlayer"> <!--numeros seleccionados por el jugador-->
@@ -34,7 +34,19 @@
                 <li id="numPlayer8">{{numSelecc[7]}}</li>
             </ul> 
         </div>
-        <div id="resultado"></div>
+
+        <ng-container *ngIf="existeJugada"> <!--mensajes alerta si has ganado o perdido-->
+            <ng-container *ngIf="existeGanador">
+                <div class='alert alert-success'> 
+                    <strong>Congratulations!</strong> You win <strong>{{premio}} bytes</strong>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="!existeGanador">
+                <div class='alert alert-danger'>
+                    <strong>Bad Luck! </strong> Try again
+                </div>
+            </ng-container>
+        </ng-container>
     </div>
 
     <div id="tablero"> <!--parte derecha con los 80 botones-->
@@ -57,9 +69,8 @@
 
         
         <div id="tableroBotones" >
-            <ng-container  *ngFor="let t of tablero"   >   
-                <!--[ngClass]="{'elegido': this.select==true, 'acertado': this.info==true, 'fallado': this.info==false}">
-             --> <button  id="tabBtn{{t}}"   class="btn btn-secondary" class="normal" (click)="addNumero(t)" >{{t}}</button>
+            <ng-container  *ngFor="let t of tablero">   
+                <button  id="tabBtn{{t}}"   class="btn btn-secondary" class="normal" (click)="addNumero(t)">{{t}}</button>
             </ng-container>
         </div>
 
