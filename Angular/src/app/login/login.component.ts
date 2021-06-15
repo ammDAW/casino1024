@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
       })
       .catch(error => {
         this.enviarLogin(false);
-        console.log('An error occurred:', error.response);
+        document.getElementById("msgErrorLogin").style.display = "block";
       });
   }
 
@@ -134,6 +134,7 @@ export class LoginComponent implements OnInit {
         window.location.reload();            
       })
       .catch(error => {
+        document.getElementById("msgErrorRegistro").style.display = "block";
         console.log('An error occurred:', error.response);
       });
   }

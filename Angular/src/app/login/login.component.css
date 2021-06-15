@@ -83,3 +83,13 @@ label {
  padding-left: 3px;
  font-style: italic;
 }
+
+.msgError{
+  display: none;
+  color: red;
+  
+}
+
+#msgErrorRegistro{
+  margin-top: 10px;
+}

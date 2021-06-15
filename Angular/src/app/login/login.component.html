@@ -7,6 +7,7 @@
       <input #loginPass type="password"/>
       <button (click)="buscarUsuario(loginUser.value, loginPass.value)">SIGN IN</button>
       <p class="message">No account? <a [routerLink]="">Create one!</a></p><br>
+      <small id="msgErrorLogin" class="msgError"><b>User not found. Try again!</b></small>
     </form>
     <form class="register-form">
       <label>Name</label><label class="required">*</label>
@@ -34,6 +35,7 @@
       <small>You must be 18 or older to play.</small>
       <button id="btnRegistro" (click)="crearUsuario(username.value, email.value, password.value, name.value, surname.value, age.value)" disabled>CREATE</button>
       <p class="message">Already have an account? <a [routerLink]="">Sign in</a></p>
+      <small id="msgErrorRegistro" class="msgError"><b>Error. Check the fields</b></small>
     </form>
   </div>
 </div> 

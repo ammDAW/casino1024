@@ -104,7 +104,8 @@ export class BingoComponent implements OnInit {
       //mostramos los aleatorios en el front
       var i = 0;
       var interval = setInterval(()=>{
-        document.getElementById("lottie").style.cssText = 'display: none';
+        document.getElementById("lottie").style.display = 'none';
+        document.getElementById("numRandom").style.display = 'block';
         this.numRandom = this.numAleatorios[i];
         this.numAleatoriosFront[i] = this.numAleatorios[i];
         //comparar numeros
