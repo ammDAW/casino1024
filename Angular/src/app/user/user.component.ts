@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 import { PuntosService } from '../puntos.service';
-
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-user',
@@ -51,9 +51,12 @@ export class UserComponent implements OnInit {
     });
   }*/
 
-  getPuntosByUsername(){
+  getPuntosByUsername() {
+    var decrypt = CryptoJS.AES.decrypt(this.cookie.get('token'), 'keyCasino1234');
+    var encode = decrypt.toString(CryptoJS.enc.Utf8);
+
     axios
-      .get(this.url + 'points?id_user.username=' + this.cookie.get('token'))
+      .get(this.url + 'points?id_user.username=' + encode)
       .then(response => {
         // Handle success.
         this.puntosService.setPuntos(response.data[0].puntos);
@@ -64,5 +67,9 @@ export class UserComponent implements OnInit {
         this.puntos = this.puntosService.getPuntos();
         this.username = this.puntosService.getUser();
       })
+      .catch(error => {
+        // Handle error.
+        this.logOut();
+      });
   }
 }

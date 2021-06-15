@@ -5,6 +5,7 @@ import { Router } from '@angular/router'
 import { UserComponent } from '../user/user.component';
 import { CookieService } from 'ngx-cookie-service';
 import { PuntosService } from '../puntos.service';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-login',
@@ -62,15 +63,18 @@ export class LoginComponent implements OnInit {
         //this.idUser = response.data.user.id;
         //this.username = response.data.user.username;
 
-        this.cookie.get('token');
-
         this.buscarPuntos();
         this.puntosService.setIdPoints(this.comparar(response.data.user.id));
 
+        var crypt = CryptoJS.AES.encrypt(response.data.user.username, 'keyCasino1234').toString();
+
         //Cookie
-        this.cookie.set('token', response.data.user.username, {
+        console.log(crypt)
+
+        this.cookie.set('token', crypt, {
           expires: 30 / 1440
         });
+        this.cookie.get('token')
         
         //this.enviarIdPoints(this.comparar(this.idUser));
         this.enviarLogin(true);
