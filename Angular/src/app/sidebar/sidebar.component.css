@@ -28,6 +28,7 @@ h1{
     font-weight: 600;
     border-style: solid transparent;
     border-color: transparent ;
+    margin-left: 100px;
   }
   #open{
     font-weight: bolder;

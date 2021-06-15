@@ -25,8 +25,9 @@ export class SidebarComponent implements OnInit{
   }
 
   //Sidebar toggler
-  close(reason: string) {
-    this.reason = reason;
+  close() {
+    document.getElementById("hola").style.backgroundColor = "green";
+    document.getElementById("sidebar").style.display = "none";
     this.sidenav.close();
   }
   shouldRun = true;
