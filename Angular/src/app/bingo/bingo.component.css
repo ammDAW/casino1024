@@ -121,13 +121,20 @@ li{
     margin-right: 10px;
 }
 .elegido{
-    background-color:#E0A800;    
+    background-color:#E0A800; 
+    color: #1f2c4c;   
 }
 .acertado{
-    background-color:green;    
+    background-color:green;
+    color: #1f2c4c;    
 }
 .fallado{
-    background-color:red;    
+    background-color:red;
+    color: #1f2c4c;     
+}
+.salido{
+    border: 3px solid white !important;
+    color: white;  
 }
 
 .alert-success{
