@@ -3,14 +3,30 @@ h1{
     text-align: center;
     margin-bottom: 30px;
 }
+
 table{
-    background-color: black;
+    box-shadow:
+  0 0px 1.1px rgba(0, 0, 0, 0.044),
+  0 0px 2.4px rgba(0, 0, 0, 0.065),
+  0 0px 4px rgba(0, 0, 0, 0.08),
+  0 0px 6px rgba(0, 0, 0, 0.093),
+  0 0px 8.6px rgba(0, 0, 0, 0.105),
+  0 0px 12.2px rgba(0, 0, 0, 0.117),
+  0 0px 17.3px rgba(0, 0, 0, 0.13),
+  0 0px 25.2px rgba(0, 0, 0, 0.145),
+  0 0px 38.8px rgba(0, 0, 0, 0.166),
+  0 0px 69px rgba(0, 0, 0, 0.21)
+;
 }
 
 th{
+    background-color: rgba(0, 0, 0, 0.274);
     color: white;
+    border: transparent;
 }
 
 td{
+    background-color: rgba(0, 0, 0, 0.274);
     color: white;
+    border: transparent;
 }
