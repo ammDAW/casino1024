@@ -67,10 +67,7 @@ export class LoginComponent implements OnInit {
         this.puntosService.setIdPoints(this.comparar(response.data.user.id));
 
         var crypt = CryptoJS.AES.encrypt(response.data.user.username, 'keyCasino1234').toString();
-
         //Cookie
-        console.log(crypt)
-
         this.cookie.set('token', crypt, {
           expires: 30 / 1440
         });

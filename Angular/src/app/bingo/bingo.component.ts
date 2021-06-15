@@ -96,7 +96,12 @@ export class BingoComponent implements OnInit {
   click : boolean = false;
   jugar(apuesta){
     this.puntosPartida = this.puntosService.getPuntos();
-    if(apuesta > 0 && apuesta <= this.puntosPartida && this.numSelecc.length > 0){
+    //comparar numero apuesta y puntos usuario
+    let array = [apuesta,  this.puntosPartida]
+    function comparar(a, b){ return a - b }
+    array.sort(comparar);
+
+    if((apuesta > 0) && (array[0] == apuesta) && (this.numSelecc.length > 0)){
       this.click = !this.click;
       this.bingo(apuesta);
       var numPinchado;
