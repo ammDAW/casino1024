@@ -95,79 +95,81 @@ export class BingoComponent implements OnInit {
 
   click : boolean = false;
   comparar(apuesta){
-    this.click = !this.click;
-    var numPinchado = "";
-
-    //sacamos los aleatorios
-    for(let i=0; i < 20; i++){
-      var count= Math.floor(Math.random()*80)+1;
-      if(this.numAleatorios.indexOf(count)=== -1){
-        this.numAleatorios[i]= count;
-      }
-      else{
-        i=i-1;
-      }
-    }
-    //this.numAleatorios.slice(); no funciona
-
-    this.stringOut = this.numAleatorios.join(', ');
-    this.stringSelect = this.numSelecc.join(', ');
     this.puntosPartida = this.puntosService.getPuntos();
-    this.resultado="";
-    
-    //aquí hay que tener en cuenta que si el usuario
-    //elige 4 numeros tiene que acertar los 4 sí o sí para ganar premio
-    //comparamos con los seleccionados
+    if(apuesta > 0 && apuesta <= this.puntosPartida && this.numSelecc.length > 0){
+      this.click = !this.click;
+      var numPinchado = "";
 
-    for(let i=0; i < this.numAleatorios.length; i++){
-      for(let j=0; j < this.numSelecc.length; j++){
-        if(this.numAleatorios[i]==this.numSelecc[j]){
-          this.contador+=1;
-          this.resultado="acertado";
-          // this.info=true;
-          numPinchado = "tabBtn" + this.numSelecc[j];
-          document.getElementById(numPinchado).className = "acertado";
-          numPinchado = "";
-          if(this.contador=this.numSelecc.length){
-            switch(this.contador){
-              case 1: this.premio=apuesta*3; break;
-              case 2: this.premio=apuesta*14; break;
-              case 3: this.premio=apuesta*55; break;
-              case 4: this.premio=apuesta*225; break;
-              case 5: this.premio=apuesta*1000; break;
-              case 6: this.premio=apuesta*5000; break;
-              case 7: this.premio=apuesta*20000; break;
-              case 8: this.premio=apuesta*50000; break;
+      //sacamos los aleatorios
+      for(let i=0; i < 20; i++){
+        var count= Math.floor(Math.random()*80)+1;
+        if(this.numAleatorios.indexOf(count)=== -1){
+          this.numAleatorios[i]= count;
+        }
+        else{
+          i=i-1;
+        }
+      }
+      //this.numAleatorios.slice(); no funciona
+
+      this.stringOut = this.numAleatorios.join(', ');
+      this.stringSelect = this.numSelecc.join(', ');
+      this.resultado="";
+      
+      //aquí hay que tener en cuenta que si el usuario
+      //elige 4 numeros tiene que acertar los 4 sí o sí para ganar premio
+      //comparamos con los seleccionados
+
+      for(let i=0; i < this.numAleatorios.length; i++){
+        for(let j=0; j < this.numSelecc.length; j++){
+          if(this.numAleatorios[i]==this.numSelecc[j]){
+            this.contador+=1;
+            this.resultado="acertado";
+            // this.info=true;
+            numPinchado = "tabBtn" + this.numSelecc[j];
+            document.getElementById(numPinchado).className = "acertado";
+            numPinchado = "";
+            if(this.contador=this.numSelecc.length){
+              switch(this.contador){
+                case 1: this.premio=apuesta*3; break;
+                case 2: this.premio=apuesta*14; break;
+                case 3: this.premio=apuesta*55; break;
+                case 4: this.premio=apuesta*225; break;
+                case 5: this.premio=apuesta*1000; break;
+                case 6: this.premio=apuesta*5000; break;
+                case 7: this.premio=apuesta*20000; break;
+                case 8: this.premio=apuesta*50000; break;
+              }
+              document.getElementById("resultado").innerHTML = "<div class='alert alert-success'> <strong>Congratulations!</strong> You've won "+this.premio+" Bytes</div>"
+              //this.resultado = "Congratulations! You've won "+this.premio+" Bytes!";
+              this.puntosPartida = Number(this.puntosPartida) + Number(this.premio);
             }
-            document.getElementById("resultado").innerHTML = "<div class='alert alert-success'> <strong>Congratulations!</strong> You've won "+this.premio+" Bytes</div>"
-            //this.resultado = "Congratulations! You've won "+this.premio+" Bytes!";
-            this.puntosPartida = Number(this.puntosPartida) + Number(this.premio);
           }
         }
       }
-    }
-    
-    for(let j=0; j < this.numSelecc.length; j++){
-      numPinchado = "tabBtn" + this.numSelecc[j];
-      if(document.getElementById(numPinchado).className != "acertado"){
-        document.getElementById(numPinchado).className = "fallado";
-      }
-    }
-
-    if(this.resultado==""){
-      //document.getElementById(numPinchado).className = "fallado";
-      this.puntosPartida = this.puntosPartida - apuesta;
-      document.getElementById("resultado").innerHTML = "<div class='alert alert-danger'> <strong>Oops!</strong> bad luck this time. Try again!</div>"
-      //this.resultado="Oops, bad luck this time. Try again!";
-      //this.info=false;
+      
       for(let j=0; j < this.numSelecc.length; j++){
         numPinchado = "tabBtn" + this.numSelecc[j];
-        document.getElementById(numPinchado).className = "fallado";
+        if(document.getElementById(numPinchado).className != "acertado"){
+          document.getElementById(numPinchado).className = "fallado";
+        }
       }
+
+      if(this.resultado==""){
+        //document.getElementById(numPinchado).className = "fallado";
+        this.puntosPartida = this.puntosPartida - apuesta;
+        document.getElementById("resultado").innerHTML = "<div class='alert alert-danger'> <strong>Oops!</strong> bad luck this time. Try again!</div>"
+        //this.resultado="Oops, bad luck this time. Try again!";
+        //this.info=false;
+        for(let j=0; j < this.numSelecc.length; j++){
+          numPinchado = "tabBtn" + this.numSelecc[j];
+          document.getElementById(numPinchado).className = "fallado";
+        }
+      }
+      console.log("fin del juego");
+      this.puntosService.crearPlay(this.stringOut, this.stringSelect, apuesta, this.puntosPartida);
+      this.puntosService.updatePuntos(this.puntosPartida);
+      this.puntosService.setPuntos(this.puntosPartida);
     }
-    console.log("fin del juego");
-    this.puntosService.crearPlay(this.stringOut, this.stringSelect, apuesta, this.puntosPartida);
-    this.puntosService.updatePuntos(this.puntosPartida);
-    this.puntosService.setPuntos(this.puntosPartida);
   }
 }
