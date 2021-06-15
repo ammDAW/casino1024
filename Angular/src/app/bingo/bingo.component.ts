@@ -1,6 +1,5 @@
 import { Component, OnInit,ViewEncapsulation} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-//import * as internal from 'node:stream';
 import { PuntosService } from '../puntos.service';
 
 
@@ -23,6 +22,7 @@ export class BingoComponent implements OnInit {
   premio: number;
   existeJugada = false;
   existeGanador: boolean;
+  numRandom: number;
 
   stringSelect: string;
   stringOut: string;
@@ -100,59 +100,71 @@ export class BingoComponent implements OnInit {
       var numPinchado;
 
       //sacamos los aleatorios
-      for(let i=0; i < 20; i++){
+      var i = 0;
+      var interval = setInterval(()=>{
+        document.getElementById("lottie").style.cssText = 'display: none';
         var count= Math.floor(Math.random()*80)+1;
         if(this.numAleatorios.indexOf(count)=== -1){
           this.numAleatorios[i]= count;
+          this.numRandom = this.numAleatorios[i];
         }
         else i=i-1;
-      }
-      this.numAleatorios = [1,2,3,4,5]
-      this.stringOut = this.numAleatorios.join(', ');
-      this.stringSelect = this.numSelecc.join(', ');
-      
-      //comparar numneros seleccionado con numeros aleatorios
-      //para que se de premio tienen que estar todos los numeros acertados
-      for(let i=0; i < this.numSelecc.length; i++){
-        if(this.numAleatorios.includes(this.numSelecc[i])){
-          this.contador++;
-          numPinchado = "tabBtn" + this.numSelecc[i];
-          document.getElementById(numPinchado).className = "acertado";
+        i++;
+        
+        //comparar numeros
+        for(let j = 0; j<this.numSelecc.length; j++){
+          if(this.numAleatorios.includes(this.numSelecc[j])){
+            this.contador++;
+            numPinchado = "tabBtn" + this.numSelecc[j];
+            document.getElementById(numPinchado).className = "acertado";
+          }
         }
-        else{
-          numPinchado = "tabBtn" + this.numSelecc[i];
-          document.getElementById(numPinchado).className = "fallado";  
+        //para terminar el intervalo
+        if(i == 20){
+          clearInterval(interval);
+          this.stringOut = this.numAleatorios.join(', ');
+          this.stringSelect = this.numSelecc.join(', ');
+          
+          for(let j = 0; j<this.numSelecc.length; j++){
+            numPinchado = "tabBtn" + this.numSelecc[j];
+            if(document.getElementById(numPinchado).classList.contains("elegido"))
+              document.getElementById(numPinchado).className = "fallado";
+          }
+
+          this.premios(apuesta);
         }
-      }
-      
-      //lista premios
-      if(this.contador == this.numSelecc.length){
-        switch(this.contador){
-          case 1: this.premio = apuesta*3; break;
-          case 2: this.premio = apuesta*14; break;
-          case 3: this.premio = apuesta*55; break;
-          case 4: this.premio = apuesta*225; break;
-          case 5: this.premio = apuesta*1000; break;
-          case 6: this.premio = apuesta*5000; break;
-          case 7: this.premio = apuesta*20000; break;
-          case 8: this.premio = apuesta*50000; break;
-        }
-        //document.getElementById("resultado").innerHTML = "<div class='alert alert-success'> <strong>Congratulations!</strong> You've won <strong>"+this.premio+" Bytes</strong></div>"
-        this.existeJugada = true;
-        this.existeGanador = true;
-        this.puntosPartida = Number(this.puntosPartida) + Number(this.premio);
-      }
-      else{
-        this.puntosPartida = this.puntosPartida - apuesta;
-        this.existeJugada = true;
-        this.existeGanador = false;
-        //document.getElementById("resultado").innerHTML = "<div class='alert alert-danger'> <strong>Bad Luck! </strong> Try again</div>"  
-      }
-      
-      this.puntosService.crearPlay(this.stringOut, this.stringSelect, apuesta, this.puntosPartida);
-      this.puntosService.updatePuntos(this.puntosPartida);
-      this.puntosService.setPuntos(this.puntosPartida);
-      console.log("Fin del juego");
+      }, 1500);
     }
+  }
+  //funcion premios
+  premios(apuesta){
+    if(this.contador == this.numSelecc.length){
+      switch(this.contador){
+        case 1: this.premio = apuesta*3; break;
+        case 2: this.premio = apuesta*14; break;
+        case 3: this.premio = apuesta*55; break;
+        case 4: this.premio = apuesta*225; break;
+        case 5: this.premio = apuesta*1000; break;
+        case 6: this.premio = apuesta*5000; break;
+        case 7: this.premio = apuesta*20000; break;
+        case 8: this.premio = apuesta*50000; break;
+      }
+      this.existeJugada = true;
+      this.existeGanador = true;
+      this.puntosPartida = Number(this.puntosPartida) + Number(this.premio);
+    }
+    else{
+      this.puntosPartida = this.puntosPartida - apuesta;
+      this.existeJugada = true;
+      this.existeGanador = false;  
+    }
+
+    this.stringOut = this.numAleatorios.join(', ');
+    this.stringSelect = this.numSelecc.join(', ');
+
+    this.puntosService.crearPlay(this.stringOut, this.stringSelect, apuesta, this.puntosPartida);
+    this.puntosService.updatePuntos(this.puntosPartida);
+    this.puntosService.setPuntos(this.puntosPartida);
+    console.log("Fin del juego");
   }
 }

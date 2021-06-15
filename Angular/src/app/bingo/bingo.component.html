@@ -1,8 +1,11 @@
 <div id="general">
     <div id="bingo"><!--parte izquierda del tablero con la informacion de los numeros-->
         <div id="bombo"> <!--lo que es el bomboi donde está el lootiefile-->
-            <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_EX6tIQ.json"  background="transparent"  speed="1"  
+            <lottie-player id="lottie" src="https://assets3.lottiefiles.com/packages/lf20_EX6tIQ.json"  background="transparent"  speed="1"  
             style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+            <div id="numRandom">
+                {{numRandom}}
+            </div>
         </div>
 
         <div id="numSalidos"> <!--array donde van saliendo los numeros que van saliendo-->
