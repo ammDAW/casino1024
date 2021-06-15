@@ -22,7 +22,7 @@ export class BingoComponent implements OnInit {
   numPinchado: string;
   premio: number;
   existeJugada = false;
-  existeGanador= true;
+  existeGanador: boolean;
   numRandom: number;
 
   stringSelect: string;
@@ -125,7 +125,6 @@ export class BingoComponent implements OnInit {
             numPinchado = "tabBtn" + this.numSelecc[j];
             if(document.getElementById(numPinchado).classList.contains("elegido"))
               document.getElementById(numPinchado).className = "fallado";
-              this.existeGanador = false;
           }
           this.existeJugada = true;
           console.log("Game finished");
@@ -148,9 +147,11 @@ export class BingoComponent implements OnInit {
         case 8: this.premio = apuesta*50000; break;
       }      
       this.puntosPartida = Number(this.puntosPartida) + Number(this.premio);
+      this.existeGanador = true;
     }
-    else this.puntosPartida = this.puntosPartida - apuesta;
-
+    else{ 
+      this.puntosPartida = this.puntosPartida - apuesta;
+      this.existeGanador = false; }
     this.puntosService.crearPlay(this.stringOut, this.stringSelect, apuesta, this.puntosPartida);
     this.puntosService.updatePuntos(this.puntosPartida);
     this.puntosService.setPuntos(this.puntosPartida);

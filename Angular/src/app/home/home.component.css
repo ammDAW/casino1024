@@ -1,3 +1,10 @@
+@font-face {
+    font-family: NissanBrand-Bold;
+    src: url(/Angular/src/assets/css/NissanBrand-Bold.ttf);
+}
+#logoFuente{
+    font-family: NissanBrand-Bold;
+}
 small{
     margin-left: 90px;
 }
