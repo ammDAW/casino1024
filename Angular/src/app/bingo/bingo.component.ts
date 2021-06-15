@@ -123,7 +123,7 @@ export class BingoComponent implements OnInit {
       for(let j=0; j < this.numSelecc.length; j++){
         if(this.numAleatorios[i]==this.numSelecc[j]){
           this.contador+=1;
-          this.resultado="";
+          this.resultado="acertado";
           // this.info=true;
           numPinchado = "tabBtn" + this.numSelecc[j];
           document.getElementById(numPinchado).className = "acertado";
@@ -157,7 +157,7 @@ export class BingoComponent implements OnInit {
     if(this.resultado==""){
       //document.getElementById(numPinchado).className = "fallado";
       this.puntosPartida = this.puntosPartida - apuesta;
-      document.getElementById("resultado").innerHTML = "<div class='alert alert-danger'> <strong>Oops!</strong>bad luck this time. Try again!</div>"
+      document.getElementById("resultado").innerHTML = "<div class='alert alert-danger'> <strong>Oops!</strong> bad luck this time. Try again!</div>"
       //this.resultado="Oops, bad luck this time. Try again!";
       //this.info=false;
       for(let j=0; j < this.numSelecc.length; j++){
