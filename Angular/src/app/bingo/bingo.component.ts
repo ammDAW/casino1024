@@ -14,9 +14,9 @@ export class BingoComponent implements OnInit {
   
   tablero: number[] = new Array(80); //tablero[0] = 1 y tablero[79] = 80 es decir (i+1)
   numSelecc : number[] = new Array();
-  contador: number; //para llevar la cuenta de los números acertados
+  contador = 0; //para llevar la cuenta de los números acertados
   numAleatorios: number[]=new Array(20);//numAleatorios
-  resultado: string="";
+
   info: boolean;
   select: boolean;
   numPinchado: string;
@@ -71,34 +71,31 @@ export class BingoComponent implements OnInit {
       if (this.numSelecc.length < 8){
         this.numSelecc.push(num); 
       }
-      else alert(" MAX SELECTED NUMBERS REACHED!")
+      else alert("MAX SELECTED NUMBERS REACHED!")
     }   
     
+    //ordenar array
     function comparar ( a:any, b:any ){ return a-b; }
-    //this.numSelecc.sort(comparar).slice(0,4);
     this.numSelecc.sort(comparar)
-    //se ha seleccionado el numero, así que lo ponemos amarillo 
+
+    //darle la clase elegido
     if(this.numSelecc.includes(num)){
-      //this.select=true;
       numPinchado = "tabBtn" + num;
       document.getElementById(numPinchado).className = "elegido";
-      //document.getElementById("tabBtn48").className = "rojo"
     }
     else{
-      //this.select=false;
       numPinchado = "tabBtn" + num;
       document.getElementById(numPinchado).className = "normal";
     }
-
-    var stringSelect = this.numSelecc.join(', ');
   }
 
+  //funcion del juego
   click : boolean = false;
-  comparar(apuesta){
+  jugar(apuesta){
     this.puntosPartida = this.puntosService.getPuntos();
     if(apuesta > 0 && apuesta <= this.puntosPartida && this.numSelecc.length > 0){
       this.click = !this.click;
-      var numPinchado = "";
+      var numPinchado;
 
       //sacamos los aleatorios
       for(let i=0; i < 20; i++){
@@ -106,70 +103,50 @@ export class BingoComponent implements OnInit {
         if(this.numAleatorios.indexOf(count)=== -1){
           this.numAleatorios[i]= count;
         }
-        else{
-          i=i-1;
-        }
+        else i=i-1;
       }
-      //this.numAleatorios.slice(); no funciona
-
+      this.numAleatorios = [1,2,3,4,5]
       this.stringOut = this.numAleatorios.join(', ');
       this.stringSelect = this.numSelecc.join(', ');
-      this.resultado="";
       
-      //aquí hay que tener en cuenta que si el usuario
-      //elige 4 numeros tiene que acertar los 4 sí o sí para ganar premio
-      //comparamos con los seleccionados
-
-      for(let i=0; i < this.numAleatorios.length; i++){
-        for(let j=0; j < this.numSelecc.length; j++){
-          if(this.numAleatorios[i]==this.numSelecc[j]){
-            this.contador+=1;
-            this.resultado="acertado";
-            // this.info=true;
-            numPinchado = "tabBtn" + this.numSelecc[j];
-            document.getElementById(numPinchado).className = "acertado";
-            numPinchado = "";
-            if(this.contador=this.numSelecc.length){
-              switch(this.contador){
-                case 1: this.premio=apuesta*3; break;
-                case 2: this.premio=apuesta*14; break;
-                case 3: this.premio=apuesta*55; break;
-                case 4: this.premio=apuesta*225; break;
-                case 5: this.premio=apuesta*1000; break;
-                case 6: this.premio=apuesta*5000; break;
-                case 7: this.premio=apuesta*20000; break;
-                case 8: this.premio=apuesta*50000; break;
-              }
-              document.getElementById("resultado").innerHTML = "<div class='alert alert-success'> <strong>Congratulations!</strong> You've won "+this.premio+" Bytes</div>"
-              //this.resultado = "Congratulations! You've won "+this.premio+" Bytes!";
-              this.puntosPartida = Number(this.puntosPartida) + Number(this.premio);
-            }
-          }
+      //comparar numneros seleccionado con numeros aleatorios
+      //para que se de premio tienen que estar todos los numeros acertados
+      for(let i=0; i < this.numSelecc.length; i++){
+        if(this.numAleatorios.includes(this.numSelecc[i])){
+          this.contador++;
+          numPinchado = "tabBtn" + this.numSelecc[i];
+          document.getElementById(numPinchado).className = "acertado";
+        }
+        else{
+          numPinchado = "tabBtn" + this.numSelecc[i];
+          document.getElementById(numPinchado).className = "fallado";  
         }
       }
       
-      for(let j=0; j < this.numSelecc.length; j++){
-        numPinchado = "tabBtn" + this.numSelecc[j];
-        if(document.getElementById(numPinchado).className != "acertado"){
-          document.getElementById(numPinchado).className = "fallado";
+      //lista premios
+      if(this.contador == this.numSelecc.length){
+        switch(this.contador){
+          case 1: this.premio = apuesta*3; break;
+          case 2: this.premio = apuesta*14; break;
+          case 3: this.premio = apuesta*55; break;
+          case 4: this.premio = apuesta*225; break;
+          case 5: this.premio = apuesta*1000; break;
+          case 6: this.premio = apuesta*5000; break;
+          case 7: this.premio = apuesta*20000; break;
+          case 8: this.premio = apuesta*50000; break;
         }
+        document.getElementById("resultado").innerHTML = "<div class='alert alert-success'> <strong>Congratulations!</strong> You've won <strong>"+this.premio+" Bytes</strong></div>"
+        this.puntosPartida = Number(this.puntosPartida) + Number(this.premio);
       }
-
-      if(this.resultado==""){
-        //document.getElementById(numPinchado).className = "fallado";
+      else{
         this.puntosPartida = this.puntosPartida - apuesta;
-        document.getElementById("resultado").innerHTML = "<div class='alert alert-danger'> <strong>Oops!</strong> bad luck this time. Try again!</div>"
-        //this.resultado="Oops, bad luck this time. Try again!";
-        //this.info=false;
-        for(let j=0; j < this.numSelecc.length; j++){
-          numPinchado = "tabBtn" + this.numSelecc[j];
-          document.getElementById(numPinchado).className = "fallado";
-        }
+        document.getElementById("resultado").innerHTML = "<div class='alert alert-danger'> <strong>Bad Luck! </strong> Try again</div>"  
       }
-      console.log("fin del juego");
+      
       this.puntosService.crearPlay(this.stringOut, this.stringSelect, apuesta, this.puntosPartida);
       this.puntosService.updatePuntos(this.puntosPartida);
       this.puntosService.setPuntos(this.puntosPartida);
+      console.log("Fin del juego");
     }
   }
 }
