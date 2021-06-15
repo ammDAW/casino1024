@@ -32,6 +32,7 @@ Dependencies needed
 $ npm i --save @ng-bootstrap/ng-bootstrap
 $ npm i --save axios && ngx-cookie-service
 $ npm i --save @angular/material @angular/cdk
+$ npm i --save crypto-js
 ```
 Just in case the project asks for jquery
 ```
